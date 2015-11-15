@@ -61,7 +61,6 @@
    border-color: #fff;     
 }
 
-
 /* Podmeni */
 #navbarItems .dropdown-menu  {
     background-color: #5a7ca7;
@@ -77,21 +76,27 @@
     color: white;
 }
 
-/* Ko gremo z miško čez podmeni */
-#navbarItems .dropdown-menu > li:hover {
-    border-bottom: 2px solid lightskyblue;
-    
+
+/* Ponastavimo barvno  */
+#navbarItems .dropdown-menu > li.active > a {
+    background-color: #5a7ca7;
 }
 
-
+/* Ko gremo z miško čez podmeni oz. je podmetni v stanju active */
+#navbarItems .dropdown-menu > li:hover, 
+#navbarItems .dropdown-menu > li.active {
+    border-bottom: 2px solid lightskyblue;
+}
 
 /* Ustrezni izbor barv pri navigaciji ob določenih dogodkih nad povezavo */
-.nav > li a:hover,
-.nav > li a:focus {
+.nav li a:hover,
+.nav li a:focus {
   text-decoration: none;
   background-color: #456791;
 }
 
+
+/* Noga strani */
 footer ul {
     list-style-type: none;
     margin-left: auto;
@@ -101,3 +106,4 @@ footer ul {
 footer ul > li {
     display: inline;
 }
+
