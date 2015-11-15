@@ -1,0 +1,103 @@
+#topHeaderRow {
+    background-image: url("../resources/img/01befb1c.png");
+    background-repeat: repeat-x;
+    min-height: 120px;
+    height: auto;
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 3em; 
+}
+
+#topSearchRow {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightskyblue;
+    width:100%;
+    min-height: 60px;   
+}
+
+#topSearchRow label {
+    font-weight: 500;
+}
+
+.navbar-eventiqon {
+    background-color: #5a7ca7;
+    color: white;
+}
+
+.navbar-eventiqon .navbar-brand {
+    float: left;
+    margin: 0.3em 2px -6px 2px;
+}
+
+.navbar-eventiqon a {
+    color: white;
+}
+
+/* Barva črtic, ki sestavljajo toggle gumb pri ožjih zaslonih */
+.navbar-eventiqon .navbar-header .icon-bar  {
+    background-color: white; 
+}
+
+/* Stil izbrane opcije v nav */
+#navbarItems > ul > li.active, 
+#navbarItems > ul > li:hover  
+{
+     border-bottom: 4px solid lightskyblue;
+}
+
+/* Spodnji okvir korenskih opcij */
+#navbarItems > ul > li {
+    border-bottom: 4px solid #5a7ca7; 
+}
+
+/* Barva izbranega podmenija - ki se odpre  */
+#navbarItems > ul > li.dropdown.open > a
+{
+   color: #fff;
+   background-color: #456791;
+   border-color: #fff;     
+}
+
+
+/* Podmeni */
+#navbarItems .dropdown-menu  {
+    background-color: #5a7ca7;
+}
+
+/* Spodnji okvir */
+#navbarItems .dropdown-menu > li {
+    border-bottom: 2px solid #5a7ca7;  
+}
+
+/* Pisava */
+#navbarItems .dropdown-menu > li > a {
+    color: white;
+}
+
+/* Ko gremo z miško čez podmeni */
+#navbarItems .dropdown-menu > li:hover {
+    border-bottom: 2px solid lightskyblue;
+    
+}
+
+
+
+/* Ustrezni izbor barv pri navigaciji ob določenih dogodkih nad povezavo */
+.nav > li a:hover,
+.nav > li a:focus {
+  text-decoration: none;
+  background-color: #456791;
+}
+
+footer ul {
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer ul > li {
+    display: inline;
+}

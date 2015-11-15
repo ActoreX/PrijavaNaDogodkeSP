@@ -1,2 +1,2 @@
-# PrijavaNaDogodkeSP
-Projektna naloga pri predmetu spletno programiranje, 3 letnik zimski semester, smer FRI UNI 2015/16
+# Prijava na dogodke
+Projektna naloga pri predmetu spletno programiranje - 3 letnik, FRI UNI 2015/16
