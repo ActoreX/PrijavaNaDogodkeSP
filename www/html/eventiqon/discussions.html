@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Eventiqon!</title>
+        <script type="text/javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" src="../../js/bootstrap.js"></script>
+        <link rel="stylesheet" href="../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/main.css">        
+    </head>
+    
+    <body>
+        
+        <!--  Naslovna vrstica     -->
+        <div class="container-fluid" id="topHeaderRow">
+            <div class="row">
+                <div style="padding:0.5em;" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    Dobrodošli na spletni strani Eventiqon!
+                </div>
+            </div> 
+        </div>
+        
+        
+        <!--  Iskalna vrstica     -->
+        <div class="container-fluid" id="topSearchRow">
+            <div style="margin-top:0.8em;" class="row">
+                <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <di v class="input-group">
+                      <input type="text" class="form-control" placeholder="Kaj iščeš danes? (ime dogodka, tip, ključne besede...)">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                      </span>
+                </div>
+            </div>
+            <div class="row">
+                <div style="padding-top:0.5em; padding-bottom:0.5em;" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="input-group">
+                        <label><input type="checkbox" alt="Test"> Samo novo</label> 
+                        <span style="display:inline-block; width:24px;"></span>
+                        <label><input type="checkbox" alt="Test"> V moji bližini</label> 
+                        <span style="display:inline-block; width:34px;"></span>
+                        <select>
+                            <option value="Aktivnosti">Aktivnosti</option>
+                            <option value="Dogodki">Dogodki</option>
+                            <option value="Uporabniki">Uporabniki</option>
+                            <option value="Vse">Vse</option> 
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       <!--  Meni vrstica      -->
+       <header class="navbar navbar-static-top navbar-eventiqon" id="top" role="banner">
+          <div class="container-fluid">
+            
+            <div class="navbar-header">      
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="bs-navbar" aria-expanded="false">
+                    <span class="sr-only">Razšiti meni</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                 <a href="#" class="navbar-toggle navbar-brand">Eventiqon</a>
+            </div>
+              
+            <nav aria-expanded="false" id="navbarItems" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li>
+                  <a href="../index.html">Domov</a>
+                </li>
+                
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moj profil
+                      &nbsp;<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="../userProfile/userPanel.html#osebniPodatki">Osebni podatki</a></li>
+                    <li><a href="../userProfile/userPanel.html#dodatneNastavitve">Dodatne nastavitve</a></li>
+                    <li><a href="../userProfile/userInbox.html">Obvestila</a></li>
+                  </ul>
+                </li>
+                  
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moje udeležbe
+                      <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="../attendees/myAttendees.html#Aktivnosti">Aktivnosti</a></li>
+                    <li><a href="../attendees/myAttendees.html#Dogodki">Dogodki</a></li>
+                    <li><a href="../attendees/calendar.html">Koledar</a></li>
+                  </ul>
+                </li>
+                  
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Organizator
+                      &nbsp;<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="../organizer/addNewActivity.html">Nova aktivnost</a></li>
+                    <li><a href="../organizer/addNewEvent.html">Nov dogodek</a></li>
+                    <li><a href="../organizer/organizer.html">Organizacijska površina</a></li>
+                  </ul>
+                </li>
+                  
+              </ul>
+              <ul style="padding-right:2em;" class="nav navbar-nav navbar-right">
+                  <li class="dropdown active">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventiqon
+                      &nbsp;<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="../eventiqon/about.html">O nas</a></li>
+                    <li class="active"><a href="../eventiqon/discussions.html">Diskusija</a></li>
+                    <li><a href="../eventiqon/offers.html">Plačniški model </a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </nav>
+              
+          </div>
+        </header>
+        
+            
+        <!-- Vsebina         -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    Hej
+                </div>
+                <div class="col-md-4">
+                    Hej 
+                </div>
+                <div class="col-md-4">
+                    Hej 
+                </div>
+            </div>
+        </div>
+            
+        <!-- Noga strani     -->
+        <footer class="navbar navbar-static-bottom">
+            <div class="container" style="text-align: center;">
+                   
+                <div class="row" style="margin-top: 6em;"></div> 
+                <hr>
+                <div class="row">
+                    <ul style="padding: 0; margin: 0 auto;">
+                      <li>Demo verzija - 0.0.1</li>
+                      <li>·</li>
+                      <li><a href="https://github.com/ActoreX/PrijavaNaDogodkeSP">GitHub</a></li>
+                      <li>·</li>
+                      <li><a href="../eventiqon/about.html">O nas</a></li>
+                      <li>·</li>
+                      <li><a href="../eventiqon/discussions.html">Diskusija</a></li>
+                    </ul>
+                    <p>November, 2015 &copy; Vse pravice pridržane.</p>
+                </div>
+            </div>
+            
+        </footer>
+       
+    </body>
+</html>
