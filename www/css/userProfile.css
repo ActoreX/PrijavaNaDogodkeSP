@@ -1,0 +1,20 @@
+#scrollSpyNavigation .affix {
+  top: 20px;    
+}
+
+#scrollSpyNavigation .active > a {
+    font-weight: bold;
+    border-left-style: solid;
+    border-left-color: #5a7ca7;
+}
+
+
+#scrollSpyNavigation .nav li .nav {
+    padding-left: 1em;
+    font-size: 90%;
+}
+
+#scrollSpyNavigation a:hover,
+#scrollSpyNavigation a:active {
+    background-color: aliceblue;
+}
