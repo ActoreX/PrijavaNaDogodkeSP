@@ -1,3 +1,7 @@
+body {
+    position: relative;
+
+}
 #scrollSpyNavigation .affix {
   top: 20px;    
 }
@@ -17,4 +21,19 @@
 #scrollSpyNavigation a:hover,
 #scrollSpyNavigation a:active {
     background-color: aliceblue;
+}
+
+.panel-heading {
+    background-color: azure!important;   
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.table td {
+    padding: 1em 0 1em 1em;
+    border-top: none !important;
+}
+
+.table input {
+    width: 80%;
 }
