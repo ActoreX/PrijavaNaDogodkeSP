@@ -1,39 +1,24 @@
-body {
-    position: relative;
-
-}
-#scrollSpyNavigation .affix {
-  top: 20px;    
-}
-
-#scrollSpyNavigation .active > a {
-    font-weight: bold;
-    border-left-style: solid;
-    border-left-color: #5a7ca7;
-}
-
-
-#scrollSpyNavigation .nav li .nav {
-    padding-left: 1em;
-    font-size: 90%;
-}
-
-#scrollSpyNavigation a:hover,
-#scrollSpyNavigation a:active {
+.inboxList tr:hover {
     background-color: aliceblue;
+    cursor: pointer;    
 }
 
-.panel-heading {
-    background-color: azure!important;   
-    font-size: 1.2em;
-    font-weight: 500;
+.inboxList tr,
+.inboxMail tr
+{
+    text-align: justify;
+    border-style: solid;
+    border-width: 0.1em;    
+    border-color: aliceblue;
+    
 }
 
-.table td {
-    padding: 1em 0 1em 1em;
-    border-top: none !important;
+.messageContent td {
+    padding: 0.5em 2em 1em 1em !important;  
 }
 
-.table input {
-    width: 80%;
-}
+.inboxList tr[class="active"] > td {
+    background-color: aliceblue !important;
+    font-weight: 600;    
+}   
+

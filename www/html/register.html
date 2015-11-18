@@ -4,13 +4,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Eventiqon!</title>
-        <script type="text/javascript" src="../../js/jquery.js"></script>
-        <script type="text/javascript" src="../../js/bootstrap.js"></script>
-        <script type="text/javascript" src="../../jquery-ui/jquery-ui.js"></script>
-        <script type="text/javascript" src="../../js/calendar.js"></script>
-        <link rel="stylesheet" href="../../css/bootstrap.css">
-        <link rel="stylesheet" href="../../css/main.css">        
-        <link rel="stylesheet" href="../../jquery-ui/jquery-ui.css">        
+        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/bootstrap.js"></script>
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/main.css">     
+        <link rel="stylesheet" href="../css/index.css"> 
+        <link rel="stylesheet" href="../css/vnosnaForma.css"> 
     </head>
     
     <body>
@@ -70,27 +69,27 @@
               
             <nav aria-expanded="false" id="navbarItems" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li>
-                  <a href="../index.html">Domov</a>
+                <li class="active">
+                  <a href="../html/index.html">Domov</a>
                 </li>
                 
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moj profil
                       &nbsp;<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="../userProfile/userPanel.html#osebniPodatki">Osebni podatki</a></li>
-                    <li><a href="../userProfile/userPanel.html#dodatneNastavitve">Dodatne nastavitve</a></li>
-                    <li><a href="../userProfile/userInbox.html">Obvestila</a></li>
+                    <li><a href="../html/userProfile/userPanel.html#osebniPodatki">Osebni podatki</a></li>
+                    <li><a href="../html/userProfile/userPanel.html#dodatneNastavitve">Dodatne nastavitve</a></li>
+                    <li><a href="../html/userProfile/userInbox.html">Obvestila</a></li>
                   </ul>
                 </li>
                   
-                <li class="dropdown active">
+                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moje udeležbe
                       <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="../attendees/myAttendees.html#Aktivnosti">Aktivnosti</a></li>
-                    <li><a href="../attendees/myAttendees.html#Dogodki">Dogodki</a></li>
-                    <li class="active"><a href="../attendees/calendar.html">Koledar</a></li>
+                    <li><a href="../html/attendees/myAttendees.html#Aktivnosti">Aktivnosti</a></li>
+                    <li><a href="../html/attendees/myAttendees.html#Dogodki">Dogodki</a></li>
+                    <li><a href="../html/attendees/calendar.html">Koledar</a></li>
                   </ul>
                 </li>
                   
@@ -98,9 +97,9 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Organizator
                       &nbsp;<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="../organizer/addNewActivity.html">Nova aktivnost</a></li>
-                    <li><a href="../organizer/addNewEvent.html">Nov dogodek</a></li>
-                    <li><a href="../organizer/organizer.html">Organizacijska površina</a></li>
+                    <li><a href="../html/organizer/addNewActivity.html">Nova aktivnost</a></li>
+                    <li><a href="../html/organizer/addNewEvent.html">Nov dogodek</a></li>
+                    <li><a href="../html/organizer/organizer.html">Organizacijska površina</a></li>
                   </ul>
                 </li>
                   
@@ -110,9 +109,9 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventiqon
                       &nbsp;<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="../eventiqon/about.html">O nas</a></li>
-                    <li><a href="../eventiqon/discussions.html">Diskusija</a></li>
-                    <li><a href="../eventiqon/offers.html">Plačniški model </a></li>
+                    <li><a href="../html/eventiqon/about.html">O nas</a></li>
+                    <li><a href="../html/eventiqon/discussions.html">Diskusija</a></li>
+                    <li><a href="../html/eventiqon/offers.html">Plačniški model </a></li>
                   </ul>
                 </li>
 
@@ -126,48 +125,47 @@
         <!-- Vsebina         -->
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div id="koledar"></div>
-                    <div>
-                        <br>
-                        <p>Izvozi podatke:</p>
-                        <select>
-                            <option>Tekoči mesec</option>
-                            <option>Prvo četrtletje</option>
-                            <option>Drugo četrtletje</option>
-                            <option>Tretje četrtletje</option>
-                            <option>Četrto četrtletje</option>
-                        </select>
-                        <button type="button">Izvozi koledar</button>
+                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                    <div class="panel panel-default vnosnaForma">
+                        <div class="panel-heading">Registracija</div>
+                        <div class="panel-body">                
+                            <table class="table">
+                                <colgroup>
+                                    <col style="width:40%;">
+                                    <col style="width:60%;">
+                                </colgroup>
+                                <tr>
+                                    <td>Uporabniško ime</td>
+                                    <td><input type="text" placeholder="Željeno uporabniško ime"></td>
+                                </tr>
+                                <tr>
+                                    <td>E-naslov:</td>
+                                    <td><input type="text" placeholder="Vaš e-naslov"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ponovni vnos e-naslova</td>
+                                    <td><input type="text" placeholder="Ponovite vnos vašega e-naslova"></td>
+                                </tr>
+                                <tr>
+                                    <td>Geslo</td>
+                                    <td><input type="text" placeholder="Vnesite željeno geslo"></td>
+                                </tr>
+                                <tr>
+                                    <td>Ponovni vnos gesla</td>
+                                    <td><input type="text" placeholder="Ponovite vnos željenega gesla"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top:0; padding-bottom:0;"><hr></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="button" class="btn btn-info" value="Pridruži se!"></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <br>
-                </div>
-                <div class="col-lg-8 col-md-8">
-                    <table class="table table-hover">
-                        <tr>
-                            <td>Dogodek/aktivnost</td>
-                            <td>Termin</td>
-                            <td>Opis</td>
-                            <td>Lokacija</td>
-                        </tr>
-                        <tr>
-                            <td>Tenis</td>
-                            <td>12:00-15:00</td>
-                            <td>Tedenski trening</td>
-                            <td>Ljubljana</td>
-                        </tr>
-                        <tr>
-                            <td>IoT</td>
-                            <td>15:00-21:00</td>
-                            <td><p>Na Fakulteti za elektrotehniko v Ljubljani se bo 25. novembra popoldan odvila brezplačna IoT konferenca z vrhunskimi strokovnjaki in aktualnimi predavanji.</p></td>
-                            <td><a href="#" alt="Google maps popup">Ljubljana, Dunajska cesta 50</a></td>
-                        </tr>
-                        
-                        
-                    </table>
-                </div>
+                </div>   
                 
-                
+
 
             </div>
         </div>
@@ -184,9 +182,9 @@
                       <li>·</li>
                       <li><a href="https://github.com/ActoreX/PrijavaNaDogodkeSP">GitHub</a></li>
                       <li>·</li>
-                      <li><a href="../eventiqon/about.html">O nas</a></li>
+                      <li><a href="../html/about/">O nas</a></li>
                       <li>·</li>
-                      <li><a href="../eventiqon/discussions.html">Diskusija</a></li>
+                      <li><a href="../html/discussions">Diskusija</a></li>
                     </ul>
                     <p>November, 2015 &copy; Vse pravice pridržane.</p>
                 </div>

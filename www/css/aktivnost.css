@@ -1,0 +1,54 @@
+/* Stil heading vsebine  */
+.aktivnost .panel-heading span:nth-child(1) {
+    float:left;
+    margin-left: 1%;    
+}
+
+.aktivnost .panel-heading span:nth-child(3),
+.aktivnost .panel-heading span:nth-child(4)
+{
+    float:right;
+    margin-right: 5%;    
+}
+
+.aktivnost .panel-heading span {
+    float:left;
+    margin-left: 5%;    
+    display: block;
+}
+
+.aktivnost .table-hover tr:nth-child(1):hover,
+.aktivnost .table-hover tr:nth-child(1)
+{
+    background-color: aliceblue;
+}
+
+.aktivnost .table-hover td
+{
+    padding: 1em;
+} 
+
+
+.aktivnost .table-hover,
+.aktivnost .table-hover tr
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightblue;
+}
+.aktivnost .table tr>th {
+    border-top: none;
+}
+
+.ostranjevanje
+{
+    border-top-style: solid;
+    border-top-color: beige;
+    width: 90%;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+body {
+    min-width: 476px;
+}
