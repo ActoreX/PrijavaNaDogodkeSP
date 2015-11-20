@@ -1,3 +1,8 @@
+body {
+    min-width: 476px;
+}
+
+
 #topHeaderRow {
     background-image: url("../resources/img/01befb1c.png");
     background-repeat: repeat-x;
@@ -106,4 +111,194 @@ footer ul {
 footer ul > li {
     display: inline;
 }
+
+/* Scroll spy */
+body {
+    position: relative;
+    height: auto;
+    overflow-y: scroll;
+}
+
+#scrollSpyNavigation .affix {
+  top: 20px;    
+}
+
+#scrollSpyNavigation .active > a {
+    font-weight: bold;
+    border-left-style: solid;
+    border-left-color: #5a7ca7;
+}
+
+#scrollSpyNavigation .nav li .nav {
+    padding-left: 1em;
+    font-size: 90%;
+}
+
+#scrollSpyNavigation a:hover,
+#scrollSpyNavigation a:active {
+    background-color: aliceblue;
+}
+
+/* Aktivnosti  */
+/* Stil heading vsebine  */
+.aktivnost .panel-heading span:nth-child(1) {
+    float:left;
+    margin-left: 1%;    
+}
+
+.aktivnost .panel-heading span:nth-child(3),
+.aktivnost .panel-heading span:nth-child(4)
+{
+    float:right;
+    margin-right: 5%;    
+}
+
+.aktivnost .panel-heading span {
+    float:left;
+    margin-left: 5%;    
+    display: block;
+}
+
+.aktivnost .table-hover tr:nth-child(1):hover,
+.aktivnost .table-hover tr:nth-child(1)
+{
+    background-color: aliceblue;
+}
+
+.aktivnost .table-hover td
+{
+    padding: 1em;
+} 
+
+
+.aktivnost .table-hover,
+.aktivnost .table-hover tr
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightblue;
+}
+.aktivnost .table tr>th {
+    border-top: none;
+}
+
+.ostranjevanje
+{
+    border-top-style: solid;
+    border-top-color: beige;
+    width: 90%;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+
+/* Profil uporabnika in obvestila */
+.inboxList tr:hover {
+    background-color: aliceblue;
+    cursor: pointer;    
+}
+
+.inboxList tr,
+.inboxMail tr
+{
+    text-align: justify;
+    border-style: solid;
+    border-width: 0.1em;    
+    border-color: aliceblue;
+    
+}
+
+.messageContent td {
+    padding: 0.5em 2em 1em 1em !important;  
+}
+
+.inboxList tr[class="active"] > td {
+    background-color: aliceblue !important;
+    font-weight: 600;    
+}   
+
+
+/* Vnosna froma */
+.vnosnaForma table {
+    width: 100%;
+}
+
+.vnosnaForma label {
+    font-style: normal;
+    font-weight: 400;
+}
+
+.vnosnaForma .table input {
+    width: 80%;
+}
+
+.vnosnaForma input[type="button"] {
+    min-width: 140px;
+    width: 24%;
+    font-size: 1.2em;
+    font-weight: 400;
+    
+}
+
+.vnosnaForma .table td
+{
+    padding: 1em 0 1em 1em;
+    border-top: none !important;
+    
+}
+
+.vnosnaForma .panel-heading {
+    background-color: azure!important;   
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+/* Naslovna stran */
+.eventOverview p[evn-status = "DoZacetka"] {
+    color:skyblue;
+}
+
+.eventOverview p[evn-status = "VTeku"] {
+    color:green;
+}
+
+.eventOverview p[evn-status = "Koncan"] {
+    color:darkslategray;
+}
+
+.eventOverview .nav {
+    margin-top: 4em;
+}
+
+/* Pozicija izpisa statusa in ure dogodka */
+.eventOverview p
+{
+    font-family: fantasy;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.eventOverview .vsebina {
+    font-family: sans-serif;
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+.eventOverview {
+    border-width: 2px;
+    border-color: azure;
+    border-style: solid;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 5px;;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 5px;
+    margin-top: 1em;
+}
+
+.eventOverview > div[class="content"] {
+    padding: 20px;
+}
+
+
+
 
