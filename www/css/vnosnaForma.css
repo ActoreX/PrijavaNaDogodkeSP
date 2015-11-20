@@ -1,5 +1,10 @@
-.vnosnaForma {
+.vnosnaForma table {
     width: 100%;
+}
+
+.vnosnaForma label {
+    font-style: normal;
+    font-weight: 400;
 }
 
 .vnosnaForma .table input {
@@ -14,7 +19,8 @@
     
 }
 
-.vnosnaForma .table td {
+.vnosnaForma .table td
+{
     padding: 1em 0 1em 1em;
     border-top: none !important;
     

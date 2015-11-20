@@ -6,8 +6,58 @@
         <title>Eventiqon!</title>
         <script type="text/javascript" src="../../js/jquery.js"></script>
         <script type="text/javascript" src="../../js/bootstrap.js"></script>
+        <script type="text/javascript" src="../../jquery-ui/jquery-ui.js"></script>
+        <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+        <script type="text/javascript" src="../../js/locationpicker.jquery.js"></script>
         <link rel="stylesheet" href="../../css/bootstrap.css">
         <link rel="stylesheet" href="../../css/main.css">        
+        <link rel="stylesheet" href="../../css/vnosnaForma.css">      
+        <link rel="stylesheet" href="../../jquery-ui/jquery-ui.css">      
+
+        
+        <script>
+            $(document).ready(function(){
+                $("input[name=omejitev-spinner]").spinner();
+                $("input[name=omejitev-spinner]").spinner().val("100");
+                $("input[name=omejitev-spinner]").spinner("option", "min", 0);
+                $("input[name=omejitev-spinner]").spinner("option", "max", 500);
+                
+                $("input[name=datum-od]").datepicker();
+                $("input[name=datum-do]").datepicker();
+                
+                mojaLokacija = new Object();
+                mojaLokacija.latitude = 46.057353;
+                mojaLokacija.longtitude = 14.504890;
+                 
+                $('#lokacijaGoogleMaps').locationpicker({
+                location: {latitude: mojaLokacija.latitude, longitude: mojaLokacija.longtitude },	 
+                radius: 100,
+                inputBinding: {
+                    locationNameInput: $('#vnosLokacije')
+                },
+                enableAutocomplete: true
+                });
+                
+                
+                function getLocation() {
+                    if(navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function(position){
+                            console.log(position.coords);
+                        });
+                    } else {
+                        alert("Brskalnik ne podpira geolociranja!")
+                        return undefined;
+                        
+                    }
+                }
+                
+                
+                $('#omejitev-spinner').spinner();
+                                        
+                
+            });
+            
+        </script>
     </head>
     
     <body>
@@ -123,16 +173,139 @@
         <!-- Vsebina         -->
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    Hej
-                </div>
-                <div class="col-md-4">
-                    Hej 
-                </div>
-                <div class="col-md-4">
-                    Hej 
-                </div>
+                <div class="col-lg-8 col-md-8">
+                   <form class="vnosnaForma" role="form">
+                       <table class="KreatorDogAkt" style="padding: 1em 0 1em 1em;">
+                           <colgroup>
+                                <col style="width:33%;">
+                                <col style="width:33%">
+                                <col style="width:33%">
+                            </colgroup>
+                           <tr>
+                               <th>
+                                <span>Vrsta</span>
+                               </th>
+                               <td>
+                               <label class="radiobutton-line">
+                                    <input type="radio" name="vrstaIzbire"> Aktivnost
+                                </label>
+                               </td>
+                               <td>
+                               <label class="radiobutton-line">
+                                    <input type="radio" name="vrstaIzbire"> Dogodek
+                               </label>
+                               </td>
+                               <td>                    
+                           </tr>
+                                                      
+                           <tr>
+                               <th>
+                                Naziv
+                               </th>
+                               <td colspan="2">
+                                    <input type="text" name="nazivIzbire" style="width:100%">
+                               </td>                   
+                           </tr>
+                           
+                           <tr>
+                            <th>
+                                Tip
+                            </th>
+                               <td>
+                                <select>
+                                    <option>Brezplačen</option>
+                                    <option>Plačljiv</option>
+                                </select>
+                                   
+                               </td>
+                               
+                               <td>
+                                   <input type="text" placeholder="Cena vstopnine v EUR" style="width: 100%;">
+                               </td>
+                               
+                           </tr>
+                           
+                           <tr>
+                            <th>
+                                Lokacija
+                            </th>
+                            <td colspan="2">
+                                <input type="text" id="vnosLokacije" style="width:100%">  
+                            </td>
+                                                                                         
+                           </tr>
+                            <tr>
+                                <th colspan="3">
+                                    <div id="lokacijaGoogleMaps" style="width: 100%; height: 400px;" >
+                                    </div>
+                                </th>
+                           </tr>
+                           
+                            <tr>
+                               <th>
+                                    Število mest
+                               </th>
+                               <td>
+                                <select>
+                                    <option>Neomejeno</option>
+                                    <option>Omejeno</option>
+                                </select>
+                               </td>                
+                               <td>
+                                    <input name="omejitev-spinner" style="width:100%">
+                               </td>                   
+                            </tr>
+                           <tr>
+                               <th>Opis</th>    
+                           </tr>
+                           
+                           <tr>
+                            <td colspan="3">
+                                <textarea style="width:100%; resize:vertical; clear:both; height: 120px;">
+                                
+                                </textarea>
+                            </td>
+                           </tr>
+                           
+                           <tr>
+                            <th>
+                                Trajanje   
+                            </th>
+                               <td>
+                                  <label><input type="checkbox"> Enkratno</label>
+                               </td>
+                               
+                               <td>
+                                   <input style="width:100%" type="text" name="datum-od" placeholder="Datum od">
+                                   <input style="width:100%" type="text" name="datum-do" placeholder="Datum do">
+                               </td>
+                           </tr>
+                           <tr>
+                            <th>
+                                Dodaj novo postavko
+                            </th>
+                                <td></td>
+                                <td>
+                                    <input type="button" class="btn btn-default" value="Dodaj">
+                                </td>
+                           </tr>
+                           <!-- primerek postavke -->
+                           <tr>
+                            <td><input style="width:100%" type="text" placeholder="Naziv postavke #1"></td>
+                            <td><input style="width:100%" type="text" placeholder="Dan v tednu ali datum"></td>
+                            <td><input style="width:100%" type="text" placeholder="Čas trajanja [hh:mm-hh:mm]"></td>
+                           </tr>
+                           <tr>
+                            <td colspan="3">
+                                <textarea style="width:100%; resize:vertical; clear:both; height: 120px;"></textarea>
+                               </td>
+                           </tr>
+                           
+                       </table>
+                    </form>
             </div>
+            </div>
+            
         </div>
             
         <!-- Noga strani     -->
