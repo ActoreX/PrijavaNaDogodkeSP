@@ -8,9 +8,10 @@
         <script type="text/javascript" src="../../js/bootstrap.js"></script>
         <link rel="stylesheet" href="../../css/bootstrap.css">
         <link rel="stylesheet" href="../../css/main.css">        
+        
     </head>
     
-    <body>
+    <body data-spy="scroll" data-target="#scrollSpyNavigation">
         
         <!--  Naslovna vrstica     -->
         <div class="container-fluid" id="topHeaderRow">
@@ -60,7 +61,7 @@
                     <span class="sr-only">Razšiti meni</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>  
                 </button>
                  <a href="#" class="navbar-toggle navbar-brand">Eventiqon</a>
             </div>
@@ -121,17 +122,148 @@
         
             
         <!-- Vsebina         -->
-        <div class="container">
+       <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    Hej
+                <div class="col-md-3" role="complementary" id="scrollSpyNavigation">
+                    <nav data-spy="affix" data-offset-top="300" data-offset-bottom="200" class="hidden-print hidden-xs hidden-sm">
+                        <ul class="nav">
+                            <li><a href="#aktivnosti">Organizator aktivnosti</a></li>
+                            <li><a href="#dogodki">Organizator dogodkov</a></li>   
+                         
+                        </ul>
+                    </nav>
                 </div>
-                <div class="col-md-4">
-                    Hej 
+
+            
+                <div class="col-md-9">
+                    <!-- Forma za vnos podatkov    -->
+                    <div class="panel panel-default vnosnaForma">
+                        <div id="aktivnosti" class="panel-heading">
+                            <table style="width:100%;">
+                                <tr>
+                                    <td style="width:70%;">Organizator aktivnosti</td>
+                                    <td style="width:30%;">
+                                        <span style="font-size: 0.75em;display:inline-block;float:right;">Število zadetkov: &nbsp;
+                                            <select>
+                                                <option>10</option>
+                                                <option>20</option>
+                                                <option>30</option>
+                                                <option>50</option>
+                                            </select>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="panel-body">
+                        
+                        <div class="panel panel-default aktivnost">
+                            <div class="panel-heading clearfix">
+                                <span>Aktivnost 1</span> 
+                                <span>Ljubljana</span>
+                                <span>10. 10. 2015 - 11.10.2015</span>
+                                <span>Potečeno</span>
+                            </div>    
+
+                            <div class="panel-footer">
+                                <button class="btn btn-default" type="button" data-toggle="collapse" href="#aktivnost1">Uredi</button>
+                                <button class="btn btn-default" type="button">Končaj</button>
+                            </div>
+                        </div>   
+                        <div class="panel panel-default aktivnost">
+                            <div class="panel-heading clearfix">
+                                <span>Aktivnost 2</span> 
+                                <span>Ljubljana</span>
+                                <span>10. 10. 2015 - 11.10.2015</span>
+                                <span>Potečeno</span>
+                            </div>    
+
+                            <div class="panel-footer">
+                                <button class="btn btn-default" type="button" data-toggle="collapse" href="#aktivnost2">Uredi</button>
+                                <button class="btn btn-default" type="button">Končaj</button>
+                            </div>
+                        </div>   
+                        
+                        </div>
+                        <nav class="ostranjevanje">
+                          <ul class="pagination">
+                            <li>
+                              <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                              </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                              <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                    </div>     
+                    <!-- konec forme za urejanje osebnih podatkov   --> 
+           
+                    <!-- Forma za vnos podatkov    -->
+                    <div class="panel panel-default vnosnaForma">
+                        <div id="dogodki" class="panel-heading">
+                            <table style="width:100%;">
+                                <tr>
+                                    <td style="width:70%;">Organizator dogodkov</td>
+                                    <td style="width:30%;">
+                                        <span style="font-size: 0.75em;display:inline-block;float:right;">Število zadetkov: &nbsp;
+                                            <select>
+                                                <option>10</option>
+                                                <option>20</option>
+                                                <option>30</option>
+                                                <option>50</option>
+                                            </select>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="panel-body">
+                        
+                            <div class="panel panel-default aktivnost">
+                            <div class="panel-heading clearfix">
+                                <span>Dogodek 1</span> 
+                                <span>Ljubljana</span>
+                                <span>10. 10. 2015 - 11.10.2015</span>
+                                <span>Potečeno</span>
+                            </div>    
+
+                            <div class="panel-footer">
+                                <button class="btn btn-default" type="button" data-toggle="collapse" href="#dogodek1">Uredi</button>
+                                <button class="btn btn-default" type="button">Končaj</button>
+                            </div>
+                        </div>   
+                            <div class="panel panel-default aktivnost">
+                            <div class="panel-heading clearfix">
+                                <span>Dogodek 2</span> 
+                                <span>Ljubljana</span>
+                                <span>10. 10. 2015 - 11.10.2015</span>
+                                <span>Potečeno</span>
+                            </div>    
+
+                            <div class="panel-footer">
+                                <button class="btn btn-default" type="button" data-toggle="collapse" href="#dogodek2">Uredi</button>
+                                <button class="btn btn-default" type="button">Končaj</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>     
+                    <!-- konec forme za urejanje osebnih podatkov   --> 
+              
+               
+
                 </div>
-                <div class="col-md-4">
-                    Hej 
-                </div>
+                
+                
+            
             </div>
         </div>
             

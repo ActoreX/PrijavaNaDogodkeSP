@@ -5,9 +5,17 @@
         <meta charset="UTF-8">
         <title>Eventiqon!</title>
         <script type="text/javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" src="../../js/jquery.validate.js"></script>
         <script type="text/javascript" src="../../js/bootstrap.js"></script>
+        <script type="text/javascript" src="../../jquery-ui/jquery-ui.js"></script>
+        <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+        <script type="text/javascript" src="../../js/locationpicker.jquery.js"></script>
+        <script type="text/javascript" src="../../js/addActEvn.js"></script>
         <link rel="stylesheet" href="../../css/bootstrap.css">
-        <link rel="stylesheet" href="../../css/main.css">        
+        <link rel="stylesheet" href="../../css/main.css">         
+        <link rel="stylesheet" href="../../jquery-ui/jquery-ui.css">      
+
+        
     </head>
     
     <body>
@@ -123,16 +131,153 @@
         <!-- Vsebina         -->
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    Hej
-                </div>
-                <div class="col-md-4">
-                    Hej 
-                </div>
-                <div class="col-md-4">
-                    Hej 
+                <div class="col-lg-offset-2 col-lg-8 col-md-8 col-md-offset-2">
+                    <div class="panel panel-default vnosnaForma panelNovaAktEvn">
+                        <div class="panel-heading">Nov dogodek</div>
+                        <div class="panel-body">
+                            <form id="vnosnaFormaAktEvn">
+                               <table class="novaAktEnv table" style="padding: 1em 0 1em 1em;">
+                                   <colgroup>
+                                        <col style="width:33%;">
+                                        <col style="width:33%">
+                                        <col style="width:33%">
+                                    </colgroup>
+                                   <tr hidden="true"> 
+                                       <th>
+                                        <span>Vrsta</span>
+                                       </th>
+                                       <td>
+                                            <label style="width:100%;"><input type="radio" value="enkratna" checked name="vrstaIzbireTrajanja"> Enkratna</label>
+                                       </td>
+                                   </tr>
+                                   <tr>
+                                    <th>
+                                        Tip
+                                    </th>
+                                       <td>
+                                        <select name="tipAktEvn">
+                                            <option value="brezplacna">Brezplačen</option>
+                                            <option value="placljiva">Plačljiv</option>
+                                        </select>
+
+                                       </td>
+
+                                       <td>
+                                           <input name="cenaVstopnice" type="text" placeholder="Cena vstopnine v EUR" style="width: 100%;">
+                                       </td>
+
+                                   </tr>
+                                    <tr>
+                                       <th>
+                                            Število mest
+                                       </th>
+                                       <td>
+                                        <select name="stMestOmejitevAktEvn">
+                                            <option value="neomejeno">Neomejeno</option>
+                                            <option value="omejeno">Omejeno</option>
+                                        </select>
+                                       </td>                
+                                       <td>
+                                            <input name="omejitev-spinner">
+                                       </td>                   
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <label for="datum-od">Trajanje</label>    
+                                        </th>
+                                        <td>
+                                           <input style="width:100%" type="text" id="datum-od" name="datum-od" placeholder="Datum od">
+                                       </td>
+                                       <td>
+                                           <input style="width:100%" type="text" name="datum-do" placeholder="Datum do">
+                                    </td>
+                                   </tr >
+                                   <tr>
+                                       <th>
+                                        <label for="nazivIzbire">Naziv</label>
+                                       </th>
+                                       <td colspan="2">
+                                            <input type="text" id="nazivIzbire" name="nazivIzbire" style="width:100%">
+                                       </td>                   
+                                   </tr>
+                                   
+                                    <tr>
+                                        <th>
+                                         <label for="vnosLokacije">Lokacija</label>
+                                        </th>
+                                        <td colspan="2">
+                                            <input type="text" id="vnosLokacije" name="vnosLokacije" style="width:100%">  
+                                        </td>
+                                    </tr>
+                                 
+                                    <tr>
+                                        <th colspan="3">
+                                            <div id="lokacijaGoogleMaps" style="width: 100%; height: 400px;" >
+                                            </div>
+                                        </th>
+                                   </tr>
+
+                                   <tr>
+                                        <th style="padding-bottom: 0">
+                                            <label for="opisAktEvn">Opis</label>
+                                       </th>
+                                   </tr>
+
+                                   <tr>
+                                    <td style="padding-top: 0;" colspan="3">
+                                        <textarea id="opisAktEvn" name="opisAktEvn" style="width:100%; resize:vertical; clear:both; height: 120px;"></textarea>
+                                    </td>
+                                   </tr>
+
+                                   <tr>
+                                    <th style="vertical-align:middle">
+                                        Uredi postavke
+                                    </th>
+                                        <td>
+                                            <span id="odstraniZadnjoPostavko" class="btn btn-default" style="float:right;">
+                                               <img src="../../resources/img/Action-db-remove-icon.png"> Odstrani</img>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span id="dodajNovoPostavko" class="btn btn-default" style="float:right;">
+                                                <img src="../../resources/img/document-add-icon.png"> Dodaj</img>
+                                            </span>
+                                        </td>
+                                   </tr>
+                                   <!-- primerek postavke -->
+                                    <tr>
+                                        <table class="postavkaAktEvn">
+                                            <colgroup>
+                                                <col style="width:33%">
+                                                <col style="width:33%">
+                                                <col style="width:33%">
+                                            </colgroup>
+                                           <tr>
+                                                <td><input name="nazivPostavke1" class="nazivPostavke" type="text" placeholder="Naziv postavke #1"></td>
+                                                <td><input name="casPostavke1" class="casPostavke" style="width:95%; margin-left:2.5%;" type="text" placeholder="Dan v tednu ali datum"></td>
+                                                <td><input name="casTrajanjaPostavke1" class="casTrajanjaPostavke" type="text" placeholder="Čas trajanja"></td>
+                                           </tr>
+                                           <tr>
+                                                <td colspan="3">
+                                                    <textarea name="opisPostavke" class="opisPostavke"></textarea>
+                                                </td>
+                                           </tr>
+                                        </table>
+                                   </tr> 
+                            
+                               </table>
+                            </form>
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <button id="potrdiFormoAktEvn" class="btn btn-default" style="float:right;">
+                                   <img src="../../resources/img/ok-icon.png"> Potrdi
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            </div>
+            
         </div>
             
         <!-- Noga strani     -->
