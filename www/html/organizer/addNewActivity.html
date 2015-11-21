@@ -135,8 +135,8 @@
                     <div class="panel panel-default vnosnaForma panelNovaAktEvn">
                         <div class="panel-heading">Nova aktivnost</div>
                         <div class="panel-body">
-
-                               <table class="table" style="padding: 1em 0 1em 1em;">
+                            <form id="vnosnaFormaAktEvn">
+                               <table class="novaAktEnv table" style="padding: 1em 0 1em 1em;">
                                    <colgroup>
                                         <col style="width:33%;">
                                         <col style="width:33%">
@@ -186,10 +186,10 @@
                                     </tr>
                                     <tr>
                                         <th>
-                                            Trajanje   
+                                            <label for="datum-od">Trajanje</label>    
                                         </th>
                                         <td>
-                                           <input style="width:100%" type="text" name="datum-od" placeholder="Datum od">
+                                           <input style="width:100%" type="text" id="datum-od" name="datum-od" placeholder="Datum od">
                                        </td>
                                        <td>
                                            <input style="width:100%" type="text" name="datum-do" placeholder="Datum do">
@@ -197,7 +197,7 @@
                                    </tr >
                                    <tr>
                                        <th>
-                                        Naziv
+                                        <label for="nazivIzbire">Naziv</label>
                                        </th>
                                        <td colspan="2">
                                             <input type="text" id="nazivIzbire" name="nazivIzbire" style="width:100%">
@@ -206,10 +206,10 @@
                                    
                                     <tr>
                                         <th>
-                                        Lokacija
+                                         <label for="vnosLokacije">Lokacija</label>
                                         </th>
                                         <td colspan="2">
-                                            <input type="text" id="vnosLokacije" style="width:100%">  
+                                            <input type="text" id="vnosLokacije" name="vnosLokacije" style="width:100%">  
                                         </td>
                                     </tr>
                                  
@@ -221,52 +221,59 @@
                                    </tr>
 
                                    <tr>
-                                       <th>Opis</th>    
+                                        <th style="padding-bottom: 0">
+                                            <label for="opisAktEvn">Opis</label>
+                                       </th>
                                    </tr>
 
                                    <tr>
                                     <td style="padding-top: 0;" colspan="3">
-                                        <textarea style="width:100%; resize:vertical; clear:both; height: 120px;"></textarea>
+                                        <textarea id="opisAktEvn" name="opisAktEvn" style="width:100%; resize:vertical; clear:both; height: 120px;"></textarea>
                                     </td>
                                    </tr>
 
                                    <tr>
                                     <th style="vertical-align:middle">
-                                        Dodaj novo postavko
+                                        Uredi postavke
                                     </th>
                                         <td>
-                                            <button id="odstraniZadnjoPostavko" class="btn btn-default" style="float:right;">
+                                            <span id="odstraniZadnjoPostavko" class="btn btn-default" style="float:right;">
                                                <img src="../../resources/img/Action-db-remove-icon.png"> Odstrani</img>
-                                            </button>
+                                            </span>
                                         </td>
                                         <td>
-                                            <button id="dodajNovoPostavko" class="btn btn-default" style="float:right;">
+                                            <span id="dodajNovoPostavko" class="btn btn-default" style="float:right;">
                                                 <img src="../../resources/img/document-add-icon.png"> Dodaj</img>
-                                            </button>
+                                            </span>
                                         </td>
                                    </tr>
                                    <!-- primerek postavke -->
                                     <tr>
                                         <table class="postavkaAktEvn">
-                                            <tr>
-                                                <td><input type="text" placeholder="Naziv postavke #1"></td>
-                                                <td><input style="width:95%; margin-left:2.5%;" type="text" placeholder="Dan v tednu ali datum"></td>
-                                                <td><input type="text" placeholder="Čas trajanja [hh:mm-hh:mm]"></td>
+                                            <colgroup>
+                                                <col style="width:33%">
+                                                <col style="width:33%">
+                                                <col style="width:33%">
+                                            </colgroup>
+                                           <tr>
+                                                <td><input name="nazivPostavke1" class="nazivPostavke" type="text" placeholder="Naziv postavke #1"></td>
+                                                <td><input name="casPostavke1" class="casPostavke" style="width:95%; margin-left:2.5%;" type="text" placeholder="Dan v tednu ali datum"></td>
+                                                <td><input name="casTrajanjaPostavke1" class="casTrajanjaPostavke" type="text" placeholder="Čas trajanja [hh:mm-hh:mm]"></td>
                                            </tr>
                                            <tr>
                                                 <td colspan="3">
-                                                    <textarea></textarea>
+                                                    <textarea name="opisPostavke" class="opisPostavke"></textarea>
                                                 </td>
                                            </tr>
                                         </table>
                                    </tr> 
                             
                                </table>
-
+                            </form>
                         </div>
                         <div class="panel-footer clearfix">
-                            <button class="btn btn-default" style="float:right;">
-                                   <img src="../../resources/img/ok-icon.png"> Potrdi</input>
+                            <button id="potrdiFormoAktEvn" class="btn btn-default" style="float:right;">
+                                   <img src="../../resources/img/ok-icon.png"> Potrdi
                             </button>
                         </div>
                     </div>

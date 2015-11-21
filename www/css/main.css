@@ -2,7 +2,6 @@ body {
     min-width: 476px;
 }
 
-
 #topHeaderRow {
     background-image: url("../resources/img/01befb1c.png");
     background-repeat: repeat-x;
@@ -319,6 +318,7 @@ body {
 
 .postavkaAktEvn td {
     padding-bottom: 0.3em;
+    vertical-align: top;
 }
 .postavkaAktEvn textarea {
     width:100%; 
@@ -328,6 +328,17 @@ body {
 }
 .panelNovaAktEvn .panel-footer {
     background: transparent;
+}
+
+.novaAktEnv th > label {
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+#vnosnaFormaAktEvn label[class=error] {
+    color: red;
+    font-family: inherit;
+    font-size: 12px;    
 }
 
 
