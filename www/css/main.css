@@ -301,12 +301,22 @@ body {
 }
 
 /* addNewActEvn */
+.ui-spinner {
+    width:100%;    
+    font-size: 14px !important;
+}
+
 .vnosnaForma .table input[type="radio"] {
     width: 24px;
+}
+.vnosnaForma input:disabled {
+    cursor: not-allowed;
+    color: lightgrey;
 }
 .postavkaAktEvn input {
     width: 100%;
 }
+
 .postavkaAktEvn td {
     padding-bottom: 0.3em;
 }
@@ -319,4 +329,8 @@ body {
 .panelNovaAktEvn .panel-footer {
     background: transparent;
 }
+
+
+
+
 
