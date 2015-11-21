@@ -240,7 +240,8 @@ body {
     
 }
 
-.vnosnaForma .table td
+.vnosnaForma .table td,
+.vnosnaForma .table th
 {
     padding: 1em 0 1em 1em;
     border-top: none !important;
@@ -299,6 +300,23 @@ body {
     padding: 20px;
 }
 
-
-
+/* addNewActEvn */
+.vnosnaForma .table input[type="radio"] {
+    width: 24px;
+}
+.postavkaAktEvn input {
+    width: 100%;
+}
+.postavkaAktEvn td {
+    padding-bottom: 0.3em;
+}
+.postavkaAktEvn textarea {
+    width:100%; 
+    resize:vertical;
+    clear:both;
+    height: 120px;
+}
+.panelNovaAktEvn .panel-footer {
+    background: transparent;
+}
 
