@@ -51,7 +51,7 @@ $(document).ready(function(){
        }
     });
     
-    $('#potrdiSpremembeGesla').click(function() {
+    $('#potrdiSprememboGesla').click(function() {
         $('#formaSpremeniGeslo').submit();    
     });
     
@@ -63,9 +63,11 @@ $(document).ready(function(){
             },
            novoGeslo: {
                obveznoPolje: true,
-               minlength: 5               
+               minlength: 5,
+               niEnako: {drugElement:'#staroGeslo'}
            },
            ponovniVnosGesla: {
+               obveznoPolje: true,
                equalTo: "#novoGeslo"
            }
        },
@@ -80,7 +82,64 @@ $(document).ready(function(){
             ponovniVnosGesla: "Gesli se morata ujemati.",
         }
     });
+   
+    $('#potrdiFormoObnoveRacuna').click(function() {
+        $('#formaObnoveRacuna').submit();    
+    });
+    
+    $('#formaObnoveRacuna').validate({
+       rules: {
+            pomozniEmail: {
+                obveznoPolje: true,
+                email: true
+            },
+           ponovniVnosPomoznegaEmaila: {
+               obveznoPolje: true,
+               equalTo: "#pomozniEmail"
+           },
+           telStZaObnovitev: {
+               obveznoPolje: true,
+               jeTelSt: true
+           }
+       },
+        messages: {
+            pomozniEmail: {
+                email: "Vnesi veljaven e-naslov"
+            },
+            ponovniVnosPomoznegaEmaila: {
+                email: "Vnesi veljaven e-naslov",
+                equalTo: "Polji se morata ujemati"
+            }
 
+        }
+    });
+    
+    $('#potrdiIzbrisRacuna').click(function() {
+        $('#formaIzbrisRacuna').submit();    
+    });
+    
+    $('#formaIzbrisRacuna').validate({
+       rules: {
+            izbrisUpIme: {
+                obveznoPolje: true,
+                equalTo: "#uporabniskoIme"
+            },
+           izbrisGeslo: {
+               obveznoPolje: true
+           }
+       },
+        messages: {
+            pomozniEmail: {
+                email: "Vnesi veljaven e-naslov"
+            },
+            izbrisUpIme: "Vnesi svoje uporabniško ime",
+            izbrisGeslo: "Vnesi svoje geslo"
+
+        }
+    });
+
+    
+    
 jQuery.validator.addMethod("obveznoPolje", $.validator.methods.required, "Polje ne sme biti prazno!");
 jQuery.validator.addMethod("veljavnoStevilo", $.validator.methods.number, "Vnesite veljavno število.");
 
@@ -88,5 +147,9 @@ jQuery.validator.addMethod("veljavnoStevilo", $.validator.methods.number, "Vnesi
 jQuery.validator.addMethod("jeTelSt", function(value, element){
     return this.optional(element) || /(^\d{2,3}[-\/]\d{3,4}[-\/]\d{3})$/.test(element.value) || /^\d{9}$/.test(element.value)
 }, "Vnesi veljavno tel. številko (npr. xx-xxxx-xxx)")
+
+jQuery.validator.addMethod("niEnako", function(value, element, options){
+    return $(options.drugElement).val() !== element.value
+}, "Polje ne sme biti enako")
     
 });

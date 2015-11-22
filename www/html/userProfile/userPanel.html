@@ -156,31 +156,31 @@
 
                                     <tr>    
                                         <td>Uporabniško ime</th>
-                                        <td><input disabled type="text"></input></td>
+                                        <td><input disabled id="uporabniskoIme" type="text" value="Superuser"></td>
                                     </tr>
                                     <tr>    
                                         <td>Ime</th>
-                                        <td><input disabled type="text"></input></td>
+                                        <td><input disabled type="text"></td>
                                     </tr>
                                     <tr>    
                                         <td>Priimek</th>
-                                        <td><input disabled type="text"></input></td>
+                                        <td><input disabled type="text"></td>
                                     </tr>
                                     <tr>    
                                         <td><label for="eposta">E-pošta</label></th>
-                                        <td><input id="eposta" name="eposta" type="email"></input></td>
+                                        <td><input id="eposta" name="eposta" type="email"></td>
                                     </tr>
                                     <tr>    
                                         <td><label for="datumRojstva">Datum rojstva</label></th>
-                                        <td><input id="datumRojstva" name="datumRojstva" type="text"></input></td>
+                                        <td><input id="datumRojstva" name="datumRojstva" type="text"></td>
                                     </tr>
                                     <tr>    
                                         <td><label for="telSt">Telefon</label></th>
-                                        <td><input id="telSt", name="telSt" type="text"></input></td>
+                                        <td><input id="telSt", name="telSt" type="text"></td>
                                     </tr>
                                     <tr>    
                                         <td><label for="paypalRacun">Paypal račun</label></th>
-                                        <td><input id="paypalRacun" name="paypalRacun" type="email"></input></td>
+                                        <td><input id="paypalRacun" name="paypalRacun" type="email"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -206,19 +206,19 @@
 
                                     <tr>    
                                         <td><label for="ulica">Ulica</label></th>
-                                        <td><input id="ulica" name="ulica" type="text"></input></td>
+                                        <td><input id="ulica" name="ulica" type="text"></td>
                                     </tr>
                                     <tr>    
                                         <td><label for="hisnaStevilka">Hišna številka</label></th>
-                                        <td><input id="hisnaStevilka" name="hisnaStevilka" type="text"></input></td>
+                                        <td><input id="hisnaStevilka" name="hisnaStevilka" type="text"></td>
                                     </tr>
                                     <tr>    
                                         <td><label for="postnaStevilka">Poštna številka</label></th>
-                                        <td><input id="postnaStevilka" name="postnaStevilka" type="text"></input></td>
+                                        <td><input id="postnaStevilka" name="postnaStevilka" type="text"></td>
                                     </tr>
                                     <tr>    
                                         <td><label for="kraj">Kraj</label></th>
-                                        <td><input id="kraj" name="kraj" type="text"></input></td>
+                                        <td><input id="kraj" name="kraj" type="text"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -244,21 +244,21 @@
 
                                     <tr>    
                                         <td><label for="staroGeslo">Staro geslo</label></th>
-                                        <td><input id="staroGeslo" name="staroGeslo" type="password"></input></td>
+                                        <td><input id="staroGeslo" name="staroGeslo" type="password"></td>
                                     </tr>
                                     <tr>    
                                         <td><label for="novoGeslo">Novo geslo</label></th>
-                                        <td><input id="novoGeslo" name="novoGeslo" type="password"></input></td>
+                                        <td><input id="novoGeslo" name="novoGeslo" type="password"></td>
                                     </tr>
                                     <tr>    
                                         <td><label for="ponovniVnosGesla">Ponovni vnos</label></th>
-                                        <td><input id="ponovniVnosGesla" name="ponovniVnosGesla" type="password"></input></td>
+                                        <td><input id="ponovniVnosGesla" name="ponovniVnosGesla" type="password"></td>
                                     </tr>
                                 </table>
                             </div>
                             </form>
                             <div class="panel-footer clearfix">
-                                <button id="potrdiSpremembeGesla" class="btn btn-default" style="float:right;">
+                                <button id="potrdiSprememboGesla" class="btn btn-default" style="float:right;">
                                        <img src="../../resources/img/ok-icon.png"> Potrdi
                                 </button>
                             </div>
@@ -268,6 +268,7 @@
                     <!-- Forma za vnos podatkov    -->
                     <div class="panel panel-default vnosnaForma">
                         <div id="obnovaRacuna" class="panel-heading">Možnosti obnove računa</div>
+                        <form id="formaObnoveRacuna">
                             <div class="panel-body">
                                 <table class="table">
                                     <colgroup>
@@ -276,21 +277,22 @@
                                     </colgroup>
 
                                     <tr>    
-                                        <td>Pomožni e-naslov</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="pomozniEmail">Pomožni e-naslov</label></th>
+                                        <td><input id="pomozniEmail" name="pomozniEmail" type="email"></td>
                                     </tr>                                    
                                     <tr>    
-                                        <td>Ponovni vnos e-naslova</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="ponovniVnosPomoznegaEmaila">Ponovni vnos e-naslova</label></th>
+                                        <td><input id="ponovniVnosPomoznegaEmaila" name="ponovniVnosPomoznegaEmaila" type="email"></td>
                                     </tr>
                                     <tr>    
-                                        <td>Telefonska številka za obnovitev</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="telStZaObnovitev">Telefonska številka za obnovitev</label></th>
+                                        <td><input id="telStZaObnovitev" name="telStZaObnovitev" type="text"></td>
                                     </tr>
                                 </table>
                             </div>
+                            </form>
                              <div class="panel-footer clearfix">
-                                <button id="potrdiFormoAktEvn" class="btn btn-default" style="float:right;">
+                                <button id="potrdiFormoObnoveRacuna" class="btn btn-default" style="float:right;">
                                        <img src="../../resources/img/ok-icon.png"> Potrdi
                                 </button>
                             </div>
@@ -300,6 +302,7 @@
                     <!-- Forma za vnos podatkov    -->
                     <div class="panel panel-default vnosnaForma">
                         <div id="izbrisRacuna" class="panel-heading">Izbris računa</div>
+                            <form id="formaIzbrisRacuna">
                             <div class="panel-body">
                                 <table class="table">
                                     <colgroup>
@@ -308,21 +311,22 @@
                                     </colgroup>
 
                                     <tr>    
-                                        <td>Vnesite uporabniško ime</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="izbrisUpIme">Vnesite uporabniško ime</label></th>
+                                        <td><input id="izbrisUpIme" name="izbrisUpIme" type="text"></td>
                                     </tr>
                                     <tr>    
-                                        <td>Vnesite geslo</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="izbrisGeslo">Vnesite geslo</label></th>
+                                        <td><input id="izbrisGeslo" name="izbrisGeslo" type="password"></td>
                                     </tr>
                                     <tr>    
-                                        <td>Razlog</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="izbrisRazlog">Razlog</label></th>
+                                        <td><input id="izbrisRazlog" name="izbrisRazlog" type="text"></td>
                                     </tr>
                                 </table>
                             </div>
+                            </form>
                             <div class="panel-footer clearfix">
-                                <button id="potrdiFormoAktEvn" class="btn btn-default" style="float:right;">
+                                <button id="potrdiIzbrisRacuna" class="btn btn-default" style="float:right;">
                                        <img src="../../resources/img/ok-icon.png"> Potrdi
                                 </button>
                             </div>
