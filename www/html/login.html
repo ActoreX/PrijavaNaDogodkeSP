@@ -6,6 +6,7 @@
         <title>Eventiqon!</title>
         <script type="text/javascript" src="../js/jquery.js"></script>
         <script type="text/javascript" src="../js/bootstrap.js"></script>
+        <script type="text/javascript" src="../js/jquery.validate.js"></script>
         <link rel="stylesheet" href="../css/bootstrap.css">
         <link rel="stylesheet" href="../css/main.css">     
     </head>
@@ -126,6 +127,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                     <div class="panel panel-default vnosnaForma">
                         <div class="panel-heading">Prijava</div>
+                        <form id="formaPrijave">
                         <div class="panel-body">                
                             <table class="table">
                                 <colgroup>
@@ -133,23 +135,24 @@
                                     <col style="width:60%;">
                                 </colgroup>
                                 <tr>
-                                    <td>Uporabniško ime</td>
-                                    <td><input type="text" placeholder="Vnesite uporabniško ime"></td>
+                                    <td><label for="upIme">Uporabniško ime</label></td>
+                                    <td><input id="upIme" name="upIme" type="text" placeholder="Vnesite uporabniško ime"></td>
                                 </tr>
-                                    <td>Geslo</td>
-                                    <td><input type="password" placeholder="Vnesite geslo"></td>
+                                    <td><label for="geslo">Geslo</label></td>
+                                    <td><input id="geslo" name="geslo" type="password" placeholder="Vnesite geslo"></td>
                                 </tr>
                                 <tr >
                                     <td colspan="2" style="padding-top:0; padding-bottom:0;"><hr></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"><input type="button" class="btn btn-info" value="Prijavi se!"></td>
+                                    <td colspan="2"><input id="prijaviSe" type="button" class="btn btn-info" value="Prijavi se!"></td>
                                 </tr>
                                 <tr>
                                     <td>Še nimaš računa? <a href="register.html">Registriraj se!</a></td>
                                 </tr>
                             </table>
                         </div>
+                    </form>
                     </div>
                 </div>   
                 
@@ -179,6 +182,27 @@
             </div>
             
         </footer>
-       
+        <script>
+            $(document).ready(function(){
+                $('#formaPrijave').validate({
+                    rules: {
+                        upIme: {
+                            required: true
+                        },
+                        geslo: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        upIme: "Vnesite uporabniško ime - polje je obvezno",
+                        geslo: "Vnesite geslo - polje je obvezno"
+                    }
+                });
+                
+                $('#prijaviSe').click(function(){
+                    $('#formaPrijave').submit();
+                });
+            });
+        </script>
     </body>
 </html>

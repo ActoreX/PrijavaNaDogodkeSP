@@ -6,6 +6,7 @@
         <title>Eventiqon!</title>
         <script type="text/javascript" src="../js/jquery.js"></script>
         <script type="text/javascript" src="../js/bootstrap.js"></script>
+        <script type="text/javascript" src="../js/jquery.validate.js"></script>
         <link rel="stylesheet" href="../css/bootstrap.css">
         <link rel="stylesheet" href="../css/main.css">     
     </head>
@@ -126,6 +127,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                     <div class="panel panel-default vnosnaForma">
                         <div class="panel-heading">Registracija</div>
+                        <form id="formaRegistracije">
                         <div class="panel-body">                
                             <table class="table">
                                 <colgroup>
@@ -133,38 +135,37 @@
                                     <col style="width:60%;">
                                 </colgroup>
                                 <tr>
-                                    <td>Uporabniško ime</td>
-                                    <td><input type="text" placeholder="Željeno uporabniško ime"></td>
+                                    <td><label for="upIme">Uporabniško ime</label></td>
+                                    <td><input id="upIme" name="upIme" type="text" placeholder="Željeno uporabniško ime"></td>
                                 </tr>
                                 <tr>
-                                    <td>E-naslov:</td>
-                                    <td><input type="text" placeholder="Vaš e-naslov"></td>
+                                    <td><label for="eposta">E-naslov:</label></td>
+                                    <td><input id="eposta" name="eposta" type="text" placeholder="Vaš e-naslov"></td>
                                 </tr>
                                 <tr>
-                                    <td>Ponovni vnos e-naslova</td>
-                                    <td><input type="text" placeholder="Ponovite vnos vašega e-naslova"></td>
+                                    <td><label for="epostaPonovniVnos">Ponovni vnos e-naslova</label></td>
+                                    <td><input id="epostaPonovniVnos" name="epostaPonovniVnos" type="text" placeholder="Ponovite vnos vašega e-naslova"></td>
                                 </tr>
                                 <tr>
-                                    <td>Geslo</td>
-                                    <td><input type="text" placeholder="Vnesite željeno geslo"></td>
+                                    <td><label for="geslo">Geslo</label></td>
+                                    <td><input id="geslo" name="geslo" type="text" placeholder="Vnesite željeno geslo"></td>
                                 </tr>
                                 <tr>
-                                    <td>Ponovni vnos gesla</td>
-                                    <td><input type="text" placeholder="Ponovite vnos željenega gesla"></td>
+                                    <td><label for="gesloPonovniVnos">Ponovni vnos gesla</label></td>
+                                    <td><input id="gesloPonovniVnos" name="gesloPonovniVnos" type="text" placeholder="Ponovite vnos željenega gesla"></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" style="padding-top:0; padding-bottom:0;"><hr></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"><input type="button" class="btn btn-info" value="Pridruži se!"></td>
+                                    <td colspan="2"><input id="registrirajSe" type="button" class="btn btn-info" value="Pridruži se!"></td>
                                 </tr>
                             </table>
                         </div>
+                        </form>
                     </div>
                 </div>   
                 
-
-
             </div>
         </div>
             
@@ -190,5 +191,53 @@
             
         </footer>
        
+        <script>
+            $(document).ready(function(){
+                $('#formaRegistracije').validate({
+                    rules: {
+                        upIme: {
+                            obveznoPolje: true
+                        },
+                        eposta: {
+                            obveznoPolje: true,
+                            email:true
+                        },
+                        epostaPonovniVnos: {
+                            obveznoPolje: true,
+                            equalTo: "#eposta"
+                        },
+                        geslo: {
+                            obveznoPolje: true,
+                            minlength: 5
+                        },
+                        gesloPonovniVnos: {
+                            obveznoPolje: true,
+                            equalTo: "#geslo"
+                        }
+                    },
+                    messages: {
+                        eposta: {
+                            email: "Vnesi veljaven e-naslov"
+                        },
+                        geslo: {
+                            minlength: "Geslo mora vsebovati najmanj 5 znakov"
+                        },
+                        epostaPonovniVnos: {
+                            equalTo: "Polji se morata ujemati"
+                        },
+                        gesloPonovniVnos: {
+                            equalTo: "Gesli se morata ujemati"
+                        }
+                    }
+                });
+                
+                $('#registrirajSe').click(function(){
+                    $('#formaRegistracije').submit();
+                });
+                
+                jQuery.validator.addMethod("obveznoPolje", $.validator.methods.required, "Polje ne sme biti prazno!");
+            }); 
+            
+        </script>    
     </body>
 </html>

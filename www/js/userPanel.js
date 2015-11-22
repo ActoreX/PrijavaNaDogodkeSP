@@ -72,14 +72,14 @@ $(document).ready(function(){
            }
        },
         messages: {
-            ponovniVnosGesla: "Gesli se morata ujemati.",
+            ponovniVnosGesla: "Gesli se morata ujemati",
             novoGeslo: {
                 minlength: "Geslo mora biti dolgo vsaj 5 znakov"
             },
             staroGeslo: {
                 minlength: "Geslo mora biti dolgo vsaj 5 znakov"
             },
-            ponovniVnosGesla: "Gesli se morata ujemati.",
+            ponovniVnosGesla: "Gesli se morata ujemati",
         }
     });
    
