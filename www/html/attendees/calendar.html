@@ -127,23 +127,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4">
-                    <div id="koledar"></div>
-                    <div>
-                        <br>
-                        <p>Izvozi podatke:</p>
-                        <select>
-                            <option>Tekoči mesec</option>
-                            <option>Prvo četrtletje</option>
-                            <option>Drugo četrtletje</option>
-                            <option>Tretje četrtletje</option>
-                            <option>Četrto četrtletje</option>
-                        </select>
-                        <button type="button">Izvozi koledar</button>
-                    </div>
-                    <br>
+                <div id="koledar"></div>
+                
+                <br>
+                <b>Trenuten izbor:</b>
+                <p>
+                    <input placeholder="Datum od" type="text" id="input1" size="17" disabled>
+                    <input placeholder="Datum do" type="text" id="input2" size="17" disabled>
+                </p>
+                <p>
+                    <input id="izvozi" class="btn btn-default" type="button" value="Izvozi">
+                    <input id="isci" class="btn btn-default" type="button" value="Išči">
+                </p>
                 </div>
+                
                 <div class="col-lg-8 col-md-8">
-                    <table class="table table-hover">
+                    <table id="rezultatIskanja" class="table table-hover" hidden="true">
                         <tr>
                             <th>Dogodek/aktivnost</th>
                             <th>Termin</th>

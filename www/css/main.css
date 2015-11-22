@@ -357,4 +357,9 @@ label[class=error] {
     font-style: italic;
 }
 
-
+/* Koledar (moje udeležbe) */
+.dp-highlight .ui-state-default {
+    background: none !important;
+    background-color: #5a7ca7 !important; 
+    color:white  !important;
+}
