@@ -336,12 +336,13 @@ body {
     background: transparent;
 }
 
-.novaAktEnv th > label {
+.table th > label {
     font-weight: inherit;
     font-style: inherit;
 }
 
-#vnosnaFormaAktEvn label[class=error] {
+/* Pri validaciji */
+label[class=error] {
     color: red;
     font-family: inherit;
     font-size: 12px;    
