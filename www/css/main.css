@@ -348,7 +348,13 @@ label[class=error] {
     font-size: 12px;    
 }
 
-
-
+/* Uporabniška vrstica (kdo je prijavljen, morebitna povezava do registracija/prijave) */
+#uporabnikInfo {
+    float: right;
+}
+#uporabnikInfo tr:nth-child(1) {
+    font-size: 1.125em;
+    font-style: italic;
+}
 
 
