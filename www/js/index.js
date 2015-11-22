@@ -45,16 +45,16 @@ $(document).ready(function(){
     
     
     function zamenjajVsebino(smer1, smer2) {
-        $("#trenutnaVsebina").hide("slide", {direction: smer1}, function(){
-        $("#naslednjaVsebina").show("slide", {direction: smer2},500);});
         var staraVsebina = $('#trenutnaVsebina');
         var novaVsebina = $('#naslednjaVsebina');
+        staraVsebina.hide("slide", {direction: smer1}, 200);
+        novaVsebina.show("slide", {direction: smer2}, 500);
+      
         staraVsebina.attr("id", "naslednjaVsebina");
         novaVsebina.attr("id", "trenutnaVsebina");
     }
     
-    $('#popularno').click(function(){
-        event.preventDefault();
+    $('#popularno').click(function(event){
         event.preventDefault();
         zamenjajVsebino("right", "left");
         console.log($('.nav li:active'));
@@ -73,7 +73,7 @@ $(document).ready(function(){
                 
     });
     
-    $('#prihajajoci').click(function(){
+    $('#prihajajoci').click(function(event){
         event.preventDefault();
         zamenjajVsebino("left", "right");
         console.log($('.nav li:active'));
@@ -82,9 +82,8 @@ $(document).ready(function(){
         $(this).blur();
     });
     
-    $('#zadnji').click(function(){
+    $('#zadnji').click(function(event){
         event.preventDefault();
-            event.preventDefault();
         zamenjajVsebino("left", "right");
         console.log($('.nav li:active'));
         $('.nav .active').removeClass("active");
