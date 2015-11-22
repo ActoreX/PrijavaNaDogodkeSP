@@ -5,10 +5,15 @@
         <meta charset="UTF-8">
         <title>Eventiqon!</title>
         <script type="text/javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" src="../../jquery-ui/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../js/jquery.validate.js"></script>
         <script type="text/javascript" src="../../js/bootstrap.js"></script>
         <link rel="stylesheet" href="../../css/bootstrap.css">
         <link rel="stylesheet" href="../../css/main.css">        
+        <link rel="stylesheet" href="../../jquery-ui/jquery-ui.css">              
+        <script type="text/javascript" src="../../js/userPanel.js"></script>
     </head>
+    
     
     <body data-spy="scroll" data-target="#scrollSpyNavigation">
         
@@ -137,10 +142,11 @@
                 </div>
 
             
-                <div class="col-md-9">
+                <div class="col-md-9 userPanel">
                     <!-- Forma za vnos podatkov    -->
                     <div class="panel panel-default vnosnaForma">
                         <div id="osebniPodatki" class="panel-heading">Osebni podatki</div>
+                        <form id="formaOsebniPodatki">
                             <div class="panel-body">
                                 <table class="table">
                                     <colgroup>
@@ -150,33 +156,39 @@
 
                                     <tr>    
                                         <td>Uporabniško ime</th>
-                                        <td><input type="input"></input></td>
+                                        <td><input disabled type="text"></input></td>
                                     </tr>
                                     <tr>    
                                         <td>Ime</th>
-                                        <td><input type="input"></input></td>
+                                        <td><input disabled type="text"></input></td>
                                     </tr>
                                     <tr>    
                                         <td>Priimek</th>
-                                        <td><input type="input"></input></td>
+                                        <td><input disabled type="text"></input></td>
                                     </tr>
                                     <tr>    
-                                        <td>E-pošta</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="eposta">E-pošta</label></th>
+                                        <td><input id="eposta" name="eposta" type="email"></input></td>
                                     </tr>
                                     <tr>    
-                                        <td>Datum rojstva</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="datumRojstva">Datum rojstva</label></th>
+                                        <td><input id="datumRojstva" name="datumRojstva" type="text"></input></td>
                                     </tr>
                                     <tr>    
-                                        <td>Telefon</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="telSt">Telefon</label></th>
+                                        <td><input id="telSt", name="telSt" type="text"></input></td>
                                     </tr>
                                     <tr>    
-                                        <td>Paypal račun</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="paypalRacun">Paypal račun</label></th>
+                                        <td><input id="paypalRacun" name="paypalRacun" type="email"></input></td>
                                     </tr>
                                 </table>
+                            </div>
+                            </form>
+                            <div class="panel-footer clearfix">
+                                <button id="spremeniOsebnePodatke" class="btn btn-default" style="float:right;">
+                                       <img src="../../resources/img/ok-icon.png"> Potrdi
+                                </button>
                             </div>
                     </div>     
                     <!-- konec forme za urejanje osebnih podatkov   --> 
@@ -184,6 +196,7 @@
                     <!-- Forma za vnos podatkov    -->
                     <div id="naslov" class="panel panel-default vnosnaForma">
                         <div class="panel-heading">Naslov</div>
+                        <form id="formaNaslova">
                             <div class="panel-body">
                                 <table class="table">
                                     <colgroup>
@@ -192,22 +205,28 @@
                                     </colgroup>
 
                                     <tr>    
-                                        <td>Ulica</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="ulica">Ulica</label></th>
+                                        <td><input id="ulica" name="ulica" type="text"></input></td>
                                     </tr>
                                     <tr>    
-                                        <td>Hišna številka</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="hisnaStevilka">Hišna številka</label></th>
+                                        <td><input id="hisnaStevilka" name="hisnaStevilka" type="text"></input></td>
                                     </tr>
                                     <tr>    
-                                        <td>Poštna številka</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="postnaStevilka">Poštna številka</label></th>
+                                        <td><input id="postnaStevilka" name="postnaStevilka" type="text"></input></td>
                                     </tr>
                                     <tr>    
-                                        <td>Kraj</th>
-                                        <td><input type="input"></input></td>
+                                        <td><label for="kraj">Kraj</label></th>
+                                        <td><input id="kraj" name="kraj" type="text"></input></td>
                                     </tr>
                                 </table>
+                            </div>
+                            </form>
+                            <div class="panel-footer clearfix">
+                                <button id="potrdiFormoNaslova" class="btn btn-default" style="float:right;">
+                                       <img src="../../resources/img/ok-icon.png"> Potrdi
+                                </button>
                             </div>
                     </div>     
                     <!-- konec forme za urejanje osebnih podatkov   -->
@@ -215,6 +234,7 @@
                     <!-- Forma za vnos podatkov    -->
                     <div class="panel panel-default vnosnaForma">
                         <div id="dodatneNastavitve" class="panel-heading">Spremeni geslo</div>
+                            <form id="formaSpremeniGeslo">    
                             <div class="panel-body">
                                 <table class="table">
                                     <colgroup>
@@ -223,18 +243,24 @@
                                     </colgroup>
 
                                     <tr>    
-                                        <td>Staro geslo</th>
-                                        <td><input type="password"></input></td>
+                                        <td><label for="staroGeslo">Staro geslo</label></th>
+                                        <td><input id="staroGeslo" name="staroGeslo" type="password"></input></td>
                                     </tr>
                                     <tr>    
-                                        <td>Novo geslo</th>
-                                        <td><input type="password"></input></td>
+                                        <td><label for="novoGeslo">Novo geslo</label></th>
+                                        <td><input id="novoGeslo" name="novoGeslo" type="password"></input></td>
                                     </tr>
                                     <tr>    
-                                        <td>Ponovni vnos</th>
-                                        <td><input type="password"></input></td>
+                                        <td><label for="ponovniVnosGesla">Ponovni vnos</label></th>
+                                        <td><input id="ponovniVnosGesla" name="ponovniVnosGesla" type="password"></input></td>
                                     </tr>
                                 </table>
+                            </div>
+                            </form>
+                            <div class="panel-footer clearfix">
+                                <button id="potrdiSpremembeGesla" class="btn btn-default" style="float:right;">
+                                       <img src="../../resources/img/ok-icon.png"> Potrdi
+                                </button>
                             </div>
                     </div>     
                     <!-- konec forme za urejanje osebnih podatkov   -->     
@@ -263,6 +289,11 @@
                                     </tr>
                                 </table>
                             </div>
+                             <div class="panel-footer clearfix">
+                                <button id="potrdiFormoAktEvn" class="btn btn-default" style="float:right;">
+                                       <img src="../../resources/img/ok-icon.png"> Potrdi
+                                </button>
+                            </div>
                     </div>     
                     <!-- konec forme za urejanje osebnih podatkov   --> 
 
@@ -289,6 +320,11 @@
                                         <td><input type="input"></input></td>
                                     </tr>
                                 </table>
+                            </div>
+                            <div class="panel-footer clearfix">
+                                <button id="potrdiFormoAktEvn" class="btn btn-default" style="float:right;">
+                                       <img src="../../resources/img/ok-icon.png"> Potrdi
+                                </button>
                             </div>
                     </div>     
                     <!-- konec forme za urejanje osebnih podatkov   -->

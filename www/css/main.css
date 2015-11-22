@@ -138,6 +138,12 @@ body {
     background-color: aliceblue;
 }
 
+/* userPanel */
+.userPanel .panel-footer {
+    background: transparent;
+}
+
+
 /* Aktivnosti  */
 /* Stil heading vsebine  */
 .aktivnost .panel-heading span:nth-child(1) {
