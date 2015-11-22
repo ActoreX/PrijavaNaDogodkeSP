@@ -42,6 +42,55 @@ $(document).ready(function(){
         }
         
     }); 
+    
+    
+    function zamenjajVsebino(smer1, smer2) {
+        $("#trenutnaVsebina").hide("slide", {direction: smer1}, function(){
+        $("#naslednjaVsebina").show("slide", {direction: smer2},500);});
+        var staraVsebina = $('#trenutnaVsebina');
+        var novaVsebina = $('#naslednjaVsebina');
+        staraVsebina.attr("id", "naslednjaVsebina");
+        novaVsebina.attr("id", "trenutnaVsebina");
+    }
+    
+    $('#popularno').click(function(){
+        event.preventDefault();
+        event.preventDefault();
+        zamenjajVsebino("right", "left");
+        console.log($('.nav li:active'));
+        $('.nav .active').removeClass("active");
+        $(this).parent().addClass("active");
+        $(this).blur();
+    });
+    
+    $('#vteku').click(function(event){
+       event.preventDefault();
+        zamenjajVsebino("left", "right");
+        console.log($('.nav li:active'));
+        $('.nav .active').removeClass("active");
+        $(this).parent().addClass("active");
+        $(this).blur();
+                
+    });
+    
+    $('#prihajajoci').click(function(){
+        event.preventDefault();
+        zamenjajVsebino("left", "right");
+        console.log($('.nav li:active'));
+        $('.nav .active').removeClass("active");
+        $(this).parent().addClass("active");
+        $(this).blur();
+    });
+    
+    $('#zadnji').click(function(){
+        event.preventDefault();
+            event.preventDefault();
+        zamenjajVsebino("left", "right");
+        console.log($('.nav li:active'));
+        $('.nav .active').removeClass("active");
+        $(this).parent().addClass("active");
+        $(this).blur();
+    });
      
         
 });

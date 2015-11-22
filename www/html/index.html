@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <title>Eventiqon!</title>
         <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../jquery-ui/jquery-ui.js"></script>
         <script type="text/javascript" src="../js/bootstrap.js"></script>
         <script type="text/javascript" src="../js/index.js"></script>
         <link rel="stylesheet" href="../css/bootstrap.css">
@@ -142,10 +143,10 @@
                 <div class="col-lg-8 col-lg-pull-4 col-md-8 col-md-pull-4 col-sm-8 col-sm-pull-4 col-xs-12">
                     <hr style="margin-top: 8px; margin-bottom: 8px;">
                     <ul class="nav nav-pills">
-                        <li role="presentation" class="active"><a href="#">Popularno</a></li>
-                        <li role="presentation"><a href="#">V teku</a></li>    
-                        <li role="presentation"><a href="#">Prihajajoči</a></li>
-                        <li role="presentation"><a href="#">Zadnje dodani</a></li>
+                        <li role="presentation" class="active"><a id="popularno" href="#">Popularno</a></li>
+                        <li role="presentation"><a id="vteku" href="#">V teku</a></li>    
+                        <li role="presentation"><a id="prihajajoci" href="#">Prihajajoči</a></li>
+                        <li role="presentation"><a id="zadnji" href="#">Zadnje dodani</a></li>
                     </ul>
                     <hr style="margin-top: 8px; margin-bottom: 8px;">
                 </div>
@@ -153,7 +154,7 @@
            
             </div>
 
-            <div class="row">
+            <div id="trenutnaVsebina" class="row">
                 <div class="col-md-6">
                     <div class="eventOverview">
                         <div class="content">
@@ -189,6 +190,47 @@
                 </div>   
                 
             </div>
+            
+            
+<!--   Naslednja kategorija         -->
+            <div id="naslednjaVsebina" hidden class="row">
+                <div class="col-md-6">
+                    <div class="eventOverview">
+                        <div class="content">
+                            <p evn-status="DoZacetka">Do začetka še: 2 dan 23ur 59min</p>
+    <!--                        <span evn-status="VTeku">Dogodek poteka, do konca še 1 dan 20ur 10min</span>-->
+    <!--                        <span evn-status="Koncan">Dogodek končan</span>-->
+                            <h2>Naziv dogodka - next<img alt="map1" title="Prikaži mapo" src="../resources/img/maps-icon.png" alt="" class="showMapIcon"></h2> 
+                            <h4>Lokacija: Ljubljana</h4>
+                            <div id="map1" class="googleMapContainer" hidden="true">
+                                <iframe src="https://www.google.com/maps/embed?     pb=!1m18!1m12!1m3!1d2769.054178396522!2d14.466841715545893!3d46.050017579112215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ad2ad3f7a8389%3A0x547f8800f76a47ff!2sFakulteta+za+ra%C4%8Dunalni%C5%A1tvo+in+informatiko%2C+Ve%C4%8Dna+pot+113%2C+1000+Ljubljana!5e0!3m2!1ssl!2ssi!4v1447670624686" 
+                                        width="100%"  
+                                        height="480px;"
+                                        frameborder="0" 
+                                        style="border:0" 
+                                        allowfullscreen
+                                >
+                                </iframe>                        
+                            </div>
+                            
+                            <p class="vsebina">
+                        Lorem Ipsum je slepi tekst, ki se uporablja pri razvoju tipografij in pri pripravi za tisk. Lorem Ipsum je v uporabi že več kot                                 petsto let saj je to kombinacijo znakov neznani tiskar združil v vzorčno knjigo že v začetku 16. stoletja. To besedilo pa ni                                     zgolj preživelo pet stoletij, temveč se je z malenkostnimi spremembami uspešno uveljavilo tudi v elektronskem namiznem založništvu. Na                           priljubljenosti je Lorem Ipsum pridobil v sedemdesetih letih prejšnjega stoletja, ko so na trg lansirali Letraset folije z Lorem Ipsum                           odstavki. V zadnjem času se Lorem Ipsum pojavlja tudi v priljubljenih programih za namizno založništvo kot je na primer Aldus PageMaker.
+                            </p>
+                            
+                            <h3>Število mest: 50/2000</h3>
+
+                            <ul class="nav nav-pills">
+                                <input class="btn btn-success env-attend" type="button" value="Potrdi udeležbo!">
+                                <input style="margin-left: 2em;" class="btn btn-warning env-unfollow" type="button" value="Ne sledi">
+                                <a href="event.html" class="btn btn-primary env-more">Več...</a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>   
+                
+            </div>
+            
+<!--    konec naslednje kategorije     -->
         </div>
             
         <!-- Noga strani     -->
