@@ -305,16 +305,20 @@ body {
     padding: 20px;
 }
 
-.env-follow {
-    margin-left: 0.8em;
+.env-attend, 
+.env-cancel {
+    min-width:128px;
+    width: 22%;
 }
 
+.env-follow,
 .env-unfollow {
     margin-left: 0.8em;
+    width: 22%;
 }
-
 .env-more {
     margin-left: 0.8em;
+    width: 22%;
 }
 
 .showMapIcon {
