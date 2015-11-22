@@ -305,6 +305,27 @@ body {
     padding: 20px;
 }
 
+.env-follow {
+    margin-left: 0.8em;
+}
+
+.env-unfollow {
+    margin-left: 0.8em;
+}
+
+.env-more {
+    margin-left: 0.8em;
+}
+
+.showMapIcon {
+    cursor: pointer;
+    float: right;
+}
+
+.googleMapContainer {
+    padding-bottom: 2em;
+}
+
 /* addNewActEvn */
 .ui-spinner {
     width:100%;    
@@ -363,3 +384,6 @@ label[class=error] {
     background-color: #5a7ca7 !important; 
     color:white  !important;
 }
+
+
+    
