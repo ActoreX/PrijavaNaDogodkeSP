@@ -260,15 +260,15 @@ body {
 }
 
 /* Naslovna stran */
-.eventOverview p[evn-status = "DoZacetka"] {
+.eventOverview p[class = "evn-status-DoZacetka"] {
     color:skyblue;
 }
 
-.eventOverview p[evn-status = "VTeku"] {
+.eventOverview p[class = "evn-status-VTeku"] {
     color:green;
 }
 
-.eventOverview p[evn-status = "Koncan"] {
+.eventOverview p[class = "evn-status-Koncan"] {
     color:darkslategray;
 }
 

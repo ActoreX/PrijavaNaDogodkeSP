@@ -27,19 +27,20 @@
         <div class="container-fluid" id="topSearchRow">
             <div style="margin-top:0.8em;" class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                    <di v class="input-group">
+                    <div class="input-group">
                       <input type="text" class="form-control" placeholder="Kaj iščeš danes? (ime dogodka, tip, ključne besede...)">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Go!</button>
                       </span>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div style="padding-top:0.5em; padding-bottom:0.5em;" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="input-group">
-                        <label><input type="checkbox" alt="Test"> Samo novo</label> 
+                        <label><input type="checkbox" checked> Samo novo</label> 
                         <span style="display:inline-block; width:24px;"></span>
-                        <label><input type="checkbox" alt="Test"> V moji bližini</label> 
+                        <label><input type="checkbox"> V moji bližini</label> 
                         <span style="display:inline-block; width:34px;"></span>
                         <select>
                             <option value="Aktivnosti">Aktivnosti</option>
@@ -53,11 +54,11 @@
         </div>
         
        <!--  Meni vrstica      -->
-       <header class="navbar navbar-static-top navbar-eventiqon" id="top" role="banner">
+       <header class="navbar navbar-static-top navbar-eventiqon" id="top">
           <div class="container-fluid">
             
             <div class="navbar-header">      
-                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="bs-navbar" aria-expanded="false">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarItems" aria-expanded="false">
                     <span class="sr-only">Razšiti meni</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -138,17 +139,18 @@
                                     <td><label for="upIme">Uporabniško ime</label></td>
                                     <td><input id="upIme" name="upIme" type="text" placeholder="Vnesite uporabniško ime"></td>
                                 </tr>
+                                <tr>
                                     <td><label for="geslo">Geslo</label></td>
                                     <td><input id="geslo" name="geslo" type="password" placeholder="Vnesite geslo"></td>
                                 </tr>
-                                <tr >
+                                <tr>
                                     <td colspan="2" style="padding-top:0; padding-bottom:0;"><hr></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><input id="prijaviSe" type="button" class="btn btn-info" value="Prijavi se!"></td>
                                 </tr>
                                 <tr>
-                                    <td>Še nimaš računa? <a href="register.html">Registriraj se!</a></td>
+                                    <td colspan="2">Še nimaš računa? <a href="register.html">Registriraj se!</a></td>
                                 </tr>
                             </table>
                         </div>

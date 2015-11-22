@@ -28,19 +28,20 @@
         <div class="container-fluid" id="topSearchRow">
             <div style="margin-top:0.8em;" class="row">
                 <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                    <di v class="input-group">
+                    <div class="input-group">
                       <input type="text" class="form-control" placeholder="Kaj iščeš danes? (ime dogodka, tip, ključne besede...)">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Go!</button>
                       </span>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div style="padding-top:0.5em; padding-bottom:0.5em;" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="input-group">
-                        <label><input type="checkbox" alt="Test"> Samo novo</label> 
+                        <label><input type="checkbox" checked> Samo novo</label> 
                         <span style="display:inline-block; width:24px;"></span>
-                        <label><input type="checkbox" alt="Test"> V moji bližini</label> 
+                        <label><input type="checkbox"> V moji bližini</label> 
                         <span style="display:inline-block; width:34px;"></span>
                         <select>
                             <option value="Aktivnosti">Aktivnosti</option>
@@ -54,11 +55,11 @@
         </div>
         
        <!--  Meni vrstica      -->
-       <header class="navbar navbar-static-top navbar-eventiqon" id="top" role="banner">
+       <header class="navbar navbar-static-top navbar-eventiqon" id="top">
           <div class="container-fluid">
             
             <div class="navbar-header">      
-                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="bs-navbar" aria-expanded="false">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarItems" aria-expanded="false">
                     <span class="sr-only">Razšiti meni</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -120,7 +121,7 @@
               
           </div>
         </header>
-        
+     
             
         <!-- Vsebina         -->
         <div class="container">
@@ -158,17 +159,16 @@
                 <div class="col-md-6">
                     <div class="eventOverview">
                         <div class="content">
-                            <p evn-status="DoZacetka">Do začetka še: 1 dan 23ur 59min</p>
+                            <p class="evn-status-DoZacetka">Do začetka še: 1 dan 23ur 59min</p>
     <!--                        <span evn-status="VTeku">Dogodek poteka, do konca še 1 dan 20ur 10min</span>-->
     <!--                        <span evn-status="Koncan">Dogodek končan</span>-->
-                            <h2>Naziv dogodka <img alt="map1" title="Prikaži mapo" src="../resources/img/maps-icon.png" alt="" class="showMapIcon"></h2> 
+                            <h2>Naziv dogodka <img alt="map1" title="Prikaži mapo" src="../resources/img/maps-icon.png" class="showMapIcon"></h2> 
                             <h4>Lokacija: Ljubljana</h4>
-                            <div id="map1" class="googleMapContainer" hidden="true">
+                            <div id="map1" class="googleMapContainer" hidden>
                                 <iframe src="https://www.google.com/maps/embed?     pb=!1m18!1m12!1m3!1d2769.054178396522!2d14.466841715545893!3d46.050017579112215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ad2ad3f7a8389%3A0x547f8800f76a47ff!2sFakulteta+za+ra%C4%8Dunalni%C5%A1tvo+in+informatiko%2C+Ve%C4%8Dna+pot+113%2C+1000+Ljubljana!5e0!3m2!1ssl!2ssi!4v1447670624686" 
-                                        width="100%"  
-                                        height="480px;"
-                                        frameborder="0" 
-                                        style="border:0" 
+                                        style="width:100%;" 
+                                        height="480"
+                                        frameborder="0"  
                                         allowfullscreen
                                 >
                                 </iframe>                        
@@ -180,11 +180,11 @@
                             
                             <h3>Število mest: 50/2000</h3>
 
-                            <ul class="nav nav-pills">
+                            <div class="nav nav-pills">
                                 <input class="btn btn-success env-attend" type="button" value="Potrdi udeležbo!">
-                                <input style="margin-left: 2em;" class="btn btn-warning env-unfollow" type="button" value="Ne sledi">
+                                <input class="btn btn-warning env-unfollow" type="button" value="Ne sledi">
                                 <a href="event.html" class="btn btn-primary env-more">Več...</a>
-                            </ul>
+                            </div>
                         </div>
                     </div>
                 </div>   
@@ -196,40 +196,37 @@
             <div id="naslednjaVsebina" hidden class="row">
                 <div class="col-md-6">
                     <div class="eventOverview">
-                        <div class="content">
-                            <p evn-status="DoZacetka">Do začetka še: 2 dan 23ur 59min</p>
+                     <div class="content">
+                            <p class="evn-status-DoZacetka">Do začetka še: 1 dan 23ur 59min</p>
     <!--                        <span evn-status="VTeku">Dogodek poteka, do konca še 1 dan 20ur 10min</span>-->
     <!--                        <span evn-status="Koncan">Dogodek končan</span>-->
-                            <h2>Naziv dogodka - next<img alt="map2" title="Prikaži mapo" src="../resources/img/maps-icon.png" alt="" class="showMapIcon"></h2> 
+                            <h2>Naziv dogodka <img alt="map2" title="Prikaži mapo" src="../resources/img/maps-icon.png" class="showMapIcon"></h2> 
                             <h4>Lokacija: Ljubljana</h4>
-                            <div id="map2" class="googleMapContainer" hidden="true">
+                            <div id="map2" class="googleMapContainer" hidden>
                                 <iframe src="https://www.google.com/maps/embed?     pb=!1m18!1m12!1m3!1d2769.054178396522!2d14.466841715545893!3d46.050017579112215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ad2ad3f7a8389%3A0x547f8800f76a47ff!2sFakulteta+za+ra%C4%8Dunalni%C5%A1tvo+in+informatiko%2C+Ve%C4%8Dna+pot+113%2C+1000+Ljubljana!5e0!3m2!1ssl!2ssi!4v1447670624686" 
-                                        width="100%"  
-                                        height="480px;"
-                                        frameborder="0" 
-                                        style="border:0" 
+                                        style="width:100%;" 
+                                        height="480"
+                                        frameborder="0"  
                                         allowfullscreen
                                 >
                                 </iframe>                        
                             </div>
-                            
+
                             <p class="vsebina">
                         Lorem Ipsum je slepi tekst, ki se uporablja pri razvoju tipografij in pri pripravi za tisk. Lorem Ipsum je v uporabi že več kot                                 petsto let saj je to kombinacijo znakov neznani tiskar združil v vzorčno knjigo že v začetku 16. stoletja. To besedilo pa ni                                     zgolj preživelo pet stoletij, temveč se je z malenkostnimi spremembami uspešno uveljavilo tudi v elektronskem namiznem založništvu. Na                           priljubljenosti je Lorem Ipsum pridobil v sedemdesetih letih prejšnjega stoletja, ko so na trg lansirali Letraset folije z Lorem Ipsum                           odstavki. V zadnjem času se Lorem Ipsum pojavlja tudi v priljubljenih programih za namizno založništvo kot je na primer Aldus PageMaker.
                             </p>
-                            
+
                             <h3>Število mest: 50/2000</h3>
 
-                            <ul class="nav nav-pills">
-                                <input class="btn btn-success env-attend" type="button" value="Potrdi udeležbo!">
-                                <input style="margin-left: 2em;" class="btn btn-warning env-unfollow" type="button" value="Ne sledi">
+                            <div class="nav nav-pills">
+                                <input class="btn btn-success env-attend" value="Potrdi udeležbo!">
+                                <input class="btn btn-warning env-unfollow" value="Ne sledi">
                                 <a href="event.html" class="btn btn-primary env-more">Več...</a>
-                            </ul>
+                            </div>
                         </div>
                     </div>
+                    </div>
                 </div>   
-                
-            </div>
-            
 <!--    konec naslednje kategorije     -->
         </div>
             
