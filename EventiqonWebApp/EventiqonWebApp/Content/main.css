@@ -1,0 +1,405 @@
+body {
+    min-width: 476px;
+}
+
+#topHeaderRow {
+    background-image: url("./images/01befb1c.png");
+    background-repeat: repeat-x;
+    min-height: 120px;
+    height: auto;
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 3em; 
+}
+
+#topSearchRow { 
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightskyblue;
+    width:100%;
+    min-height: 60px;   
+}
+
+#topSearchRow label {
+    font-weight: 500;
+}
+
+.navbar-eventiqon {
+    background-color: #5a7ca7;
+    color: white;
+}
+
+.navbar-eventiqon .navbar-brand {
+    float: left;
+    margin: 0.3em 2px -6px 2px;
+}
+
+.navbar-eventiqon a {
+    color: white;
+}
+
+/* Barva črtic, ki sestavljajo toggle gumb pri ožjih zaslonih */
+.navbar-eventiqon .navbar-header .icon-bar  {
+    background-color: white; 
+}
+
+/* Stil izbrane opcije v nav */
+#navbarItems > ul > li.active, 
+#navbarItems > ul > li:hover  
+{
+     border-bottom: 4px solid lightskyblue;
+}
+
+/* Spodnji okvir korenskih opcij */
+#navbarItems > ul > li {
+    border-bottom: 4px solid #5a7ca7; 
+}
+
+/* Barva izbranega podmenija - ki se odpre  */
+#navbarItems > ul > li.dropdown.open > a
+{
+   color: #fff;
+   background-color: #456791;
+   border-color: #fff;     
+}
+
+/* Podmeni */
+#navbarItems .dropdown-menu  {
+    background-color: #5a7ca7;
+}
+
+/* Spodnji okvir */
+#navbarItems .dropdown-menu > li {
+    border-bottom: 2px solid #5a7ca7;  
+}
+
+/* Pisava */
+#navbarItems .dropdown-menu > li > a {
+    color: white;
+}
+
+
+/* Ponastavimo barvno  */
+#navbarItems .dropdown-menu > li.active > a {
+    background-color: #5a7ca7;
+}
+
+/* Ko gremo z miško čez podmeni oz. je podmetni v stanju active */
+#navbarItems .dropdown-menu > li:hover, 
+#navbarItems .dropdown-menu > li.active {
+    border-bottom: 2px solid lightskyblue;
+}
+
+/* Ustrezni izbor barv pri navigaciji ob določenih dogodkih nad povezavo */
+.nav li a:hover,
+.nav li a:focus {
+  text-decoration: none;
+  background-color: #456791;
+}
+
+
+/* Noga strani */
+footer ul {
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer ul > li {
+    display: inline;
+}
+
+/* Scroll spy */
+body {
+    position: relative;
+    height: auto;
+    overflow-y: scroll;
+}
+
+#scrollSpyNavigation .affix {
+  top: 20px;    
+}
+
+#scrollSpyNavigation .active > a {
+    font-weight: bold;
+    border-left-style: solid;
+    border-left-color: #5a7ca7;
+}
+
+#scrollSpyNavigation .nav li .nav {
+    padding-left: 1em;
+    font-size: 90%;
+}
+
+#scrollSpyNavigation a:hover,
+#scrollSpyNavigation a:active {
+    background-color: aliceblue;
+}
+
+/* userPanel */
+.userPanel .panel-footer {
+    background: transparent;
+}
+
+
+/* Aktivnosti  */
+/* Stil heading vsebine  */
+.aktivnost .panel-heading span:nth-child(1) {
+    float:left;
+    margin-left: 1%;    
+}
+
+.aktivnost .panel-heading span:nth-child(3),
+.aktivnost .panel-heading span:nth-child(4)
+{
+    float:right;
+    margin-right: 5%;    
+}
+
+.aktivnost .panel-heading span {
+    float:left;
+    margin-left: 5%;    
+    display: block;
+}
+
+.aktivnost .table-hover tr:nth-child(1):hover,
+.aktivnost .table-hover tr:nth-child(1)
+{
+    background-color: aliceblue;
+}
+
+.aktivnost .table-hover td
+{
+    padding: 1em;
+} 
+
+
+.aktivnost .table-hover,
+.aktivnost .table-hover tr
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightblue;
+}
+.aktivnost .table tr>th {
+    border-top: none;
+}
+
+.ostranjevanje
+{
+    border-top-style: solid;
+    border-top-color: beige;
+    width: 90%;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+
+/* Profil uporabnika in obvestila */
+.inboxList tr:hover {
+    background-color: aliceblue;
+    cursor: pointer;    
+}
+
+.inboxList tr,
+.inboxMail tr
+{
+    text-align: justify;
+    border-style: solid;
+    border-width: 0.1em;    
+    border-color: aliceblue;
+    
+}
+
+.messageContent td {
+    padding: 0.5em 2em 1em 1em !important;  
+}
+
+.inboxList tr[class="active"] > td {
+    background-color: aliceblue !important;
+    font-weight: 600;    
+}   
+
+
+/* Vnosna froma */
+.vnosnaForma table {
+    width: 100%;
+}
+
+.vnosnaForma label {
+    font-style: normal;
+    font-weight: 400;
+}
+
+.vnosnaForma .table input {
+    width: 80%;
+}
+
+.vnosnaForma input[type="button"] {
+    min-width: 140px;
+    width: 24%;
+    font-size: 1.2em;
+    font-weight: 400;
+    
+}
+
+.vnosnaForma .table td,
+.vnosnaForma .table th
+{
+    padding: 1em 0 1em 1em;
+    border-top: none !important;
+    
+}
+
+.vnosnaForma .panel-heading {
+    background-color: azure!important;   
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+/* Naslovna stran */
+.eventOverview p[class = "evn-status-DoZacetka"] {
+    color:skyblue;
+}
+
+.eventOverview p[class = "evn-status-VTeku"] {
+    color:green;
+}
+
+.eventOverview p[class = "evn-status-Koncan"] {
+    color:darkslategray;
+}
+
+.eventOverview .nav {
+    margin-top: 4em;
+}
+
+/* za izbiro dogodkov in aktivnosti (po raznih kategorijah) */
+.nav-pills > li > a:hover, 
+.nav-pills > li > a:focus {    
+    background: rgba(158, 180, 207, 0.3) !important;  
+}
+
+.nav-pills .active {
+    background-color: rgb(23, 58, 99) !important;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;    
+    border-radius: 4px;
+}
+/* Pozicija izpisa statusa in ure dogodka */
+.eventOverview p
+{
+    font-family: fantasy;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.eventOverview .vsebina {
+    font-family: sans-serif;
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+.eventOverview {
+    border-width: 2px;
+    border-color: azure;
+    border-style: solid;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 5px;;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 5px;
+    margin-top: 1em;
+}
+
+.eventOverview > div[class="content"] {
+    padding: 20px;
+}
+
+.env-attend, 
+.env-cancel {
+    min-width:128px;
+    width: 22%;
+}
+
+.env-follow,
+.env-unfollow {
+    margin-left: 0.8em;
+    width: 22%;
+}
+.env-more {
+    margin-left: 0.8em;
+    width: 22%;
+}
+
+.showMapIcon {
+    cursor: pointer;
+    float: right;
+}
+
+.googleMapContainer {
+    padding-bottom: 2em;
+}
+
+/* addNewActEvn */
+.ui-spinner {
+    width:100%;    
+    font-size: 14px !important;
+}
+
+.vnosnaForma .table input[type="radio"] {
+    width: 24px;
+}
+.vnosnaForma input:disabled {
+    cursor: not-allowed;
+    color: lightgrey;
+}
+.postavkaAktEvn input {
+    width: 100%;
+}
+
+.postavkaAktEvn td {
+    padding-bottom: 0.3em;
+    vertical-align: top;
+}
+.postavkaAktEvn textarea {
+    width:100%; 
+    resize:vertical;
+    clear:both;
+    height: 120px;
+}
+.panelNovaAktEvn .panel-footer {
+    background: transparent;
+}
+
+.table th > label {
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+/* Pri validaciji */
+label[class=error] {
+    color: red;
+    font-family: inherit;
+    font-size: 12px;    
+}
+
+/* Uporabniška vrstica (kdo je prijavljen, morebitna povezava do registracija/prijave) */
+#uporabnikInfo {
+    float: right;
+}
+#uporabnikInfo tr:nth-child(1) {
+    font-size: 1.125em;
+    font-style: italic;
+}
+
+/* Koledar (moje udeležbe) */
+.dp-highlight .ui-state-default {
+    background: none !important;
+    background-color: #5a7ca7 !important; 
+    color:white  !important;
+}
+
+
+    

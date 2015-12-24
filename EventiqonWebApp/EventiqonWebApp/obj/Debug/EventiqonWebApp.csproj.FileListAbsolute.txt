@@ -1,0 +1,138 @@
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\csc.exe
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\System.Collections.Immutable.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\vbc.exe
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\VBCSCompiler.exe
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\roslyn\VBCSCompiler.exe.config
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\EventiqonWebApp.dll.config
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\EventiqonWebApp.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\EventiqonWebApp.pdb
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Antlr3.Runtime.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\EntityFramework.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\EntityFramework.SqlServer.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Google.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Web.Infrastructure.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Newtonsoft.Json.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Owin.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Helpers.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Mvc.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Optimization.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Razor.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.Deployment.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.Razor.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\WebGrease.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Helpers.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Mvc.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Optimization.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Razor.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.Deployment.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.Razor.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Antlr3.Runtime.pdb
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Newtonsoft.Json.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\EntityFramework.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\EntityFramework.SqlServer.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Google.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.csprojResolveAssemblyReference.cache
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.dll
+c:\users\čebelica\documents\visual studio 2015\Projects\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.pdb
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\csc.exe
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\vbc.exe
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\VBCSCompiler.exe
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\EventiqonWebApp.dll.config
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\EventiqonWebApp.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\EventiqonWebApp.pdb
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Antlr3.Runtime.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\EntityFramework.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\EntityFramework.SqlServer.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Newtonsoft.Json.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Owin.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Helpers.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Mvc.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Optimization.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Razor.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.Razor.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\WebGrease.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Helpers.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Mvc.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Optimization.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.Razor.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\System.Web.WebPages.Razor.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Antlr3.Runtime.pdb
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Newtonsoft.Json.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\EntityFramework.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\EntityFramework.SqlServer.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.csprojResolveAssemblyReference.cache
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.dll
+C:\Users\Čebelica\Desktop\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.pdb
