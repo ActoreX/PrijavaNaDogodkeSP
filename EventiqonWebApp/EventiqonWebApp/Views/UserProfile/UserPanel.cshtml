@@ -3,5 +3,214 @@
     ViewBag.Title = "UserPanel";
 }
 
-<h2>UserPanel</h2>
+<div class="row">
+    <div class="col-md-3" role="complementary" id="scrollSpyNavigation">
+        <nav data-spy="affix" data-offset-top="300" data-offset-bottom="200" class="hidden-print hidden-xs hidden-sm">
+            <ul class="nav">
+                <li><a href="#osebniPodatki">Osebni podatki</a></li>
+                <li><a href="#naslov">Naslov</a></li>
+                <li><a href="#dodatneNastavitve">Spremeni geslo</a></li>
+                <li><a href="#obnovaRacuna">Možnosti obnove računa</a></li>
+                <li><a href="#izbrisRacuna">Izbris računa</a></li>
 
+            </ul>
+        </nav>
+    </div>
+
+    <div class="col-md-9 userPanel">
+        <!-- Forma za vnos podatkov    -->
+        <div class="panel panel-default vnosnaForma">
+            <div id="osebniPodatki" class="panel-heading">Osebni podatki</div>
+            <form id="formaOsebniPodatki">
+                <div class="panel-body">
+                    <table class="table">
+                        <colgroup>
+                            <col style="width:48%;">
+                            <col style="width:68%">
+                        </colgroup>
+                        <tr>
+                            <th>Uporabniško ime</th>
+                            <td><input disabled id="uporabniskoIme" type="text" value="Superuser"></td>
+                        </tr>
+                        <tr>
+                            <th>Ime</th>
+                            <td><input disabled type="text"></td>
+                        </tr>
+                        <tr>
+                            <th>Priimek</th>
+                            <td><input disabled type="text"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="eposta">E-pošta</label></th>
+                            <td><input id="eposta" name="eposta" type="email"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="datumRojstva">Datum rojstva</label></th>
+                            <td><input id="datumRojstva" name="datumRojstva" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="telSt">Telefon</label></th>
+                            <td><input id="telSt" , name="telSt" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="paypalRacun">Paypal račun</label></th>
+                            <td><input id="paypalRacun" name="paypalRacun" type="email"></td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <div class="panel-footer clearfix">
+                <button id="spremeniOsebnePodatke" class="btn btn-default" style="float:right;">
+                    <img src="@Url.Content("~/Content/images/ok-icon.png")"> Potrdi
+                </button>
+            </div>
+        </div>
+        <!-- konec forme za urejanje osebnih podatkov   -->
+        <!-- Forma za vnos podatkov    -->
+        <div id="naslov" class="panel panel-default vnosnaForma">
+            <div class="panel-heading">Naslov</div>
+            <form id="formaNaslova">
+                <div class="panel-body">
+                    <table class="table">
+                        <colgroup>
+                            <col style="width:48%;">
+                            <col style="width:68%">
+                        </colgroup>
+                        <tr>
+                            <th><label for="ulica">Ulica</label></th>
+                            <td><input id="ulica" name="ulica" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="hisnaStevilka">Hišna številka</label></th>
+                            <td><input id="hisnaStevilka" name="hisnaStevilka" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="postnaStevilka">Poštna številka</label></th>
+                            <td><input id="postnaStevilka" name="postnaStevilka" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="kraj">Kraj</label></th>
+                            <td><input id="kraj" name="kraj" type="text"></td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <div class="panel-footer clearfix">
+                <button id="potrdiFormoNaslova" class="btn btn-default" style="float:right;">
+                    <img src="@Url.Content("~/Content/images/ok-icon.png")"> Potrdi
+                </button>
+            </div>
+        </div>
+        <!-- konec forme za urejanje osebnih podatkov   -->
+        <!-- Forma za vnos podatkov    -->
+        <div class="panel panel-default vnosnaForma">
+            <div id="dodatneNastavitve" class="panel-heading">Spremeni geslo</div>
+            <form id="formaSpremeniGeslo">
+                <div class="panel-body">
+                    <table class="table">
+                        <colgroup>
+                            <col style="width:48%;">
+                            <col style="width:68%">
+                        </colgroup>
+                        <tr>
+                            <th><label for="staroGeslo">Staro geslo</label></th>
+                            <td><input id="staroGeslo" name="staroGeslo" type="password"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="novoGeslo">Novo geslo</label></th>
+                            <td><input id="novoGeslo" name="novoGeslo" type="password"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="ponovniVnosGesla">Ponovni vnos</label></th>
+                            <td><input id="ponovniVnosGesla" name="ponovniVnosGesla" type="password"></td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <div class="panel-footer clearfix">
+                <button id="potrdiSprememboGesla" class="btn btn-default" style="float:right;">
+                    <img src="@Url.Content("~/Content/images/ok-icon.png")"> Potrdi
+                </button>
+            </div>
+        </div>
+        <!-- konec forme za urejanje osebnih podatkov   -->
+        <!-- Forma za vnos podatkov    -->
+        <div class="panel panel-default vnosnaForma">
+            <div id="obnovaRacuna" class="panel-heading">Možnosti obnove računa</div>
+            <form id="formaObnoveRacuna">
+                <div class="panel-body">
+                    <table class="table">
+                        <colgroup>
+                            <col style="width:48%;">
+                            <col style="width:68%">
+                        </colgroup>
+                        <tr>
+                            <th><label for="pomozniEmail">Pomožni e-naslov</label></th>
+                            <td><input id="pomozniEmail" name="pomozniEmail" type="email"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="ponovniVnosPomoznegaEmaila">Ponovni vnos e-naslova</label></th>
+                            <td><input id="ponovniVnosPomoznegaEmaila" name="ponovniVnosPomoznegaEmaila" type="email"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="telStZaObnovitev">Telefonska številka za obnovitev</label></th>
+                            <td><input id="telStZaObnovitev" name="telStZaObnovitev" type="text"></td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <div class="panel-footer clearfix">
+                <button id="potrdiFormoObnoveRacuna" class="btn btn-default" style="float:right;">
+                    <img src="@Url.Content("~/Content/images/ok-icon.png")"> Potrdi
+                </button>
+            </div>
+        </div>
+        <!-- konec forme za urejanje osebnih podatkov   -->
+        <!-- Forma za vnos podatkov    -->
+        <div class="panel panel-default vnosnaForma">
+            <div id="izbrisRacuna" class="panel-heading">Izbris računa</div>
+            <form id="formaIzbrisRacuna">
+                <div class="panel-body">
+                    <table class="table">
+                        <colgroup>
+                            <col style="width:48%;">
+                            <col style="width:68%">
+                        </colgroup>
+                        <tr>
+                            <th><label for="izbrisUpIme">Vnesite uporabniško ime</label></th>
+                            <td><input id="izbrisUpIme" name="izbrisUpIme" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="izbrisGeslo">Vnesite geslo</label></th>
+                            <td><input id="izbrisGeslo" name="izbrisGeslo" type="password"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="izbrisRazlog">Razlog</label></th>
+                            <td><input id="izbrisRazlog" name="izbrisRazlog" type="text"></td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <div class="panel-footer clearfix">
+                <button id="potrdiIzbrisRacuna" class="btn btn-default" style="float:right;">
+                    <img src="@Url.Content("~/Content/images/ok-icon.png")"> Potrdi
+                </button>
+            </div>
+        </div>
+        <!-- konec forme za urejanje osebnih podatkov   -->
+        <br><br><br><br><br>
+    </div>
+
+</div>
+
+
+
+@section scripts 
+{ 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('body').scrollspy({ target: '#scrollSpyNavigation' })
+        });
+    </script>
+    
+}
