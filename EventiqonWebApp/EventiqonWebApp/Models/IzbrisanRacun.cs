@@ -14,18 +14,10 @@ namespace EventiqonWebApp.Models
     
     public partial class IzbrisanRacun
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public IzbrisanRacun()
-        {
-            this.Uporabnik1 = new HashSet<Uporabnik>();
-        }
-    
         public string uprabniskoIme { get; set; }
         public string razlog { get; set; }
         public System.DateTime datum { get; set; }
     
         public virtual Uporabnik Uporabnik { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Uporabnik> Uporabnik1 { get; set; }
     }
 }

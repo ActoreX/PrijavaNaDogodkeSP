@@ -18,6 +18,7 @@ namespace EventiqonWebApp.Models
         public int idAktivnost { get; set; }
         public int idSeznamAktivnosti { get; set; }
         public string statusUdelezbe { get; set; }
+        public Nullable<decimal> cena { get; set; }
     
         public virtual Aktivnost Aktivnost { get; set; }
         public virtual Uporabnik Uporabnik { get; set; }

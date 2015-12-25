@@ -15,10 +15,11 @@ namespace EventiqonWebApp.Models
     public partial class SeznamDogodkov
     {
         public string uprabniskoIme { get; set; }
-        public int id2 { get; set; }
+        public int idDogodek { get; set; }
         public int idSeznamDogodkov { get; set; }
         public string statusUdelezbe { get; set; }
         public int steviloVstopnic { get; set; }
+        public Nullable<decimal> cena { get; set; }
     
         public virtual Dogodek Dogodek { get; set; }
         public virtual Uporabnik Uporabnik { get; set; }

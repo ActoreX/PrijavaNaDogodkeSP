@@ -12,15 +12,11 @@ namespace EventiqonWebApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PostavkaDogodka
+    public partial class PotrditvenaKoda
     {
-        public int idDogodek { get; set; }
-        public int idPostavkaDogodka { get; set; }
-        public string naziv { get; set; }
-        public string casovniOpisKdaj { get; set; }
-        public string opisCasaTrajanja { get; set; }
-        public string polniOpis { get; set; }
-    
-        public virtual Dogodek Dogodek { get; set; }
+        public string uporabniskoIme { get; set; }
+        public string koda { get; set; }
+        public System.DateTime datumVnosa { get; set; }
+        public System.DateTime datumPoteka { get; set; }
     }
 }

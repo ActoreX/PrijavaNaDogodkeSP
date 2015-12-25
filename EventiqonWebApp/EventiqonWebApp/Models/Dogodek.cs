@@ -21,7 +21,7 @@ namespace EventiqonWebApp.Models
             this.SeznamDogodkov = new HashSet<SeznamDogodkov>();
         }
     
-        public int id2 { get; set; }
+        public int idDogodek { get; set; }
         public string kraticaDrzave { get; set; }
         public int idKraj { get; set; }
         public Nullable<int> omejitevMest { get; set; }
@@ -32,6 +32,7 @@ namespace EventiqonWebApp.Models
         public double longitude { get; set; }
         public string nazivLokacije { get; set; }
         public string opis { get; set; }
+        public decimal cena { get; set; }
     
         public virtual Drzava Drzava { get; set; }
         public virtual Kraj Kraj { get; set; }

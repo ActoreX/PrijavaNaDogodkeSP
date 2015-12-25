@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -178,8 +180,62 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Aktivnost.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dogodek.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Drzava.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventiqonDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventiqonDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventiqonDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventiqonDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventiqonDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IzbrisanRacun.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Kraj.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Naslov.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Obvestilo.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PostavkaAktivnosti.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PostavkaDogodka.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PotrditvenaKoda.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SeznamAktivnosti.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SeznamDogodkov.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Uporabnik.cs">
+      <DependentUpon>EventiqonDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -210,10 +266,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\EventiqonDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EventiqonDB.edmx</DependentUpon>
+      <LastGenOutput>EventiqonDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EventiqonDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EventiqonDB.edmx</DependentUpon>
+      <LastGenOutput>EventiqonDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\images\imagesource.md" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <EntityDeploy Include="Models\EventiqonDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EventiqonDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EventiqonDB.edmx.diagram">
+      <DependentUpon>EventiqonDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -287,6 +360,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

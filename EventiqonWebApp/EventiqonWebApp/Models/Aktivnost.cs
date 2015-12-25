@@ -33,6 +33,7 @@ namespace EventiqonWebApp.Models
         public double longitude { get; set; }
         public string nazivLokacije { get; set; }
         public string opis { get; set; }
+        public decimal cena { get; set; }
     
         public virtual Drzava Drzava { get; set; }
         public virtual Kraj Kraj { get; set; }

@@ -21,12 +21,13 @@
           <Property Name="longitude" Type="float" Nullable="false" />
           <Property Name="nazivLokacije" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="opis" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="cena" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="Dogodek">
           <Key>
-            <PropertyRef Name="id2" />
+            <PropertyRef Name="idDogodek" />
           </Key>
-          <Property Name="id2" Type="int" Nullable="false" />
+          <Property Name="idDogodek" Type="int" Nullable="false" />
           <Property Name="kraticaDrzave" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="idKraj" Type="int" Nullable="false" />
           <Property Name="omejitevMest" Type="int" />
@@ -37,6 +38,7 @@
           <Property Name="longitude" Type="float" Nullable="false" />
           <Property Name="nazivLokacije" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="opis" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="cena" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="Drzava">
           <Key>
@@ -95,15 +97,24 @@
         </EntityType>
         <EntityType Name="PostavkaDogodka">
           <Key>
-            <PropertyRef Name="id2" />
+            <PropertyRef Name="idDogodek" />
             <PropertyRef Name="idPostavkaDogodka" />
           </Key>
-          <Property Name="id2" Type="int" Nullable="false" />
+          <Property Name="idDogodek" Type="int" Nullable="false" />
           <Property Name="idPostavkaDogodka" Type="int" Nullable="false" />
           <Property Name="naziv" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="casovniOpisKdaj" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="opisCasaTrajanja" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="polniOpis" Type="varchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PotrditvenaKoda">
+          <Key>
+            <PropertyRef Name="uporabniskoIme" />
+          </Key>
+          <Property Name="uporabniskoIme" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="koda" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="datumVnosa" Type="datetime" Nullable="false" />
+          <Property Name="datumPoteka" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="SeznamAktivnosti">
           <Key>
@@ -115,18 +126,20 @@
           <Property Name="idAktivnost" Type="int" Nullable="false" />
           <Property Name="idSeznamAktivnosti" Type="int" Nullable="false" />
           <Property Name="statusUdelezbe" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="cena" Type="money" />
         </EntityType>
         <EntityType Name="SeznamDogodkov">
           <Key>
             <PropertyRef Name="uprabniskoIme" />
-            <PropertyRef Name="id2" />
+            <PropertyRef Name="idDogodek" />
             <PropertyRef Name="idSeznamDogodkov" />
           </Key>
           <Property Name="uprabniskoIme" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="id2" Type="int" Nullable="false" />
+          <Property Name="idDogodek" Type="int" Nullable="false" />
           <Property Name="idSeznamDogodkov" Type="int" Nullable="false" />
           <Property Name="statusUdelezbe" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="steviloVstopnic" Type="int" Nullable="false" />
+          <Property Name="cena" Type="money" />
         </EntityType>
         <EntityType Name="Uporabnik">
           <Key>
@@ -134,7 +147,6 @@
           </Key>
           <Property Name="uprabniskoIme" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="idNaslov" Type="int" Nullable="false" />
-          <Property Name="Izb_uprabniskoIme" Type="varchar" MaxLength="100" />
           <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Ime" Type="varchar" MaxLength="50" />
           <Property Name="Priimek" Type="varchar" MaxLength="90" />
@@ -143,6 +155,7 @@
           <Property Name="geslo" Type="varchar" MaxLength="512" Nullable="false" />
           <Property Name="telefon" Type="varchar" MaxLength="20" />
           <Property Name="paypalRacun" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK_AKTIVNOS_AKTIVNOST_DRZAVA">
           <End Role="Drzava" Type="Self.Drzava" Multiplicity="1" />
@@ -257,10 +270,10 @@
           <End Role="PostavkaDogodka" Type="Self.PostavkaDogodka" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dogodek">
-              <PropertyRef Name="id2" />
+              <PropertyRef Name="idDogodek" />
             </Principal>
             <Dependent Role="PostavkaDogodka">
-              <PropertyRef Name="id2" />
+              <PropertyRef Name="idDogodek" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -293,10 +306,10 @@
           <End Role="SeznamDogodkov" Type="Self.SeznamDogodkov" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dogodek">
-              <PropertyRef Name="id2" />
+              <PropertyRef Name="idDogodek" />
             </Principal>
             <Dependent Role="SeznamDogodkov">
-              <PropertyRef Name="id2" />
+              <PropertyRef Name="idDogodek" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -324,18 +337,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UPORABNI_UPORABNIK_IZBRISAN">
-          <End Role="IzbrisanRacun" Type="Self.IzbrisanRacun" Multiplicity="0..1" />
-          <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="IzbrisanRacun">
-              <PropertyRef Name="uprabniskoIme" />
-            </Principal>
-            <Dependent Role="Uporabnik">
-              <PropertyRef Name="Izb_uprabniskoIme" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="EventiqonModelStoreContainer">
           <EntitySet Name="Aktivnost" EntityType="Self.Aktivnost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dogodek" EntityType="Self.Dogodek" Schema="dbo" store:Type="Tables" />
@@ -346,6 +347,7 @@
           <EntitySet Name="Obvestilo" EntityType="Self.Obvestilo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PostavkaAktivnosti" EntityType="Self.PostavkaAktivnosti" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PostavkaDogodka" EntityType="Self.PostavkaDogodka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PotrditvenaKoda" EntityType="Self.PotrditvenaKoda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SeznamAktivnosti" EntityType="Self.SeznamAktivnosti" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SeznamDogodkov" EntityType="Self.SeznamDogodkov" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Uporabnik" EntityType="Self.Uporabnik" Schema="dbo" store:Type="Tables" />
@@ -409,10 +411,6 @@
             <End Role="Naslov" EntitySet="Naslov" />
             <End Role="Uporabnik" EntitySet="Uporabnik" />
           </AssociationSet>
-          <AssociationSet Name="FK_UPORABNI_UPORABNIK_IZBRISAN" Association="Self.FK_UPORABNI_UPORABNIK_IZBRISAN">
-            <End Role="IzbrisanRacun" EntitySet="IzbrisanRacun" />
-            <End Role="Uporabnik" EntitySet="Uporabnik" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -435,6 +433,7 @@
           <Property Name="longitude" Type="Double" Nullable="false" />
           <Property Name="nazivLokacije" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="opis" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cena" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="Drzava" Relationship="Self.FK_AKTIVNOS_AKTIVNOST_DRZAVA" FromRole="Aktivnost" ToRole="Drzava" />
           <NavigationProperty Name="Kraj" Relationship="Self.FK_AKTIVNOS_AKTIVNOST_KRAJ" FromRole="Aktivnost" ToRole="Kraj" />
           <NavigationProperty Name="PostavkaAktivnosti" Relationship="Self.FK_POSTAVKA_AKTIVNOST_AKTIVNOS" FromRole="Aktivnost" ToRole="PostavkaAktivnosti" />
@@ -442,9 +441,9 @@
         </EntityType>
         <EntityType Name="Dogodek">
           <Key>
-            <PropertyRef Name="id2" />
+            <PropertyRef Name="idDogodek" />
           </Key>
-          <Property Name="id2" Type="Int32" Nullable="false" />
+          <Property Name="idDogodek" Type="Int32" Nullable="false" />
           <Property Name="kraticaDrzave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idKraj" Type="Int32" Nullable="false" />
           <Property Name="omejitevMest" Type="Int32" />
@@ -455,6 +454,7 @@
           <Property Name="longitude" Type="Double" Nullable="false" />
           <Property Name="nazivLokacije" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="opis" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cena" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="Drzava" Relationship="Self.FK_DOGODEK_DOGODEK_V_DRZAVA" FromRole="Dogodek" ToRole="Drzava" />
           <NavigationProperty Name="Kraj" Relationship="Self.FK_DOGODEK_DOGODEK_V_KRAJ" FromRole="Dogodek" ToRole="Kraj" />
           <NavigationProperty Name="PostavkaDogodka" Relationship="Self.FK_POSTAVKA_DOGODEK_I_DOGODEK" FromRole="Dogodek" ToRole="PostavkaDogodka" />
@@ -478,7 +478,6 @@
           <Property Name="razlog" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Uporabnik" Relationship="Self.FK_IZBRISAN_UPORABNIK_UPORABNI" FromRole="IzbrisanRacun" ToRole="Uporabnik" />
-          <NavigationProperty Name="Uporabnik1" Relationship="Self.FK_UPORABNI_UPORABNIK_IZBRISAN" FromRole="IzbrisanRacun" ToRole="Uporabnik" />
         </EntityType>
         <EntityType Name="Kraj">
           <Key>
@@ -530,16 +529,25 @@
         </EntityType>
         <EntityType Name="PostavkaDogodka">
           <Key>
-            <PropertyRef Name="id2" />
+            <PropertyRef Name="idDogodek" />
             <PropertyRef Name="idPostavkaDogodka" />
           </Key>
-          <Property Name="id2" Type="Int32" Nullable="false" />
+          <Property Name="idDogodek" Type="Int32" Nullable="false" />
           <Property Name="idPostavkaDogodka" Type="Int32" Nullable="false" />
           <Property Name="naziv" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="casovniOpisKdaj" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="opisCasaTrajanja" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="polniOpis" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Dogodek" Relationship="Self.FK_POSTAVKA_DOGODEK_I_DOGODEK" FromRole="PostavkaDogodka" ToRole="Dogodek" />
+        </EntityType>
+        <EntityType Name="PotrditvenaKoda">
+          <Key>
+            <PropertyRef Name="uporabniskoIme" />
+          </Key>
+          <Property Name="uporabniskoIme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="koda" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datumVnosa" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="datumPoteka" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="SeznamAktivnosti">
           <Key>
@@ -551,20 +559,22 @@
           <Property Name="idAktivnost" Type="Int32" Nullable="false" />
           <Property Name="idSeznamAktivnosti" Type="Int32" Nullable="false" />
           <Property Name="statusUdelezbe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cena" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Aktivnost" Relationship="Self.FK_SEZNAMAK_AKTIVNOST_AKTIVNOS" FromRole="SeznamAktivnosti" ToRole="Aktivnost" />
           <NavigationProperty Name="Uporabnik" Relationship="Self.FK_SEZNAMAK_UPORABNIK_UPORABNI" FromRole="SeznamAktivnosti" ToRole="Uporabnik" />
         </EntityType>
         <EntityType Name="SeznamDogodkov">
           <Key>
             <PropertyRef Name="uprabniskoIme" />
-            <PropertyRef Name="id2" />
+            <PropertyRef Name="idDogodek" />
             <PropertyRef Name="idSeznamDogodkov" />
           </Key>
           <Property Name="uprabniskoIme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="id2" Type="Int32" Nullable="false" />
+          <Property Name="idDogodek" Type="Int32" Nullable="false" />
           <Property Name="idSeznamDogodkov" Type="Int32" Nullable="false" />
           <Property Name="statusUdelezbe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="steviloVstopnic" Type="Int32" Nullable="false" />
+          <Property Name="cena" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Dogodek" Relationship="Self.FK_SEZNAMDO_DOGODEK_I_DOGODEK" FromRole="SeznamDogodkov" ToRole="Dogodek" />
           <NavigationProperty Name="Uporabnik" Relationship="Self.FK_SEZNAMDO_UPORABNIK_UPORABNI" FromRole="SeznamDogodkov" ToRole="Uporabnik" />
         </EntityType>
@@ -574,7 +584,6 @@
           </Key>
           <Property Name="uprabniskoIme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idNaslov" Type="Int32" Nullable="false" />
-          <Property Name="Izb_uprabniskoIme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Priimek" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
@@ -583,8 +592,8 @@
           <Property Name="geslo" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="paypalRacun" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="IzbrisanRacun" Relationship="Self.FK_IZBRISAN_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="IzbrisanRacun" />
-          <NavigationProperty Name="IzbrisanRacun1" Relationship="Self.FK_UPORABNI_UPORABNIK_IZBRISAN" FromRole="Uporabnik" ToRole="IzbrisanRacun" />
           <NavigationProperty Name="Naslov" Relationship="Self.FK_UPORABNI_PREBIVALI_NASLOV" FromRole="Uporabnik" ToRole="Naslov" />
           <NavigationProperty Name="Obvestilo" Relationship="Self.FK_OBVESTIL_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="Obvestilo" />
           <NavigationProperty Name="SeznamAktivnosti" Relationship="Self.FK_SEZNAMAK_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="SeznamAktivnosti" />
@@ -667,10 +676,10 @@
           <End Role="PostavkaDogodka" Type="Self.PostavkaDogodka" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dogodek">
-              <PropertyRef Name="id2" />
+              <PropertyRef Name="idDogodek" />
             </Principal>
             <Dependent Role="PostavkaDogodka">
-              <PropertyRef Name="id2" />
+              <PropertyRef Name="idDogodek" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -679,10 +688,10 @@
           <End Role="SeznamDogodkov" Type="Self.SeznamDogodkov" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dogodek">
-              <PropertyRef Name="id2" />
+              <PropertyRef Name="idDogodek" />
             </Principal>
             <Dependent Role="SeznamDogodkov">
-              <PropertyRef Name="id2" />
+              <PropertyRef Name="idDogodek" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -707,18 +716,6 @@
             </Principal>
             <Dependent Role="IzbrisanRacun">
               <PropertyRef Name="uprabniskoIme" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UPORABNI_UPORABNIK_IZBRISAN">
-          <End Role="IzbrisanRacun" Type="Self.IzbrisanRacun" Multiplicity="0..1" />
-          <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="IzbrisanRacun">
-              <PropertyRef Name="uprabniskoIme" />
-            </Principal>
-            <Dependent Role="Uporabnik">
-              <PropertyRef Name="Izb_uprabniskoIme" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -792,6 +789,7 @@
           <EntitySet Name="Obvestilo" EntityType="Self.Obvestilo" />
           <EntitySet Name="PostavkaAktivnosti" EntityType="Self.PostavkaAktivnosti" />
           <EntitySet Name="PostavkaDogodka" EntityType="Self.PostavkaDogodka" />
+          <EntitySet Name="PotrditvenaKoda" EntityType="Self.PotrditvenaKoda" />
           <EntitySet Name="SeznamAktivnosti" EntityType="Self.SeznamAktivnosti" />
           <EntitySet Name="SeznamDogodkov" EntityType="Self.SeznamDogodkov" />
           <EntitySet Name="Uporabnik" EntityType="Self.Uporabnik" />
@@ -835,10 +833,6 @@
             <End Role="Uporabnik" EntitySet="Uporabnik" />
             <End Role="IzbrisanRacun" EntitySet="IzbrisanRacun" />
           </AssociationSet>
-          <AssociationSet Name="FK_UPORABNI_UPORABNIK_IZBRISAN" Association="Self.FK_UPORABNI_UPORABNIK_IZBRISAN">
-            <End Role="IzbrisanRacun" EntitySet="IzbrisanRacun" />
-            <End Role="Uporabnik" EntitySet="Uporabnik" />
-          </AssociationSet>
           <AssociationSet Name="FK_NASLOV_NASLOV_IM_KRAJ" Association="Self.FK_NASLOV_NASLOV_IM_KRAJ">
             <End Role="Kraj" EntitySet="Kraj" />
             <End Role="Naslov" EntitySet="Naslov" />
@@ -881,13 +875,14 @@
                 <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="nazivLokacije" ColumnName="nazivLokacije" />
                 <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="cena" ColumnName="cena" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dogodek">
             <EntityTypeMapping TypeName="EventiqonModel.Dogodek">
               <MappingFragment StoreEntitySet="Dogodek">
-                <ScalarProperty Name="id2" ColumnName="id2" />
+                <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
                 <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
                 <ScalarProperty Name="idKraj" ColumnName="idKraj" />
                 <ScalarProperty Name="omejitevMest" ColumnName="omejitevMest" />
@@ -898,6 +893,7 @@
                 <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="nazivLokacije" ColumnName="nazivLokacije" />
                 <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="cena" ColumnName="cena" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -963,12 +959,22 @@
           <EntitySetMapping Name="PostavkaDogodka">
             <EntityTypeMapping TypeName="EventiqonModel.PostavkaDogodka">
               <MappingFragment StoreEntitySet="PostavkaDogodka">
-                <ScalarProperty Name="id2" ColumnName="id2" />
+                <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
                 <ScalarProperty Name="idPostavkaDogodka" ColumnName="idPostavkaDogodka" />
                 <ScalarProperty Name="naziv" ColumnName="naziv" />
                 <ScalarProperty Name="casovniOpisKdaj" ColumnName="casovniOpisKdaj" />
                 <ScalarProperty Name="opisCasaTrajanja" ColumnName="opisCasaTrajanja" />
                 <ScalarProperty Name="polniOpis" ColumnName="polniOpis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PotrditvenaKoda">
+            <EntityTypeMapping TypeName="EventiqonModel.PotrditvenaKoda">
+              <MappingFragment StoreEntitySet="PotrditvenaKoda">
+                <ScalarProperty Name="uporabniskoIme" ColumnName="uporabniskoIme" />
+                <ScalarProperty Name="koda" ColumnName="koda" />
+                <ScalarProperty Name="datumVnosa" ColumnName="datumVnosa" />
+                <ScalarProperty Name="datumPoteka" ColumnName="datumPoteka" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -979,6 +985,7 @@
                 <ScalarProperty Name="idAktivnost" ColumnName="idAktivnost" />
                 <ScalarProperty Name="idSeznamAktivnosti" ColumnName="idSeznamAktivnosti" />
                 <ScalarProperty Name="statusUdelezbe" ColumnName="statusUdelezbe" />
+                <ScalarProperty Name="cena" ColumnName="cena" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -986,10 +993,11 @@
             <EntityTypeMapping TypeName="EventiqonModel.SeznamDogodkov">
               <MappingFragment StoreEntitySet="SeznamDogodkov">
                 <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
-                <ScalarProperty Name="id2" ColumnName="id2" />
+                <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
                 <ScalarProperty Name="idSeznamDogodkov" ColumnName="idSeznamDogodkov" />
                 <ScalarProperty Name="statusUdelezbe" ColumnName="statusUdelezbe" />
                 <ScalarProperty Name="steviloVstopnic" ColumnName="steviloVstopnic" />
+                <ScalarProperty Name="cena" ColumnName="cena" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -998,7 +1006,6 @@
               <MappingFragment StoreEntitySet="Uporabnik">
                 <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
                 <ScalarProperty Name="idNaslov" ColumnName="idNaslov" />
-                <ScalarProperty Name="Izb_uprabniskoIme" ColumnName="Izb_uprabniskoIme" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="Ime" ColumnName="Ime" />
                 <ScalarProperty Name="Priimek" ColumnName="Priimek" />
@@ -1007,6 +1014,7 @@
                 <ScalarProperty Name="geslo" ColumnName="geslo" />
                 <ScalarProperty Name="telefon" ColumnName="telefon" />
                 <ScalarProperty Name="paypalRacun" ColumnName="paypalRacun" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EventiqonModelStoreContainer" CdmEntityContainer="EventiqonEntities">
+    <EntitySetMapping Name="Aktivnost">
+      <EntityTypeMapping TypeName="EventiqonModel.Aktivnost">
+        <MappingFragment StoreEntitySet="Aktivnost">
+          <ScalarProperty Name="idAktivnost" ColumnName="idAktivnost" />
+          <ScalarProperty Name="idKraj" ColumnName="idKraj" />
+          <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
+          <ScalarProperty Name="omejitevMest" ColumnName="omejitevMest" />
+          <ScalarProperty Name="datumVnosa" ColumnName="datumVnosa" />
+          <ScalarProperty Name="datumOd" ColumnName="datumOd" />
+          <ScalarProperty Name="datumDo" ColumnName="datumDo" />
+          <ScalarProperty Name="jeEnkratna" ColumnName="jeEnkratna" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="nazivLokacije" ColumnName="nazivLokacije" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dogodek">
+      <EntityTypeMapping TypeName="EventiqonModel.Dogodek">
+        <MappingFragment StoreEntitySet="Dogodek">
+          <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
+          <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
+          <ScalarProperty Name="idKraj" ColumnName="idKraj" />
+          <ScalarProperty Name="omejitevMest" ColumnName="omejitevMest" />
+          <ScalarProperty Name="datumVnosa" ColumnName="datumVnosa" />
+          <ScalarProperty Name="datumOd" ColumnName="datumOd" />
+          <ScalarProperty Name="datumDo" ColumnName="datumDo" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="nazivLokacije" ColumnName="nazivLokacije" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drzava">
+      <EntityTypeMapping TypeName="EventiqonModel.Drzava">
+        <MappingFragment StoreEntitySet="Drzava">
+          <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
+          <ScalarProperty Name="imeDrzave" ColumnName="imeDrzave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IzbrisanRacun">
+      <EntityTypeMapping TypeName="EventiqonModel.IzbrisanRacun">
+        <MappingFragment StoreEntitySet="IzbrisanRacun">
+          <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
+          <ScalarProperty Name="razlog" ColumnName="razlog" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kraj">
+      <EntityTypeMapping TypeName="EventiqonModel.Kraj">
+        <MappingFragment StoreEntitySet="Kraj">
+          <ScalarProperty Name="idKraj" ColumnName="idKraj" />
+          <ScalarProperty Name="nazivKraja" ColumnName="nazivKraja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Naslov">
+      <EntityTypeMapping TypeName="EventiqonModel.Naslov">
+        <MappingFragment StoreEntitySet="Naslov">
+          <ScalarProperty Name="idNaslov" ColumnName="idNaslov" />
+          <ScalarProperty Name="idKraj" ColumnName="idKraj" />
+          <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
+          <ScalarProperty Name="hisnaStevilka" ColumnName="hisnaStevilka" />
+          <ScalarProperty Name="ulica" ColumnName="ulica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Obvestilo">
+      <EntityTypeMapping TypeName="EventiqonModel.Obvestilo">
+        <MappingFragment StoreEntitySet="Obvestilo">
+          <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
+          <ScalarProperty Name="idObvestilo" ColumnName="idObvestilo" />
+          <ScalarProperty Name="tema" ColumnName="tema" />
+          <ScalarProperty Name="sporocilo" ColumnName="sporocilo" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostavkaAktivnosti">
+      <EntityTypeMapping TypeName="EventiqonModel.PostavkaAktivnosti">
+        <MappingFragment StoreEntitySet="PostavkaAktivnosti">
+          <ScalarProperty Name="idAktivnost" ColumnName="idAktivnost" />
+          <ScalarProperty Name="idPostavkaAktivnosti" ColumnName="idPostavkaAktivnosti" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
+          <ScalarProperty Name="casovniOpisKdaj" ColumnName="casovniOpisKdaj" />
+          <ScalarProperty Name="opisCasaTrajanja" ColumnName="opisCasaTrajanja" />
+          <ScalarProperty Name="polniOpis" ColumnName="polniOpis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostavkaDogodka">
+      <EntityTypeMapping TypeName="EventiqonModel.PostavkaDogodka">
+        <MappingFragment StoreEntitySet="PostavkaDogodka">
+          <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
+          <ScalarProperty Name="idPostavkaDogodka" ColumnName="idPostavkaDogodka" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
+          <ScalarProperty Name="casovniOpisKdaj" ColumnName="casovniOpisKdaj" />
+          <ScalarProperty Name="opisCasaTrajanja" ColumnName="opisCasaTrajanja" />
+          <ScalarProperty Name="polniOpis" ColumnName="polniOpis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PotrditvenaKoda">
+      <EntityTypeMapping TypeName="EventiqonModel.PotrditvenaKoda">
+        <MappingFragment StoreEntitySet="PotrditvenaKoda">
+          <ScalarProperty Name="uporabniskoIme" ColumnName="uporabniskoIme" />
+          <ScalarProperty Name="koda" ColumnName="koda" />
+          <ScalarProperty Name="datumVnosa" ColumnName="datumVnosa" />
+          <ScalarProperty Name="datumPoteka" ColumnName="datumPoteka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SeznamAktivnosti">
+      <EntityTypeMapping TypeName="EventiqonModel.SeznamAktivnosti">
+        <MappingFragment StoreEntitySet="SeznamAktivnosti">
+          <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
+          <ScalarProperty Name="idAktivnost" ColumnName="idAktivnost" />
+          <ScalarProperty Name="idSeznamAktivnosti" ColumnName="idSeznamAktivnosti" />
+          <ScalarProperty Name="statusUdelezbe" ColumnName="statusUdelezbe" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SeznamDogodkov">
+      <EntityTypeMapping TypeName="EventiqonModel.SeznamDogodkov">
+        <MappingFragment StoreEntitySet="SeznamDogodkov">
+          <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
+          <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
+          <ScalarProperty Name="idSeznamDogodkov" ColumnName="idSeznamDogodkov" />
+          <ScalarProperty Name="statusUdelezbe" ColumnName="statusUdelezbe" />
+          <ScalarProperty Name="steviloVstopnic" ColumnName="steviloVstopnic" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uporabnik">
+      <EntityTypeMapping TypeName="EventiqonModel.Uporabnik">
+        <MappingFragment StoreEntitySet="Uporabnik">
+          <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
+          <ScalarProperty Name="idNaslov" ColumnName="idNaslov" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Priimek" ColumnName="Priimek" />
+          <ScalarProperty Name="recoveryEmail" ColumnName="recoveryEmail" />
+          <ScalarProperty Name="datumRojstva" ColumnName="datumRojstva" />
+          <ScalarProperty Name="geslo" ColumnName="geslo" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="paypalRacun" ColumnName="paypalRacun" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

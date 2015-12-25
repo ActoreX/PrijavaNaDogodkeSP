@@ -24,7 +24,6 @@ namespace EventiqonWebApp.Models
     
         public string uprabniskoIme { get; set; }
         public int idNaslov { get; set; }
-        public string Izb_uprabniskoIme { get; set; }
         public string email { get; set; }
         public string Ime { get; set; }
         public string Priimek { get; set; }
@@ -33,9 +32,9 @@ namespace EventiqonWebApp.Models
         public string geslo { get; set; }
         public string telefon { get; set; }
         public string paypalRacun { get; set; }
+        public string status { get; set; }
     
         public virtual IzbrisanRacun IzbrisanRacun { get; set; }
-        public virtual IzbrisanRacun IzbrisanRacun1 { get; set; }
         public virtual Naslov Naslov { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Obvestilo> Obvestilo { get; set; }
