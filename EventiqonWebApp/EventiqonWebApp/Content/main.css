@@ -209,8 +209,13 @@ body {
     text-align: justify;
     border-style: solid;
     border-width: 0.1em;    
-    border-color: aliceblue;
-    
+    border-color: aliceblue;   
+}
+
+.inboxMail 
+{
+    table-layout:fixed; 
+    word-wrap:break-word;
 }
 
 .messageContent td {

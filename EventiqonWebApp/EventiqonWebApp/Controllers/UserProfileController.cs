@@ -20,8 +20,9 @@ namespace EventiqonWebApp.Controllers
         // GET UserProfile/UserInbox
         public ActionResult UserInbox()
         {
-            
-            return View(db.Obvestilo.ToArray());
+            Uporabnik up = db.Uporabnik.Take(1).ToArray()[0];
+
+            return View(db.Obvestilo.Where(prejemnik => prejemnik.uprabniskoIme == up.uprabniskoIme).OrderByDescending(o=>o.datum).ToArray());
         }
     }
 }

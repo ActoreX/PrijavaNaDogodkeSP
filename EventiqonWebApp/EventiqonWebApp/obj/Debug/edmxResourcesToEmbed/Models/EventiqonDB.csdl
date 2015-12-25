@@ -181,6 +181,14 @@
     <NavigationProperty Name="Obvestilo" Relationship="Self.FK_OBVESTIL_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="Obvestilo" />
     <NavigationProperty Name="SeznamAktivnosti" Relationship="Self.FK_SEZNAMAK_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="SeznamAktivnosti" />
     <NavigationProperty Name="SeznamDogodkov" Relationship="Self.FK_SEZNAMDO_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="SeznamDogodkov" />
+    <NavigationProperty Name="Vloga" Relationship="Self.uporabnik_ima_vlogo" FromRole="Uporabnik" ToRole="Vloga" />
+  </EntityType>
+  <EntityType Name="Vloga">
+    <Key>
+      <PropertyRef Name="nazivVloge" />
+    </Key>
+    <Property Name="nazivVloge" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Uporabnik" Relationship="Self.uporabnik_ima_vlogo" FromRole="Vloga" ToRole="Uporabnik" />
   </EntityType>
   <Association Name="FK_AKTIVNOS_AKTIVNOST_DRZAVA">
     <End Role="Drzava" Type="Self.Drzava" Multiplicity="1" />
@@ -362,6 +370,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="uporabnik_ima_vlogo">
+    <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="*" />
+    <End Role="Vloga" Type="Self.Vloga" Multiplicity="*" />
+  </Association>
   <EntityContainer Name="EventiqonEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Aktivnost" EntityType="Self.Aktivnost" />
     <EntitySet Name="Dogodek" EntityType="Self.Dogodek" />
@@ -376,6 +388,7 @@
     <EntitySet Name="SeznamAktivnosti" EntityType="Self.SeznamAktivnosti" />
     <EntitySet Name="SeznamDogodkov" EntityType="Self.SeznamDogodkov" />
     <EntitySet Name="Uporabnik" EntityType="Self.Uporabnik" />
+    <EntitySet Name="Vloga" EntityType="Self.Vloga" />
     <AssociationSet Name="FK_AKTIVNOS_AKTIVNOST_DRZAVA" Association="Self.FK_AKTIVNOS_AKTIVNOST_DRZAVA">
       <End Role="Drzava" EntitySet="Drzava" />
       <End Role="Aktivnost" EntitySet="Aktivnost" />
@@ -435,6 +448,10 @@
     <AssociationSet Name="FK_SEZNAMDO_UPORABNIK_UPORABNI" Association="Self.FK_SEZNAMDO_UPORABNIK_UPORABNI">
       <End Role="Uporabnik" EntitySet="Uporabnik" />
       <End Role="SeznamDogodkov" EntitySet="SeznamDogodkov" />
+    </AssociationSet>
+    <AssociationSet Name="uporabnik_ima_vlogo" Association="Self.uporabnik_ima_vlogo">
+      <End Role="Uporabnik" EntitySet="Uporabnik" />
+      <End Role="Vloga" EntitySet="Vloga" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
