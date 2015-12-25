@@ -20,6 +20,7 @@ namespace EventiqonWebApp.Models
             this.Obvestilo = new HashSet<Obvestilo>();
             this.SeznamAktivnosti = new HashSet<SeznamAktivnosti>();
             this.SeznamDogodkov = new HashSet<SeznamDogodkov>();
+            this.Vloga = new HashSet<Vloga>();
         }
     
         public string uprabniskoIme { get; set; }
@@ -42,5 +43,7 @@ namespace EventiqonWebApp.Models
         public virtual ICollection<SeznamAktivnosti> SeznamAktivnosti { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SeznamDogodkov> SeznamDogodkov { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Vloga> Vloga { get; set; }
     }
 }

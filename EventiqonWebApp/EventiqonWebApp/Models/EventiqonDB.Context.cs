@@ -38,5 +38,6 @@ namespace EventiqonWebApp.Models
         public virtual DbSet<SeznamAktivnosti> SeznamAktivnosti { get; set; }
         public virtual DbSet<SeznamDogodkov> SeznamDogodkov { get; set; }
         public virtual DbSet<Uporabnik> Uporabnik { get; set; }
+        public virtual DbSet<Vloga> Vloga { get; set; }
     }
 }

@@ -157,6 +157,20 @@
           <Property Name="paypalRacun" Type="varchar" MaxLength="100" />
           <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <EntityType Name="uporabnik_ima_vlogo">
+          <Key>
+            <PropertyRef Name="nazivVloge" />
+            <PropertyRef Name="uprabniskoIme" />
+          </Key>
+          <Property Name="nazivVloge" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="uprabniskoIme" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vloga">
+          <Key>
+            <PropertyRef Name="nazivVloge" />
+          </Key>
+          <Property Name="nazivVloge" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
         <Association Name="FK_AKTIVNOS_AKTIVNOST_DRZAVA">
           <End Role="Drzava" Type="Self.Drzava" Multiplicity="1" />
           <End Role="Aktivnost" Type="Self.Aktivnost" Multiplicity="*" />
@@ -337,6 +351,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UPORABNI_UPORABNIK_UPORABNI">
+          <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="1" />
+          <End Role="uporabnik_ima_vlogo" Type="Self.uporabnik_ima_vlogo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uporabnik">
+              <PropertyRef Name="uprabniskoIme" />
+            </Principal>
+            <Dependent Role="uporabnik_ima_vlogo">
+              <PropertyRef Name="uprabniskoIme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UPORABNI_UPORABNIK_VLOGA">
+          <End Role="Vloga" Type="Self.Vloga" Multiplicity="1" />
+          <End Role="uporabnik_ima_vlogo" Type="Self.uporabnik_ima_vlogo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vloga">
+              <PropertyRef Name="nazivVloge" />
+            </Principal>
+            <Dependent Role="uporabnik_ima_vlogo">
+              <PropertyRef Name="nazivVloge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="EventiqonModelStoreContainer">
           <EntitySet Name="Aktivnost" EntityType="Self.Aktivnost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dogodek" EntityType="Self.Dogodek" Schema="dbo" store:Type="Tables" />
@@ -351,6 +389,8 @@
           <EntitySet Name="SeznamAktivnosti" EntityType="Self.SeznamAktivnosti" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SeznamDogodkov" EntityType="Self.SeznamDogodkov" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Uporabnik" EntityType="Self.Uporabnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="uporabnik_ima_vlogo" EntityType="Self.uporabnik_ima_vlogo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vloga" EntityType="Self.Vloga" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AKTIVNOS_AKTIVNOST_DRZAVA" Association="Self.FK_AKTIVNOS_AKTIVNOST_DRZAVA">
             <End Role="Drzava" EntitySet="Drzava" />
             <End Role="Aktivnost" EntitySet="Aktivnost" />
@@ -410,6 +450,14 @@
           <AssociationSet Name="FK_UPORABNI_PREBIVALI_NASLOV" Association="Self.FK_UPORABNI_PREBIVALI_NASLOV">
             <End Role="Naslov" EntitySet="Naslov" />
             <End Role="Uporabnik" EntitySet="Uporabnik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UPORABNI_UPORABNIK_UPORABNI" Association="Self.FK_UPORABNI_UPORABNIK_UPORABNI">
+            <End Role="Uporabnik" EntitySet="Uporabnik" />
+            <End Role="uporabnik_ima_vlogo" EntitySet="uporabnik_ima_vlogo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UPORABNI_UPORABNIK_VLOGA" Association="Self.FK_UPORABNI_UPORABNIK_VLOGA">
+            <End Role="Vloga" EntitySet="Vloga" />
+            <End Role="uporabnik_ima_vlogo" EntitySet="uporabnik_ima_vlogo" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -598,6 +646,14 @@
           <NavigationProperty Name="Obvestilo" Relationship="Self.FK_OBVESTIL_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="Obvestilo" />
           <NavigationProperty Name="SeznamAktivnosti" Relationship="Self.FK_SEZNAMAK_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="SeznamAktivnosti" />
           <NavigationProperty Name="SeznamDogodkov" Relationship="Self.FK_SEZNAMDO_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="SeznamDogodkov" />
+          <NavigationProperty Name="Vloga" Relationship="Self.uporabnik_ima_vlogo" FromRole="Uporabnik" ToRole="Vloga" />
+        </EntityType>
+        <EntityType Name="Vloga">
+          <Key>
+            <PropertyRef Name="nazivVloge" />
+          </Key>
+          <Property Name="nazivVloge" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Uporabnik" Relationship="Self.uporabnik_ima_vlogo" FromRole="Vloga" ToRole="Uporabnik" />
         </EntityType>
         <Association Name="FK_AKTIVNOS_AKTIVNOST_DRZAVA">
           <End Role="Drzava" Type="Self.Drzava" Multiplicity="1" />
@@ -779,6 +835,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="uporabnik_ima_vlogo">
+          <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="*" />
+          <End Role="Vloga" Type="Self.Vloga" Multiplicity="*" />
+        </Association>
         <EntityContainer Name="EventiqonEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aktivnost" EntityType="Self.Aktivnost" />
           <EntitySet Name="Dogodek" EntityType="Self.Dogodek" />
@@ -793,6 +853,7 @@
           <EntitySet Name="SeznamAktivnosti" EntityType="Self.SeznamAktivnosti" />
           <EntitySet Name="SeznamDogodkov" EntityType="Self.SeznamDogodkov" />
           <EntitySet Name="Uporabnik" EntityType="Self.Uporabnik" />
+          <EntitySet Name="Vloga" EntityType="Self.Vloga" />
           <AssociationSet Name="FK_AKTIVNOS_AKTIVNOST_DRZAVA" Association="Self.FK_AKTIVNOS_AKTIVNOST_DRZAVA">
             <End Role="Drzava" EntitySet="Drzava" />
             <End Role="Aktivnost" EntitySet="Aktivnost" />
@@ -852,6 +913,10 @@
           <AssociationSet Name="FK_SEZNAMDO_UPORABNIK_UPORABNI" Association="Self.FK_SEZNAMDO_UPORABNIK_UPORABNI">
             <End Role="Uporabnik" EntitySet="Uporabnik" />
             <End Role="SeznamDogodkov" EntitySet="SeznamDogodkov" />
+          </AssociationSet>
+          <AssociationSet Name="uporabnik_ima_vlogo" Association="Self.uporabnik_ima_vlogo">
+            <End Role="Uporabnik" EntitySet="Uporabnik" />
+            <End Role="Vloga" EntitySet="Vloga" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1018,6 +1083,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Vloga">
+            <EntityTypeMapping TypeName="EventiqonModel.Vloga">
+              <MappingFragment StoreEntitySet="Vloga">
+                <ScalarProperty Name="nazivVloge" ColumnName="nazivVloge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="uporabnik_ima_vlogo" TypeName="EventiqonModel.uporabnik_ima_vlogo" StoreEntitySet="uporabnik_ima_vlogo">
+            <EndProperty Name="Uporabnik">
+              <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
+            </EndProperty>
+            <EndProperty Name="Vloga">
+              <ScalarProperty Name="nazivVloge" ColumnName="nazivVloge" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
