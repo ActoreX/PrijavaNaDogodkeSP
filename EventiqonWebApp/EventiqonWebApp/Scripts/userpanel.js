@@ -70,6 +70,7 @@ $(document).ready(function () {
             paypalRacun: {
                 email : true
             }
+      
        },
         messages: {
             datumRojstva: "Vnesite veljaven datum (MM/dd/yyyy)",
