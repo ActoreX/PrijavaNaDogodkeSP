@@ -19,6 +19,7 @@ $(document).ready(function () {
                 veljavnoStevilo: true
             },
             hisnaStevilka: {
+                veljavnoStevilo: true,
                 obveznoPolje: true
             },
             kraj: {
