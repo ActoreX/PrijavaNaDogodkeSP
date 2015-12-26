@@ -236,6 +236,7 @@
     <Compile Include="Models\Uporabnik.cs">
       <DependentUpon>EventiqonDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserPanelModels.cs" />
     <Compile Include="Models\Vloga.cs">
       <DependentUpon>EventiqonDB.tt</DependentUpon>
     </Compile>

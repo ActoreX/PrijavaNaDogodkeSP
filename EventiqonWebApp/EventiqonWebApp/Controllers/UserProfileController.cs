@@ -26,16 +26,9 @@ namespace EventiqonWebApp.Controllers
 
         // POST UserProfile/UserPanel/PosodobiNaslov
         [HttpPost]
-        public JsonResult PosodobiNaslov()
+        public JsonResult PosodobiNaslov(NaslovVhodniPodatki vhod)
         {
-            string jsonString;
-            using (var reader = new System.IO.StreamReader(Request.InputStream))
-            {
-                jsonString = reader.ReadToEnd();
-            }
-            Dictionary<string, string> vhodniPodatki  = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonString);
-            
-
+           
             return Json("hehc he", JsonRequestBehavior.DenyGet);
         }
     }

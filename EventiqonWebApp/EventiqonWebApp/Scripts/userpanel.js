@@ -53,12 +53,22 @@ $(document).ready(function () {
        },
         
        submitHandler: function (form) {
-           var mydata = pripraviJsonZaPosiljanje($('#formaNaslova').serializeArray());
-         
+           //var testdata = {
+           //    ulica: "Ulica 1",
+           //    hisnaStevilka: "100",
+           //    postnaStevilka: "1000",
+           //    kraj: "Ljubljana"
+           //}
+
+           var mydata = $('#formaNaslova').serializeArray();
+
+           // Pozor!!! Pri pošiljanju morajo biti podatki obvezno v objektu z istimi lastnostmi kot model
+           // ne uporabljaj funkcije JSON.stringify !!!
            $.ajax({
                url: "/UserProfile/PosodobiNaslov",
                data: mydata,
                type: "POST",
+               dataType: "json",
                success: function(result) {
                    console.log(result);
                }
@@ -167,13 +177,3 @@ jQuery.validator.addMethod("niEnako", function(value, element, options){
 }, "Polje ne sme biti enako")
     
 });
-
-// pomožna funkcija za pretvorbo serializiranega polja v veljavno JSON obliko
-function pripraviJsonZaPosiljanje(data) {
-    var res = {};
-    data.map(function (o) {
-        res[o.name] = o.value;
-    });
-   
-    return JSON.stringify(res);
-}
