@@ -1,4 +1,5 @@
-﻿
+﻿@model EventiqonWebApp.Models.Uporabnik
+
 @{
     ViewBag.Title = "UserPanel";
 }
@@ -30,31 +31,31 @@
                         </colgroup>
                         <tr>
                             <th>Uporabniško ime</th>
-                            <td><input disabled id="uporabniskoIme" type="text" value="Superuser"></td>
+                            <td><input disabled id="uporabniskoIme" type="text" value="@Model.uprabniskoIme"></td>
                         </tr>
                         <tr>
                             <th>Ime</th>
-                            <td><input disabled type="text"></td>
+                            <td><input disabled type="text" value="@Model.Ime"></td>
                         </tr>
                         <tr>
                             <th>Priimek</th>
-                            <td><input disabled type="text"></td>
+                            <td><input disabled type="text" value="@Model.Priimek"></td>
                         </tr>
                         <tr>
                             <th><label for="eposta">E-pošta</label></th>
-                            <td><input id="eposta" name="eposta" type="email"></td>
+                            <td><input id="eposta" name="eposta" type="email" value="@Model.email"></td>
                         </tr>
                         <tr>
                             <th><label for="datumRojstva">Datum rojstva</label></th>
-                            <td><input id="datumRojstva" name="datumRojstva" type="text"></td>
+                            <td><input id="datumRojstva" name="datumRojstva" type="text" value="@Model.datumRojstva"></td>
                         </tr>
                         <tr>
                             <th><label for="telSt">Telefon</label></th>
-                            <td><input id="telSt" , name="telSt" type="text"></td>
+                            <td><input id="telSt" , name="telSt" type="text" value="@Model.telefon"></td>
                         </tr>
                         <tr>
                             <th><label for="paypalRacun">Paypal račun</label></th>
-                            <td><input id="paypalRacun" name="paypalRacun" type="email"></td>
+                            <td><input id="paypalRacun" name="paypalRacun" type="email" value="@Model.paypalRacun"></td>
                         </tr>
                     </table>
                 </div>
@@ -78,19 +79,19 @@
                         </colgroup>
                         <tr>
                             <th><label for="ulica">Ulica</label></th>
-                            <td><input id="ulica" name="ulica" type="text"></td>
+                            <td><input id="ulica" name="ulica" type="text" value="@Model.Naslov.ulica"></td>
                         </tr>
                         <tr>
                             <th><label for="hisnaStevilka">Hišna številka</label></th>
-                            <td><input id="hisnaStevilka" name="hisnaStevilka" type="text"></td>
+                            <td><input id="hisnaStevilka" name="hisnaStevilka" type="text" value="@Model.Naslov.hisnaStevilka"></td>
                         </tr>
                         <tr>
                             <th><label for="postnaStevilka">Poštna številka</label></th>
-                            <td><input id="postnaStevilka" name="postnaStevilka" type="text"></td>
+                            <td><input id="postnaStevilka" name="postnaStevilka" type="text" value="@Model.Naslov.idKraj"></td>
                         </tr>
                         <tr>
                             <th><label for="kraj">Kraj</label></th>
-                            <td><input id="kraj" name="kraj" type="text"></td>
+                            <td><input id="kraj" name="kraj" type="text" value="@Model.Naslov.Kraj.nazivKraja"></td>
                         </tr>
                     </table>
                 </div>
@@ -147,7 +148,7 @@
                         </colgroup>
                         <tr>
                             <th><label for="pomozniEmail">Pomožni e-naslov</label></th>
-                            <td><input id="pomozniEmail" name="pomozniEmail" type="email"></td>
+                            <td><input id="pomozniEmail" name="pomozniEmail" type="email" value="@Model.recoveryEmail"></td>
                         </tr>
                         <tr>
                             <th><label for="ponovniVnosPomoznegaEmaila">Ponovni vnos e-naslova</label></th>
@@ -155,7 +156,7 @@
                         </tr>
                         <tr>
                             <th><label for="telStZaObnovitev">Telefonska številka za obnovitev</label></th>
-                            <td><input id="telStZaObnovitev" name="telStZaObnovitev" type="text"></td>
+                            <td><input id="telStZaObnovitev" name="telStZaObnovitev" type="text" value="@Model.telefon"></td>
                         </tr>
                     </table>
                 </div>

@@ -17,7 +17,11 @@ namespace EventiqonWebApp.Controllers
         // GET UserProfile or UserProfile/UserPanel
         public ActionResult UserPanel()
         {
-            return View();
+            // recimo da je prijavljen (prvi) uporabnik; TODO spremeni
+            Uporabnik u = db.Uporabnik.Take(1).Single();
+            
+
+            return View(u);
         }
 
         // GET UserProfile/UserInbox
