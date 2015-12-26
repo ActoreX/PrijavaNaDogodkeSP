@@ -182,6 +182,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Organizer.cs" />
     <Compile Include="Models\Aktivnost.cs">
       <DependentUpon>EventiqonDB.tt</DependentUpon>
     </Compile>

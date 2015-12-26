@@ -9,8 +9,8 @@ $(document).ready(function(){
     })
     omejitevStMest.spinner("option", "min", 0);
 
-    var datumOd = $("input[name=datum-od]").datepicker();
-    var datumDo = $("input[name=datum-do]").datepicker();
+    var datumOd = $("input[name=datum_od]").datepicker();
+    var datumDo = $("input[name=datum_do]").datepicker();
     
     
     mojaLokacija = new Object();
@@ -67,11 +67,9 @@ $(document).ready(function(){
         nastaviPoljaZaUstreznoIzbiroOmejitevStMest(param.currentTarget.value)
             
     });
-    
-    
-    
+   
     function nastaviPoljaZaUstreznoIzbiroTrajanja(trajanje) {
-        var datumDo = $('input[name=datum-do]');
+        var datumDo = $('input[name=datum_do]');
         if(trajanje == "enkratna") {
             datumDo.val("");
             datumDo.prop("disabled", false);
@@ -118,17 +116,17 @@ $(document).ready(function(){
         $('.postavkaAktEvn tr:last').after(
                                         "<tr class='postavka-"+steviloPostavk +"'>" +                                                 
                                             "<td>" +
-                                                "<input name='nazivPostavke"+ steviloPostavk +"' class='nazivPostavke' type='text' placeholder='Naziv postavke #"+ steviloPostavk +"'>"+
+                                                "<input name='nazivPostavke' class='nazivPostavke' type='text' placeholder='Naziv postavke #"+ steviloPostavk +"'>"+
                                            "</td>" +                                                 
                                            "<td>" +
-                                                "<input name='casPostavke"+ steviloPostavk +"' class='casPostavke' style='width:95%; margin-left:2.5%;' type='text' placeholder='Dan v tednu ali datum'></td>"  +                                               
+                                                "<input name='casPostavke' class='casPostavke' style='width:95%; margin-left:2.5%;' type='text' placeholder='Dan v tednu ali datum'></td>"  +                                               
                                             "<td>" +
-                                                "<input name='casTrajanjaPostavke"+ steviloPostavk +"' class='casTrajanjaPostavke' type='text' placeholder='Čas trajanja'>" +
+                                                "<input name='casTrajanjaPostavke' class='casTrajanjaPostavke' type='text' placeholder='Čas trajanja'>" +
                                            "</td>" +                                            
                                         "</tr>" +                                            
                                         "<tr class='postavka-"+steviloPostavk +"'>" +                                                
                                            "<td colspan='3'>" +                                                     
-                                                "<textarea name='opisPostavke"+ steviloPostavk +"' class='opisPostavke'></textarea>" +
+                                                "<textarea name='opisPostavke' class='opisPostavke'></textarea>" +
                                            "</td>" +
                                         "</tr>");
         
@@ -144,8 +142,10 @@ $(document).ready(function(){
          
     });
     
-    
-    
+    $('#potrdiFormoAktEvn').click(function () {
+        $('#vnosnaFormaAktEvn').submit();
+    });
+   
     var vnosnaFormaAktEvn = $('#vnosnaFormaAktEvn').validate({
        rules: {
            nazivIzbire: {
@@ -154,11 +154,11 @@ $(document).ready(function(){
            cenaVstopnice: {
                veljavnaCena:  {tipAktEvn: $('select[name=tipAktEvn]')}
            },
-           "datum-do" : {
+           "datum_do" : {
                veljavnoTrajanje: {vrstaTrajanja: $('input[name=vrstaIzbireTrajanja]:checked'),
-                                 datumOd: $('#datum-od')}
+                                 datumOd: $('#datum_od')}
            },
-           "datum-od": {
+           "datum_od": {
                required: true
            },
            opisAktEvn: {
@@ -168,12 +168,59 @@ $(document).ready(function(){
         messages: {
             nazivIzbire: "Polje ne sme biti prazno!",
             opisAktEvn: "Polje ne sme biti prazno!",
-            "datum-od": "Polje ne sme biti prazno!",
+            "datum_od": "Polje ne sme biti prazno!",
             nazivPostavke: "Polje ne sme biti prazno!"
-        }
+        },
+
+        submitHandler: function (form) {
+            var mydata = $('#vnosnaFormaAktEvn').serializeArray();
+            var o = {};
+            var seznamPostavk = [];
+            var tmpPostavka = {};
+            mydata.forEach(function (data, i) {
+                if (i > 7) {
+                    // nazivPostavke
+                    if ((i - 8) % 4 == 0) {
+                        tmpPostavka[data.name] = data.value;
+                    // casPostavke
+                    } else if ((i - 8) % 4 == 1) {
+                        tmpPostavka[data.name] = data.value;
+                    // casTrajanjaPostavke
+                    } else if ((i - 8) % 4 == 2) {
+                        tmpPostavka[data.name] = data.value;
+                     // opisPostavke
+                    } else if ((i - 8) % 4 == 3) {
+                        tmpPostavka[data.name] = data.value;
+                        seznamPostavk.push(tmpPostavka);
+                        console.log(tmpPostavka + "sdad");
+                        tmpPostavka = {};
+                    }
+                } else {
+                    o[data.name] = data.value;
+                }
+                console.log(data);
+                console.log(i);
+            });
+
+            o["seznamPostavk"] = seznamPostavk;
+            
+            console.log(mydata);
+            console.log(o);
+            $.ajax({
+                url: "/Organizer/AddNewActivity",
+                data: o,
+                type: "POST",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                }
+            });
+        },
         
     }); 
-    
+      
+});
+
 jQuery.validator.addClassRules('nazivPostavke', {
     obveznoPolje: true
 });
@@ -181,24 +228,14 @@ jQuery.validator.addClassRules('nazivPostavke', {
 jQuery.validator.addClassRules('casPostavke', {
     obveznoPolje: true
 });
-    
+
 jQuery.validator.addClassRules('casTrajanjaPostavke', {
     obveznoPolje: true
 });
-    
+
 jQuery.validator.addClassRules('opisPostavke', {
     obveznoPolje: true
 });
-    
-    
-    $('#potrdiFormoAktEvn').click(function(){
-         $('#vnosnaFormaAktEvn').submit();
-    });
-    
-    
-});
-
-
 
 jQuery.validator.addMethod("obveznoPolje", $.validator.methods.required, "Polje ne sme biti prazno!");
 

@@ -3,5 +3,152 @@
     ViewBag.Title = "UserPanel";
 }
 
-<h2>UserPanel</h2>
+<div class="row">
+    <div class="col-lg-offset-2 col-lg-8 col-md-8 col-md-offset-2">
+        <div class="panel panel-default vnosnaForma panelNovaAktEvn">
+            <div class="panel-heading">Nova aktivnost</div>
+            <div class="panel-body">
+                <form id="vnosnaFormaAktEvn">
+                    <table class="novaAktEnv table" style="padding: 1em 0 1em 1em;">
+                        <colgroup>
+                            <col style="width:33%;">
+                            <col style="width:33%">
+                            <col style="width:33%">
+                        </colgroup>
+                        <tr>
+                            <th>
+                                <span>Vrsta</span>
+                            </th>
+                            <td>
+                                <label style="width:100%;"><input type="radio" value="enkratna" checked name="vrstaIzbireTrajanja"> Enkratna</label>
+                            </td>
+                            <td>
+                                <label style="width:100%;"><input type="radio" value="ponavljajoca" name="vrstaIzbireTrajanja"> Ponavljajoča</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Tip
+                            </th>
+                            <td>
+                                <select name="tipAktEvn">
+                                    <option value="brezplacna">Brezplačna</option>
+                                    <option value="placljiva">Plačljiva</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input name="cenaVstopnice" type="text" placeholder="Cena vstopnine v EUR" style="width: 100%;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Število mest
+                            </th>
+                            <td>
+                                <select name="stMestOmejitevAktEvn">
+                                    <option value="neomejeno">Neomejeno</option>
+                                    <option value="omejeno">Omejeno</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input name="omejitev-spinner">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="datum_od">Trajanje</label>
+                            </th>
+                            <td>
+                                <input style="width:100%" type="text" id="datum_od" name="datum_od" placeholder="Datum od">
+                            </td>
+                            <td>
+                                <input style="width:100%" type="text" name="datum_do" placeholder="Datum do">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="nazivIzbire">Naziv</label>
+                            </th>
+                            <td colspan="2">
+                                <input type="text" id="nazivIzbire" name="nazivIzbire" style="width:100%">
+                            </td>
+                        </tr>
 
+                        <tr>
+                            <th>
+                                <label for="vnosLokacije">Lokacija</label>
+                            </th>
+                            <td colspan="2">
+                                <input type="text" id="vnosLokacije" name="vnosLokacije" style="width:100%">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th colspan="3">
+                                <div id="lokacijaGoogleMaps" style="width: 100%; height: 400px;">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="padding-bottom: 0">
+                                <label for="opisAktEvn">Opis</label>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 0;" colspan="3">
+                                <textarea id="opisAktEvn" name="opisAktEvn" style="width:100%; resize:vertical; clear:both; height: 120px;"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="vertical-align:middle">
+                                Uredi postavke
+                            </th>
+                            <td>
+                                <span id="odstraniZadnjoPostavko" class="btn btn-default" style="float:right;">
+                                    <img src="@Url.Content("~/Content/images/Action-db-remove-icon.png")"> Odstrani</img>
+                                </span>
+                            </td>
+                            <td>
+                                <span id="dodajNovoPostavko" class="btn btn-default" style="float:right;">
+                                    <img src="@Url.Content("~/Content/images/document-add-icon.png")"> Dodaj</img>
+                                </span>
+                            </td>
+                        </tr>
+                        <!-- primerek postavke -->
+                        <tr>
+                            <table class="postavkaAktEvn">
+                                <colgroup>
+                                    <col style="width:33%">
+                                    <col style="width:33%">
+                                    <col style="width:33%">
+                                </colgroup>
+                                <tr>
+                                    <td><input name="nazivPostavke" class="nazivPostavke" type="text" placeholder="Naziv postavke #1"></td>
+                                    <td><input name="casPostavke" class="casPostavke" style="width:95%; margin-left:2.5%;" type="text" placeholder="Dan v tednu ali datum"></td>
+                                    <td><input name="casTrajanjaPostavke" class="casTrajanjaPostavke" type="text" placeholder="Čas trajanja"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <textarea name="opisPostavke" class="opisPostavke"></textarea>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tr>
+
+                    </table>
+                </form>
+            </div>
+            <div class="panel-footer clearfix">
+                <button id="potrdiFormoAktEvn" class="btn btn-default" style="float:right;">
+                    <img src="@Url.Content("~/Content/images//ok-icon.png")"> Potrdi
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("http://maps.google.com/maps/api/js?sensor=false&libraries=places");
+    @Scripts.Render("~/Scripts/locationpicker.jquery.js")
+    @Scripts.Render("~/Scripts/addactevn.js")
+}

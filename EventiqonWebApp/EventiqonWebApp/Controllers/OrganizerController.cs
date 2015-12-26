@@ -9,9 +9,17 @@ namespace EventiqonWebApp.Controllers
     public class OrganizerController : Controller
     {
         // GET: Organizer/AddNewActivity
+        [HttpGet]
         public ActionResult AddNewActivity()
         {
             return View();
+        }
+
+        // POST: Organizer/AddNewActivity
+        [HttpPost]
+        public JsonResult AddNewActivity(EventiqonWebApp.Models.AktivnostDogodekVhodniPodatki vhod)
+        {
+            return Json("Super");
         }
 
         // GET: Organizer/AddNewEvent
