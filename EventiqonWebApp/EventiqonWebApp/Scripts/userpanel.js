@@ -2,6 +2,55 @@ $(document).ready(function () {
     $('body').scrollspy({ target: '#scrollSpyNavigation' })
 
     $('#datumRojstva').datepicker();
+
+
+    $('#potrdiFormoNaslova').click(function () {
+        $('#formaNaslova').submit();
+    });
+
+
+    $('#formaNaslova').validate({
+        rules: {
+            ulica: {
+                obveznoPolje: true
+            },
+            postnaStevilka: {
+                obveznoPolje: true,
+                veljavnoStevilo: true
+            },
+            hisnaStevilka: {
+                obveznoPolje: true
+            },
+            kraj: {
+                obveznoPolje: true
+            }
+
+        },
+
+        submitHandler: function (form) {
+            //var testdata = {
+            //    ulica: "Ulica 1",
+            //    hisnaStevilka: "100",
+            //    postnaStevilka: "1000",
+            //    kraj: "Ljubljana"
+            //}
+
+            var mydata = $('#formaNaslova').serializeArray();
+            console.log(mydata);
+            // Pozor!!! Pri pošiljanju morajo biti podatki obvezno v objektu z istimi lastnostmi kot model
+            // ne uporabljaj funkcije JSON.stringify !!!
+            $.ajax({
+                url: "/UserProfile/PosodobiNaslov",
+                data: mydata,
+                type: "POST",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                }
+            });
+        },
+    });
+
     $('#spremeniOsebnePodatke').click(function(){
          $('#formaOsebniPodatki').submit();
     });
@@ -11,70 +60,37 @@ $(document).ready(function () {
             datumRojstva: {
                 date: true
             },
-           eposta: {
+            eposta: {
+               obveznoPolje: true,
                email: true
-           },
-           telSt: {
-               jeTelSt : true
-           },
-           paypalRacun: {
-               email : true
-           }
-           
+            },
+            telSt: {
+                jeTelSt : true
+            },
+            paypalRacun: {
+                email : true
+            }
        },
         messages: {
             datumRojstva: "Vnesite veljaven datum (MM/dd/yyyy)",
             eposta: "Vnesi veljaven e-naslov",
             paypalRacun: "Vnesi polni Paypal račun(e-naslov)"
-        }
+        },
+        submitHandler: function (form) {
+            var mydata = $('#formaOsebniPodatki').serializeArray();
+            console.log(mydata);
+            $.ajax({
+                url: "/UserProfile/PosodobiOsebniPodatki",
+                data: mydata,
+                type: "POST",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                }
+            });
+        },
     });
     
-    $('#potrdiFormoNaslova').click(function () {
-        $('#formaNaslova').submit();    
-    }); 
-    
-    
-    $('#formaNaslova').validate({
-       rules: {
-            ulica: {
-                obveznoPolje: true
-            },
-           postnaStevilka: {
-               obveznoPolje: true,
-               veljavnoStevilo: true
-           },
-           hisnaStevilka: {
-               obveznoPolje : true
-           },
-           kraj: {
-               obveznoPolje : true
-           }
-
-       },
-        
-       submitHandler: function (form) {
-           //var testdata = {
-           //    ulica: "Ulica 1",
-           //    hisnaStevilka: "100",
-           //    postnaStevilka: "1000",
-           //    kraj: "Ljubljana"
-           //}
-
-           var mydata = $('#formaNaslova').serializeArray();
-
-           // Pozor!!! Pri pošiljanju morajo biti podatki obvezno v objektu z istimi lastnostmi kot model
-           // ne uporabljaj funkcije JSON.stringify !!!
-           $.ajax({
-               url: "/UserProfile/PosodobiNaslov",
-               data: mydata,
-               type: "POST",
-               dataType: "json",
-               success: function(result) {
-                   console.log(result);
-               }
-           });
-       },
-    });
     
     $('#potrdiSprememboGesla').click(function() {
         $('#formaSpremeniGeslo').submit();    
@@ -105,7 +121,20 @@ $(document).ready(function () {
                 minlength: "Geslo mora biti dolgo vsaj 5 znakov"
             },
             ponovniVnosGesla: "Gesli se morata ujemati",
-        }
+        },
+        submitHandler: function (form) {
+            var mydata = $('#formaSpremeniGeslo').serializeArray();
+            console.log(mydata);
+            $.ajax({
+                url: "/UserProfile/PosodobiGeslo",
+                data: mydata,
+                type: "POST",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                }
+            });
+        },
     });
    
     $('#potrdiFormoObnoveRacuna').click(function() {
@@ -135,8 +164,20 @@ $(document).ready(function () {
                 email: "Vnesi veljaven e-naslov",
                 equalTo: "Polji se morata ujemati"
             }
-
-        }
+       },
+        submitHandler: function (form) {
+        var mydata = $('#formaObnoveRacuna').serializeArray();
+        console.log(mydata);
+        $.ajax({
+            url: "/UserProfile/PosodobiObnovaRacuna",
+            data: mydata,
+            type: "POST",
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+            }
+        });
+    },
     });
     
     $('#potrdiIzbrisRacuna').click(function() {
@@ -160,7 +201,20 @@ $(document).ready(function () {
             izbrisUpIme: "Vnesi svoje uporabniško ime",
             izbrisGeslo: "Vnesi svoje geslo"
 
-        }
+        },
+        submitHandler: function (form) {
+            var mydata = $('#formaIzbrisRacuna').serializeArray();
+            console.log(mydata);
+            $.ajax({
+                url: "/UserProfile/IzbrisRacuna",
+                data: mydata,
+                type: "POST",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                }
+            });
+        },
     });
 
    
