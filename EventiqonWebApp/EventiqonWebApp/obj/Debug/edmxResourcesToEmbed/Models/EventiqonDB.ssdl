@@ -7,6 +7,7 @@
     <Property Name="idAktivnost" Type="int" Nullable="false" />
     <Property Name="idKraj" Type="int" Nullable="false" />
     <Property Name="kraticaDrzave" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="naziv" Type="varchar" MaxLength="24" Nullable="false" />
     <Property Name="omejitevMest" Type="int" />
     <Property Name="datumVnosa" Type="datetime" Nullable="false" />
     <Property Name="datumOd" Type="datetime" Nullable="false" />
@@ -17,6 +18,7 @@
     <Property Name="nazivLokacije" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="opis" Type="varchar" MaxLength="1024" Nullable="false" />
     <Property Name="cena" Type="money" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="16" />
   </EntityType>
   <EntityType Name="Dogodek">
     <Key>
@@ -25,6 +27,7 @@
     <Property Name="idDogodek" Type="int" Nullable="false" />
     <Property Name="kraticaDrzave" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="idKraj" Type="int" Nullable="false" />
+    <Property Name="naziv" Type="varchar" MaxLength="24" Nullable="false" />
     <Property Name="omejitevMest" Type="int" />
     <Property Name="datumVnosa" Type="datetime" Nullable="false" />
     <Property Name="datumOd" Type="datetime" Nullable="false" />
@@ -34,6 +37,7 @@
     <Property Name="nazivLokacije" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="opis" Type="varchar" MaxLength="1024" Nullable="false" />
     <Property Name="cena" Type="money" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="16" />
   </EntityType>
   <EntityType Name="Drzava">
     <Key>

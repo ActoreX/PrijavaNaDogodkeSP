@@ -12,6 +12,7 @@
           <Property Name="idAktivnost" Type="int" Nullable="false" />
           <Property Name="idKraj" Type="int" Nullable="false" />
           <Property Name="kraticaDrzave" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="24" Nullable="false" />
           <Property Name="omejitevMest" Type="int" />
           <Property Name="datumVnosa" Type="datetime" Nullable="false" />
           <Property Name="datumOd" Type="datetime" Nullable="false" />
@@ -22,6 +23,7 @@
           <Property Name="nazivLokacije" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="opis" Type="varchar" MaxLength="1024" Nullable="false" />
           <Property Name="cena" Type="money" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="16" />
         </EntityType>
         <EntityType Name="Dogodek">
           <Key>
@@ -30,6 +32,7 @@
           <Property Name="idDogodek" Type="int" Nullable="false" />
           <Property Name="kraticaDrzave" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="idKraj" Type="int" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="24" Nullable="false" />
           <Property Name="omejitevMest" Type="int" />
           <Property Name="datumVnosa" Type="datetime" Nullable="false" />
           <Property Name="datumOd" Type="datetime" Nullable="false" />
@@ -39,6 +42,7 @@
           <Property Name="nazivLokacije" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="opis" Type="varchar" MaxLength="1024" Nullable="false" />
           <Property Name="cena" Type="money" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="16" />
         </EntityType>
         <EntityType Name="Drzava">
           <Key>
@@ -472,6 +476,7 @@
           <Property Name="idAktivnost" Type="Int32" Nullable="false" />
           <Property Name="idKraj" Type="Int32" Nullable="false" />
           <Property Name="kraticaDrzave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="naziv" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="omejitevMest" Type="Int32" />
           <Property Name="datumVnosa" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="datumOd" Type="DateTime" Nullable="false" Precision="3" />
@@ -482,6 +487,7 @@
           <Property Name="nazivLokacije" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="opis" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cena" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Drzava" Relationship="Self.FK_AKTIVNOS_AKTIVNOST_DRZAVA" FromRole="Aktivnost" ToRole="Drzava" />
           <NavigationProperty Name="Kraj" Relationship="Self.FK_AKTIVNOS_AKTIVNOST_KRAJ" FromRole="Aktivnost" ToRole="Kraj" />
           <NavigationProperty Name="PostavkaAktivnosti" Relationship="Self.FK_POSTAVKA_AKTIVNOST_AKTIVNOS" FromRole="Aktivnost" ToRole="PostavkaAktivnosti" />
@@ -494,6 +500,7 @@
           <Property Name="idDogodek" Type="Int32" Nullable="false" />
           <Property Name="kraticaDrzave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idKraj" Type="Int32" Nullable="false" />
+          <Property Name="naziv" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="omejitevMest" Type="Int32" />
           <Property Name="datumVnosa" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="datumOd" Type="DateTime" Nullable="false" Precision="3" />
@@ -503,6 +510,7 @@
           <Property Name="nazivLokacije" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="opis" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cena" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Drzava" Relationship="Self.FK_DOGODEK_DOGODEK_V_DRZAVA" FromRole="Dogodek" ToRole="Drzava" />
           <NavigationProperty Name="Kraj" Relationship="Self.FK_DOGODEK_DOGODEK_V_KRAJ" FromRole="Dogodek" ToRole="Kraj" />
           <NavigationProperty Name="PostavkaDogodka" Relationship="Self.FK_POSTAVKA_DOGODEK_I_DOGODEK" FromRole="Dogodek" ToRole="PostavkaDogodka" />
@@ -931,6 +939,7 @@
                 <ScalarProperty Name="idAktivnost" ColumnName="idAktivnost" />
                 <ScalarProperty Name="idKraj" ColumnName="idKraj" />
                 <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
                 <ScalarProperty Name="omejitevMest" ColumnName="omejitevMest" />
                 <ScalarProperty Name="datumVnosa" ColumnName="datumVnosa" />
                 <ScalarProperty Name="datumOd" ColumnName="datumOd" />
@@ -941,6 +950,7 @@
                 <ScalarProperty Name="nazivLokacije" ColumnName="nazivLokacije" />
                 <ScalarProperty Name="opis" ColumnName="opis" />
                 <ScalarProperty Name="cena" ColumnName="cena" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -950,6 +960,7 @@
                 <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
                 <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
                 <ScalarProperty Name="idKraj" ColumnName="idKraj" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
                 <ScalarProperty Name="omejitevMest" ColumnName="omejitevMest" />
                 <ScalarProperty Name="datumVnosa" ColumnName="datumVnosa" />
                 <ScalarProperty Name="datumOd" ColumnName="datumOd" />
@@ -959,6 +970,7 @@
                 <ScalarProperty Name="nazivLokacije" ColumnName="nazivLokacije" />
                 <ScalarProperty Name="opis" ColumnName="opis" />
                 <ScalarProperty Name="cena" ColumnName="cena" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -214,6 +214,7 @@
       <DependentUpon>EventiqonDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MyAttendeesViewModel.cs" />
     <Compile Include="Models\Naslov.cs">
       <DependentUpon>EventiqonDB.tt</DependentUpon>
     </Compile>
@@ -308,6 +309,7 @@
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\locationpicker.jquery.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\myattendees.js" />
     <Content Include="Scripts\userpanel.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />

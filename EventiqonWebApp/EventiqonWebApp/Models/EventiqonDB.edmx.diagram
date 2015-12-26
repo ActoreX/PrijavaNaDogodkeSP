@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9e88a2bcf45744a59040d7153fd7524d" Name="Diagram1">
-        <EntityTypeShape EntityType="EventiqonModel.Aktivnost" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventiqonModel.Dogodek" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+      <Diagram DiagramId="0b1a4cc1335144848570b5846daf19ee" Name="Diagram1">
+        <EntityTypeShape EntityType="EventiqonModel.Aktivnost" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventiqonModel.Dogodek" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EventiqonModel.Drzava" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EventiqonModel.IzbrisanRacun" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EventiqonModel.Kraj" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EventiqonModel.Naslov" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="EventiqonModel.Obvestilo" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventiqonModel.PostavkaAktivnosti" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventiqonModel.PostavkaAktivnosti" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EventiqonModel.PostavkaDogodka" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EventiqonModel.PotrditvenaKoda" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventiqonModel.SeznamAktivnosti" Width="1.5" PointX="10.5" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventiqonModel.SeznamDogodkov" Width="1.5" PointX="10.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventiqonModel.SeznamAktivnosti" Width="1.5" PointX="10.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventiqonModel.SeznamDogodkov" Width="1.5" PointX="10.25" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EventiqonModel.Uporabnik" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EventiqonModel.Vloga" Width="1.5" PointX="7.5" PointY="6.625" IsExpanded="true" />
         <AssociationConnector Association="EventiqonModel.FK_AKTIVNOS_AKTIVNOST_DRZAVA" ManuallyRouted="false" />

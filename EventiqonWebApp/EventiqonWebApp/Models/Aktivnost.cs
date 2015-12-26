@@ -24,6 +24,7 @@ namespace EventiqonWebApp.Models
         public int idAktivnost { get; set; }
         public int idKraj { get; set; }
         public string kraticaDrzave { get; set; }
+        public string naziv { get; set; }
         public Nullable<int> omejitevMest { get; set; }
         public System.DateTime datumVnosa { get; set; }
         public System.DateTime datumOd { get; set; }
@@ -34,6 +35,7 @@ namespace EventiqonWebApp.Models
         public string nazivLokacije { get; set; }
         public string opis { get; set; }
         public decimal cena { get; set; }
+        public string status { get; set; }
     
         public virtual Drzava Drzava { get; set; }
         public virtual Kraj Kraj { get; set; }

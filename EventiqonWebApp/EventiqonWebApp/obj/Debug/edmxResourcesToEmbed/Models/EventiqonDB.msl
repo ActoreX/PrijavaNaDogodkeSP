@@ -7,6 +7,7 @@
           <ScalarProperty Name="idAktivnost" ColumnName="idAktivnost" />
           <ScalarProperty Name="idKraj" ColumnName="idKraj" />
           <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
           <ScalarProperty Name="omejitevMest" ColumnName="omejitevMest" />
           <ScalarProperty Name="datumVnosa" ColumnName="datumVnosa" />
           <ScalarProperty Name="datumOd" ColumnName="datumOd" />
@@ -17,6 +18,7 @@
           <ScalarProperty Name="nazivLokacije" ColumnName="nazivLokacije" />
           <ScalarProperty Name="opis" ColumnName="opis" />
           <ScalarProperty Name="cena" ColumnName="cena" />
+          <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -26,6 +28,7 @@
           <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
           <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
           <ScalarProperty Name="idKraj" ColumnName="idKraj" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
           <ScalarProperty Name="omejitevMest" ColumnName="omejitevMest" />
           <ScalarProperty Name="datumVnosa" ColumnName="datumVnosa" />
           <ScalarProperty Name="datumOd" ColumnName="datumOd" />
@@ -35,6 +38,7 @@
           <ScalarProperty Name="nazivLokacije" ColumnName="nazivLokacije" />
           <ScalarProperty Name="opis" ColumnName="opis" />
           <ScalarProperty Name="cena" ColumnName="cena" />
+          <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
