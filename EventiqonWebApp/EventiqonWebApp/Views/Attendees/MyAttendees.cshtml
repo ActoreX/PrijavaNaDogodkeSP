@@ -3,5 +3,296 @@
     ViewBag.Title = "UserInbox";
 }
 
-<h2>UserInbox</h2>
+<div class="row">
+    <div class="col-md-3" role="complementary" id="scrollSpyNavigation">
+        <nav data-spy="affix" data-offset-top="300" data-offset-bottom="200" class="hidden-print hidden-xs hidden-sm">
+            <ul class="nav">
+                <li><a href="#aktivnosti">Aktivnosti</a></li>
+                <li><a href="#dogodki">Dogodki</a></li>
 
+            </ul>
+        </nav>
+    </div>
+
+    <div class="col-md-9">
+        <!-- Forma za vnos podatkov    -->
+        <div class="panel panel-default vnosnaForma">
+            <div id="aktivnosti" class="panel-heading">
+                <table style="width:100%;">
+                    <tr>
+                        <td style="width:70%;">Aktivnosti</td>
+                        <td style="width:30%;">
+                            <span style="font-size: 0.75em;display:inline-block;float:right;">
+                                Število zadetkov: &nbsp;
+                                <select>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>50</option>
+                                </select>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="panel-body">
+
+                <div class="panel panel-default aktivnost">
+                    <div class="panel-heading clearfix">
+                        <span>Aktivnost 1</span>
+                        <span>Ljubljana</span>
+                        <span>10. 10. 2015 - 11.10.2015</span>
+                        <span>Potečeno</span>
+                    </div>
+                    <div class="panel-body collapse" id="aktivnost1">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis turpis ac tellus dapibus, vel venenatis nunc pretium. Vivamus ut sem at tellus bibendum rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc eu egestas erat. Duis nisl nulla, pharetra sit amet massa dignissim, porttitor blandit est. Proin sodales sem dui, a tempor odio malesuada ut. Cras id nulla at quam convallis varius in ac quam. Nulla eu scelerisque arcu, a imperdiet arcu. Etiam lacus ipsum, tincidunt id sapien id, finibus congue arcu.
+
+                            Vivamus porta cursus libero, vitae pretium neque. Duis nisi mauris, auctor a consequat a, convallis eu enim. Aliquam maximus at est at viverra. Cras vulputate sem at enim bibendum, non dictum orci aliquet. Donec nec massa condimentum lorem feugiat molestie. Suspendisse sed molestie nisi. Nullam lobortis accumsan eros non consequat. Aenean auctor a mi sit amet elementum. Aenean porttitor hendrerit nisi, id aliquam neque. Suspendisse aliquet urna at auctor varius.
+
+                            Fusce ac orci elementum, dapibus odio a, bibendum magna. Maecenas feugiat mi lectus, non commodo ante sagittis et. Curabitur sed nunc non nulla laoreet dapibus. Nunc dapibus eleifend pharetra. Nullam fringilla aliquet odio, ut elementum lacus accumsan ac. Pellentesque pulvinar interdum turpis vitae sagittis. Ut consectetur auctor massa ac dignissim. Quisque posuere at purus a consequat. Sed urna mi, volutpat vitae pellentesque sit amet, efficitur sit amet purus. Integer vel metus non sapien elementum scelerisque sit amet eget ex. Praesent in justo pretium justo fermentum interdum at sit amet nibh. Sed consectetur dignissim varius. Vestibulum ultricies quam magna, eget tincidunt neque vulputate ut.
+
+                            Vivamus a dictum ipsum. Integer interdum tortor id augue faucibus iaculis. Proin ut ipsum ipsum. Sed elit eros, placerat id iaculis vitae, ultrices eget ligula. Proin vel nibh pulvinar, ultrices risus vel, placerat augue. Phasellus dapibus pellentesque vulputate. Phasellus vel elit eget nisi pulvinar pulvinar vitae a mauris. Nullam aliquet, nisi sit amet congue auctor, nunc dolor fermentum nulla, eu ultrices massa eros sit amet ante. Suspendisse fermentum tellus lacus, ut facilisis lectus dignissim molestie. Sed sit amet eros purus. Nulla lacinia tincidunt tortor, vitae porta elit. Curabitur placerat, leo a rhoncus blandit, ipsum nunc tristique nisi, quis lacinia turpis metus a nunc. Aenean leo tellus, varius nec pretium non, tempus sed dolor.
+
+                            Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.
+
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Naziv</th>
+                                    <th>Čas</th>
+                                    <th>Lokacija</th>
+                                    <th>Opis</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Uvod</td>
+                                    <td>11. 11. 2015 ob 13:35-14:50</td>
+                                    <td>Bla</td>
+                                    <td>Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.</td>
+                                </tr>
+                                <tr>
+                                    <td>Uvod</td>
+                                    <td>11. 11. 2015 ob 13:35-14:50</td>
+                                    <td>Kratek uvod, predstavitev</td>
+                                    <td>Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.</td>
+                                </tr>
+                            </table>
+
+                        </p>
+
+
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" type="button" data-toggle="collapse" href="#aktivnost1">Več...</button>
+                        <button class="btn btn-default" type="button">Prekliči udeležbo</button>
+                        <button class="btn btn-default" type="button">Podrobno</button>
+                    </div>
+                </div>
+                <div class="panel panel-default aktivnost">
+                    <div class="panel-heading clearfix">
+                        <span>Aktivnost 2</span>
+                        <span>Ljubljana</span>
+                        <span>10. 10. 2015 - 11.10.2015</span>
+                        <span>Potečeno</span>
+                    </div>
+                    <div class="panel-body collapse" id="aktivnost2">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis turpis ac tellus dapibus, vel venenatis nunc pretium. Vivamus ut sem at tellus bibendum rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc eu egestas erat. Duis nisl nulla, pharetra sit amet massa dignissim, porttitor blandit est. Proin sodales sem dui, a tempor odio malesuada ut. Cras id nulla at quam convallis varius in ac quam. Nulla eu scelerisque arcu, a imperdiet arcu. Etiam lacus ipsum, tincidunt id sapien id, finibus congue arcu.
+
+                            Vivamus porta cursus libero, vitae pretium neque. Duis nisi mauris, auctor a consequat a, convallis eu enim. Aliquam maximus at est at viverra. Cras vulputate sem at enim bibendum, non dictum orci aliquet. Donec nec massa condimentum lorem feugiat molestie. Suspendisse sed molestie nisi. Nullam lobortis accumsan eros non consequat. Aenean auctor a mi sit amet elementum. Aenean porttitor hendrerit nisi, id aliquam neque. Suspendisse aliquet urna at auctor varius.
+
+                            Fusce ac orci elementum, dapibus odio a, bibendum magna. Maecenas feugiat mi lectus, non commodo ante sagittis et. Curabitur sed nunc non nulla laoreet dapibus. Nunc dapibus eleifend pharetra. Nullam fringilla aliquet odio, ut elementum lacus accumsan ac. Pellentesque pulvinar interdum turpis vitae sagittis. Ut consectetur auctor massa ac dignissim. Quisque posuere at purus a consequat. Sed urna mi, volutpat vitae pellentesque sit amet, efficitur sit amet purus. Integer vel metus non sapien elementum scelerisque sit amet eget ex. Praesent in justo pretium justo fermentum interdum at sit amet nibh. Sed consectetur dignissim varius. Vestibulum ultricies quam magna, eget tincidunt neque vulputate ut.
+
+                            Vivamus a dictum ipsum. Integer interdum tortor id augue faucibus iaculis. Proin ut ipsum ipsum. Sed elit eros, placerat id iaculis vitae, ultrices eget ligula. Proin vel nibh pulvinar, ultrices risus vel, placerat augue. Phasellus dapibus pellentesque vulputate. Phasellus vel elit eget nisi pulvinar pulvinar vitae a mauris. Nullam aliquet, nisi sit amet congue auctor, nunc dolor fermentum nulla, eu ultrices massa eros sit amet ante. Suspendisse fermentum tellus lacus, ut facilisis lectus dignissim molestie. Sed sit amet eros purus. Nulla lacinia tincidunt tortor, vitae porta elit. Curabitur placerat, leo a rhoncus blandit, ipsum nunc tristique nisi, quis lacinia turpis metus a nunc. Aenean leo tellus, varius nec pretium non, tempus sed dolor.
+
+                            Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.
+
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Naziv</th>
+                                    <th>Čas</th>
+                                    <th>Lokacija</th>
+                                    <th>Opis</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Uvod</td>
+                                    <td>11. 11. 2015 ob 13:35-14:50</td>
+                                    <td>Bla</td>
+                                    <td>Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.</td>
+                                </tr>
+                                <tr>
+                                    <td>Uvod</td>
+                                    <td>11. 11. 2015 ob 13:35-14:50</td>
+                                    <td>Kratek uvod, predstavitev</td>
+                                    <td>Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.</td>
+                                </tr>
+                            </table>
+
+                        </p>
+
+
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" type="button" data-toggle="collapse" href="#aktivnost2">Več...</button>
+                        <button class="btn btn-default" type="button">Prekliči udeležbo</button>
+                        <button class="btn btn-default" type="button">Podrobno</button>
+                    </div>
+                </div>
+
+            </div>
+            <nav class="ostranjevanje">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- konec forme za urejanje osebnih podatkov   -->
+        <!-- Forma za vnos podatkov    -->
+        <div class="panel panel-default vnosnaForma">
+            <div id="dogodki" class="panel-heading">
+                <table style="width:100%;">
+                    <tr>
+                        <td style="width:70%;">Dogodki</td>
+                        <td style="width:30%;">
+                            <span style="font-size: 0.75em;display:inline-block;float:right;">
+                                Število zadetkov: &nbsp;
+                                <select>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>50</option>
+                                </select>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="panel-body">
+
+                <div class="panel panel-default aktivnost">
+                    <div class="panel-heading clearfix">
+                        <span>Dogodek 1</span>
+                        <span>Ljubljana</span>
+                        <span>10. 10. 2015 - 11.10.2015</span>
+                        <span>Potečeno</span>
+                    </div>
+                    <div class="panel-body collapse" id="dogodek1">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis turpis ac tellus dapibus, vel venenatis nunc pretium. Vivamus ut sem at tellus bibendum rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc eu egestas erat. Duis nisl nulla, pharetra sit amet massa dignissim, porttitor blandit est. Proin sodales sem dui, a tempor odio malesuada ut. Cras id nulla at quam convallis varius in ac quam. Nulla eu scelerisque arcu, a imperdiet arcu. Etiam lacus ipsum, tincidunt id sapien id, finibus congue arcu.
+
+                            Vivamus porta cursus libero, vitae pretium neque. Duis nisi mauris, auctor a consequat a, convallis eu enim. Aliquam maximus at est at viverra. Cras vulputate sem at enim bibendum, non dictum orci aliquet. Donec nec massa condimentum lorem feugiat molestie. Suspendisse sed molestie nisi. Nullam lobortis accumsan eros non consequat. Aenean auctor a mi sit amet elementum. Aenean porttitor hendrerit nisi, id aliquam neque. Suspendisse aliquet urna at auctor varius.
+
+                            Fusce ac orci elementum, dapibus odio a, bibendum magna. Maecenas feugiat mi lectus, non commodo ante sagittis et. Curabitur sed nunc non nulla laoreet dapibus. Nunc dapibus eleifend pharetra. Nullam fringilla aliquet odio, ut elementum lacus accumsan ac. Pellentesque pulvinar interdum turpis vitae sagittis. Ut consectetur auctor massa ac dignissim. Quisque posuere at purus a consequat. Sed urna mi, volutpat vitae pellentesque sit amet, efficitur sit amet purus. Integer vel metus non sapien elementum scelerisque sit amet eget ex. Praesent in justo pretium justo fermentum interdum at sit amet nibh. Sed consectetur dignissim varius. Vestibulum ultricies quam magna, eget tincidunt neque vulputate ut.
+
+                            Vivamus a dictum ipsum. Integer interdum tortor id augue faucibus iaculis. Proin ut ipsum ipsum. Sed elit eros, placerat id iaculis vitae, ultrices eget ligula. Proin vel nibh pulvinar, ultrices risus vel, placerat augue. Phasellus dapibus pellentesque vulputate. Phasellus vel elit eget nisi pulvinar pulvinar vitae a mauris. Nullam aliquet, nisi sit amet congue auctor, nunc dolor fermentum nulla, eu ultrices massa eros sit amet ante. Suspendisse fermentum tellus lacus, ut facilisis lectus dignissim molestie. Sed sit amet eros purus. Nulla lacinia tincidunt tortor, vitae porta elit. Curabitur placerat, leo a rhoncus blandit, ipsum nunc tristique nisi, quis lacinia turpis metus a nunc. Aenean leo tellus, varius nec pretium non, tempus sed dolor.
+
+                            Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.
+
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Naziv</th>
+                                    <th>Čas</th>
+                                    <th>Lokacija</th>
+                                    <th>Opis</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Uvod</td>
+                                    <td>11. 11. 2015 ob 13:35-14:50</td>
+                                    <td>Bla</td>
+                                    <td>Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.</td>
+                                </tr>
+                                <tr>
+                                    <td>Uvod</td>
+                                    <td>11. 11. 2015 ob 13:35-14:50</td>
+                                    <td>Kratek uvod, predstavitev</td>
+                                    <td>Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.</td>
+                                </tr>
+                            </table>
+
+                        </p>
+
+
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" type="button" data-toggle="collapse" href="#dogodek1">Več...</button>
+                        <button class="btn btn-default" type="button">Prekliči udeležbo</button>
+                        <button class="btn btn-default" type="button">Podrobno</button>
+                    </div>
+                </div>
+                <div class="panel panel-default aktivnost">
+                    <div class="panel-heading clearfix">
+                        <span>Dogodek 2</span>
+                        <span>Ljubljana</span>
+                        <span>10. 10. 2015 - 11.10.2015</span>
+                        <span>Potečeno</span>
+                    </div>
+                    <div class="panel-body collapse" id="dogodek2">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis turpis ac tellus dapibus, vel venenatis nunc pretium. Vivamus ut sem at tellus bibendum rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc eu egestas erat. Duis nisl nulla, pharetra sit amet massa dignissim, porttitor blandit est. Proin sodales sem dui, a tempor odio malesuada ut. Cras id nulla at quam convallis varius in ac quam. Nulla eu scelerisque arcu, a imperdiet arcu. Etiam lacus ipsum, tincidunt id sapien id, finibus congue arcu.
+
+                            Vivamus porta cursus libero, vitae pretium neque. Duis nisi mauris, auctor a consequat a, convallis eu enim. Aliquam maximus at est at viverra. Cras vulputate sem at enim bibendum, non dictum orci aliquet. Donec nec massa condimentum lorem feugiat molestie. Suspendisse sed molestie nisi. Nullam lobortis accumsan eros non consequat. Aenean auctor a mi sit amet elementum. Aenean porttitor hendrerit nisi, id aliquam neque. Suspendisse aliquet urna at auctor varius.
+
+                            Fusce ac orci elementum, dapibus odio a, bibendum magna. Maecenas feugiat mi lectus, non commodo ante sagittis et. Curabitur sed nunc non nulla laoreet dapibus. Nunc dapibus eleifend pharetra. Nullam fringilla aliquet odio, ut elementum lacus accumsan ac. Pellentesque pulvinar interdum turpis vitae sagittis. Ut consectetur auctor massa ac dignissim. Quisque posuere at purus a consequat. Sed urna mi, volutpat vitae pellentesque sit amet, efficitur sit amet purus. Integer vel metus non sapien elementum scelerisque sit amet eget ex. Praesent in justo pretium justo fermentum interdum at sit amet nibh. Sed consectetur dignissim varius. Vestibulum ultricies quam magna, eget tincidunt neque vulputate ut.
+
+                            Vivamus a dictum ipsum. Integer interdum tortor id augue faucibus iaculis. Proin ut ipsum ipsum. Sed elit eros, placerat id iaculis vitae, ultrices eget ligula. Proin vel nibh pulvinar, ultrices risus vel, placerat augue. Phasellus dapibus pellentesque vulputate. Phasellus vel elit eget nisi pulvinar pulvinar vitae a mauris. Nullam aliquet, nisi sit amet congue auctor, nunc dolor fermentum nulla, eu ultrices massa eros sit amet ante. Suspendisse fermentum tellus lacus, ut facilisis lectus dignissim molestie. Sed sit amet eros purus. Nulla lacinia tincidunt tortor, vitae porta elit. Curabitur placerat, leo a rhoncus blandit, ipsum nunc tristique nisi, quis lacinia turpis metus a nunc. Aenean leo tellus, varius nec pretium non, tempus sed dolor.
+
+                            Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.
+
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Naziv</th>
+                                    <th>Čas</th>
+                                    <th>Lokacija</th>
+                                    <th>Opis</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Uvod</td>
+                                    <td>11. 11. 2015 ob 13:35-14:50</td>
+                                    <td>Bla</td>
+                                    <td>Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.</td>
+                                </tr>
+                                <tr>
+                                    <td>Uvod</td>
+                                    <td>11. 11. 2015 ob 13:35-14:50</td>
+                                    <td>Kratek uvod, predstavitev</td>
+                                    <td>Morbi sem enim, rutrum dignissim mi vel, efficitur malesuada nisl. Cras dictum malesuada dolor non malesuada. Pellentesque sagittis, erat a molestie laoreet, lacus purus porta mi, sed lobortis sapien ligula sit amet massa. Etiam sed sem accumsan elit egestas vehicula sed at risus. Vestibulum ullamcorper nisi eu sapien aliquam rhoncus. In justo augue, ullamcorper non elit non, dignissim hendrerit velit. Sed dignissim tincidunt lacinia. Aliquam urna orci, placerat nec velit quis, maximus dignissim ligula. Quisque condimentum ante nec pharetra consequat. Fusce velit velit, congue non lorem vel, aliquam ultricies turpis. Curabitur pellentesque egestas mauris, non mattis est sollicitudin a. Curabitur ultricies faucibus justo eget tristique. Curabitur dictum enim eget urna mollis ultricies. Fusce ultricies auctor velit, eu efficitur purus accumsan sed.</td>
+                                </tr>
+                            </table>
+
+                        </p>
+
+
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-default" type="button" data-toggle="collapse" href="#dogodek2">Več...</button>
+                        <button class="btn btn-default" type="button">Prekliči udeležbo</button>
+                        <button class="btn btn-default" type="button">Podrobno</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- konec forme za urejanje osebnih podatkov   -->
+    </div>
+
+</div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/myattendees.js")
+}
