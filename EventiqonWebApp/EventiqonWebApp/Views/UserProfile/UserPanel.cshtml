@@ -100,6 +100,7 @@
                     <img src="@Url.Content("~/Content/images/ok-icon.png")"> Potrdi
                 </button>
             </div>
+
         </div>
         <!-- konec forme za urejanje osebnih podatkov   -->
         <!-- Forma za vnos podatkov    -->
@@ -207,10 +208,5 @@
 
 @section scripts 
 { 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('body').scrollspy({ target: '#scrollSpyNavigation' })
-        });
-    </script>
-    
+    @Scripts.Render("~/Scripts/userpanel.js")
 }

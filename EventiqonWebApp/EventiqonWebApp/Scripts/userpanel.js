@@ -1,4 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function () {
+    $('body').scrollspy({ target: '#scrollSpyNavigation' })
+
     $('#datumRojstva').datepicker();
     $('#spremeniOsebnePodatke').click(function(){
          $('#formaOsebniPodatki').submit();
@@ -27,7 +29,7 @@ $(document).ready(function(){
         }
     });
     
-    $('#potrdiFormoNaslova').click(function() {
+    $('#potrdiFormoNaslova').click(function () {
         $('#formaNaslova').submit();    
     }); 
     
@@ -47,8 +49,21 @@ $(document).ready(function(){
            kraj: {
                obveznoPolje : true
            }
-           
-       }
+
+       },
+        
+       submitHandler: function (form) {
+           var mydata = pripraviJsonZaPosiljanje($('#formaNaslova').serializeArray());
+         
+           $.ajax({
+               url: "/UserProfile/PosodobiNaslov",
+               data: mydata,
+               type: "POST",
+               success: function(result) {
+                   console.log(result);
+               }
+           });
+       },
     });
     
     $('#potrdiSprememboGesla').click(function() {
@@ -138,8 +153,7 @@ $(document).ready(function(){
         }
     });
 
-    
-    
+   
 jQuery.validator.addMethod("obveznoPolje", $.validator.methods.required, "Polje ne sme biti prazno!");
 jQuery.validator.addMethod("veljavnoStevilo", $.validator.methods.number, "Vnesite veljavno število.");
 
@@ -153,3 +167,13 @@ jQuery.validator.addMethod("niEnako", function(value, element, options){
 }, "Polje ne sme biti enako")
     
 });
+
+// pomožna funkcija za pretvorbo serializiranega polja v veljavno JSON obliko
+function pripraviJsonZaPosiljanje(data) {
+    var res = {};
+    data.map(function (o) {
+        res[o.name] = o.value;
+    });
+   
+    return JSON.stringify(res);
+}
