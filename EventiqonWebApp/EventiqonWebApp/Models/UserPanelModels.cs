@@ -16,7 +16,7 @@ namespace EventiqonWebApp.Models
     public class OsebniPodatkiVhodniPodatki
     {
         public string eposta { get; set; }
-        public DateTime datumRojstva { get; set; }
+        public string datumRojstva { get; set; }
         public string telSt { get; set; }
         public string paypalRacun { get; set; }
     }
