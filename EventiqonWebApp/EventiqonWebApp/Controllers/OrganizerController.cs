@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EventiqonWebApp.Models;
 
 namespace EventiqonWebApp.Controllers
 {
@@ -17,15 +18,23 @@ namespace EventiqonWebApp.Controllers
 
         // POST: Organizer/AddNewActivity
         [HttpPost]
-        public JsonResult AddNewActivity(EventiqonWebApp.Models.AktivnostDogodekVhodniPodatki vhod)
+        public JsonResult AddNewActivity(AktivnostDogodekVhodniPodatki vhod)
         {
             return Json("Super");
         }
 
         // GET: Organizer/AddNewEvent
+        [HttpGet]
         public ActionResult AddNewEvent()
         {
             return View();
+        }
+
+        // POST: Organizer/AddNewEvent
+        [HttpPost]
+        public JsonResult AddNewEvent(AktivnostDogodekVhodniPodatki vhod)
+        {
+            return Json("Dela");
         }
 
         // GET: Organizer/Organizer

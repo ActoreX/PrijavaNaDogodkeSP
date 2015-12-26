@@ -1,4 +1,7 @@
-$(document).ready(function(){
+$(document).ready(function () {
+    var pot = location.href.replace(/(.+)(\/\/[\w.\d:]+)(.+)/, "$3");
+
+    console.log(pot);
     var omejitevStMest = $("input[name=omejitev-spinner]").spinner();
     omejitevStMest.val("0");
     omejitevStMest.keyup(function(){
@@ -207,7 +210,7 @@ $(document).ready(function(){
             console.log(mydata);
             console.log(o);
             $.ajax({
-                url: "/Organizer/AddNewActivity",
+                url: pot,
                 data: o,
                 type: "POST",
                 dataType: "json",
