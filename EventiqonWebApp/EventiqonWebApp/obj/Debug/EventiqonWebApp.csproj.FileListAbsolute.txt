@@ -205,3 +205,5 @@ C:\Users\Administrator\Desktop\PrijavaNaDogodkeSP\EventiqonWebApp\EventiqonWebAp
 C:\Users\Administrator\Desktop\PrijavaNaDogodkeSP\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\PrijavaNaDogodkeSP\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.dll
 C:\Users\Administrator\Desktop\PrijavaNaDogodkeSP\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.pdb
+C:\Users\Administrator\Desktop\PrijavaNaDogodkeSP\EventiqonWebApp\EventiqonWebApp\bin\RestSharp.dll
+C:\Users\Administrator\Desktop\PrijavaNaDogodkeSP\EventiqonWebApp\EventiqonWebApp\bin\RestSharp.xml

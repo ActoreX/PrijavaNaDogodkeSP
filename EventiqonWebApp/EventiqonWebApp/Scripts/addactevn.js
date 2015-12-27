@@ -24,7 +24,9 @@ $(document).ready(function () {
     location: {latitude: mojaLokacija.latitude, longitude: mojaLokacija.longtitude },	 
     radius: 100,
     inputBinding: {
-        locationNameInput: $('#vnosLokacije')
+        locationNameInput: $('#vnosLokacije'),
+        latitudeInput: $('#geolocation_lat'),
+        longitudeInput: $('#geolocation_lon'),
     },
     enableAutocomplete: true
     });
@@ -146,6 +148,10 @@ $(document).ready(function () {
     });
     
     $('#potrdiFormoAktEvn').click(function () {
+        var lat = $("#geolocation_lat").val();
+        var lon = $("#geolocation_lon").val();
+        var geolocationAPICall = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=AIzaSyAmZRoA4MHaKQDY4JuWnkV3ZB-k69kluts";
+
         $('#vnosnaFormaAktEvn').submit();
     });
    
