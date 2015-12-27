@@ -1,4 +1,4 @@
-﻿@model EventiqonWebApp.Models.ak
+﻿@model EventiqonWebApp.Models.SeznamMojihAktivnostiInDogodkov
 @{
     ViewBag.Title = "UserPanel";
 }
@@ -37,34 +37,24 @@
             </div>
             <div class="panel-body">
 
-                @foreach
-                <div class="panel panel-default aktivnost">
-                    <div class="panel-heading clearfix">
-                        <span>Aktivnost 1</span>
-                        <span>Ljubljana</span>
-                        <span>10. 10. 2015 - 11.10.2015</span>
-                        <span>Potečeno</span>
+                @foreach (var aktivnost in Model.seznamAktivnosti)
+                {
+                    <div class="panel panel-default aktivnost">
+                        <div class="panel-heading clearfix">
+                            <span>@aktivnost.Aktivnost.naziv</span>
+                            <span>@aktivnost.Aktivnost.nazivLokacije</span>
+                            <span>@aktivnost.Aktivnost.datumOd - @aktivnost.Aktivnost.datumDo</span>
+                            <span>@aktivnost.Aktivnost.status</span>
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" type="button" data-toggle="collapse">Uredi</button>
+                            <button class="btn btn-default" type="button">Končaj</button>
+                        </div>
                     </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default" type="button" data-toggle="collapse" href="#aktivnost1">Uredi</button>
-                        <button class="btn btn-default" type="button">Končaj</button>
-                    </div>
-                </div>
-                <div class="panel panel-default aktivnost">
-                    <div class="panel-heading clearfix">
-                        <span>Aktivnost 2</span>
-                        <span>Ljubljana</span>
-                        <span>10. 10. 2015 - 11.10.2015</span>
-                        <span>Potečeno</span>
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default" type="button" data-toggle="collapse" href="#aktivnost2">Uredi</button>
-                        <button class="btn btn-default" type="button">Končaj</button>
-                    </div>
-                </div>
+                }
 
             </div>
-            <nav class="ostranjevanje">
+            @*<nav class="ostranjevanje">
                 <ul class="pagination">
                     <li>
                         <a href="#" aria-label="Previous">
@@ -82,7 +72,7 @@
                         </a>
                     </li>
                 </ul>
-            </nav>
+            </nav>*@
         </div>
         <!-- konec forme za urejanje osebnih podatkov   -->
         <!-- Forma za vnos podatkov    -->
@@ -106,31 +96,21 @@
                 </table>
             </div>
             <div class="panel-body">
-
-                <div class="panel panel-default aktivnost">
-                    <div class="panel-heading clearfix">
-                        <span>Dogodek 1</span>
-                        <span>Ljubljana</span>
-                        <span>10. 10. 2015 - 11.10.2015</span>
-                        <span>Potečeno</span>
+                @foreach (var dogodek in Model.seznamDogodkov)
+                {
+                    <div class="panel panel-default aktivnost">
+                        <div class="panel-heading clearfix">
+                            <span>@dogodek.Dogodek.naziv</span>
+                            <span>@dogodek.Dogodek.nazivLokacije</span>
+                            <span>@dogodek.Dogodek.datumOd - @dogodek.Dogodek.datumDo</span>
+                            <span>@dogodek.Dogodek.status</span>
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" type="button" data-toggle="collapse">Uredi</button>
+                            <button class="btn btn-default" type="button">Končaj</button>
+                        </div>
                     </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default" type="button" data-toggle="collapse" href="#dogodek1">Uredi</button>
-                        <button class="btn btn-default" type="button">Končaj</button>
-                    </div>
-                </div>
-                <div class="panel panel-default aktivnost">
-                    <div class="panel-heading clearfix">
-                        <span>Dogodek 2</span>
-                        <span>Ljubljana</span>
-                        <span>10. 10. 2015 - 11.10.2015</span>
-                        <span>Potečeno</span>
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default" type="button" data-toggle="collapse" href="#dogodek2">Uredi</button>
-                        <button class="btn btn-default" type="button">Končaj</button>
-                    </div>
-                </div>
+                }
             </div>
         </div>
         <!-- konec forme za urejanje osebnih podatkov   -->
