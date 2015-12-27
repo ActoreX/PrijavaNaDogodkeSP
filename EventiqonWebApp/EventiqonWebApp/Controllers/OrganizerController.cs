@@ -124,7 +124,7 @@ namespace EventiqonWebApp.Controllers
                             }
 
                             // commitaj transakcijo
-                            odgovor += "Upsšeno dodajanje aktivnosti v bazo!";
+                            odgovor += "Uspešno dodajanje aktivnosti v bazo!";
                             ts.Complete();
 
                         } catch (Exception ex)

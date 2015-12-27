@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('body').scrollspy({ target: '#scrollSpyNavigation' })
 
-    $('#datumRojstva').datepicker();
+    $('#datumRojstva').datepicker({ dateFormat: 'dd-mm-yy' });
 
 
     $('#potrdiFormoNaslova').click(function () {

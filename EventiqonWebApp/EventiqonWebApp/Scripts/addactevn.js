@@ -12,8 +12,8 @@ $(document).ready(function () {
     })
     omejitevStMest.spinner("option", "min", 0);
 
-    var datumOd = $("input[name=datum_od]").datepicker();
-    var datumDo = $("input[name=datum_do]").datepicker();
+    var datumOd = $("input[name=datum_od]").datepicker({ dateFormat: 'dd-mm-yy' });
+    var datumDo = $("input[name=datum_do]").datepicker({ dateFormat: 'dd-mm-yy' });
     
     
     mojaLokacija = new Object();
@@ -263,6 +263,6 @@ jQuery.validator.addMethod("veljavnaCena", function(value, element, options) {
 }, "V primeru plačljivega tipa, morate podati veljavno ceno (n>0)!");
 
 jQuery.validator.addMethod("veljavnoTrajanje", function(value, element, options) {
-    return options.vrstaTrajanja.val() == "enkratna" && /^\d{2}\/\d{2}\/\d{4}$/.test(element.value) && /^\d{2}\/\d{2}\/\d{4}$/.test(options.datumOd.val()) && options.datumOd.val() <= element.value
+    return options.vrstaTrajanja.val() == "enkratna" && /^\d{2}\-\d{2}\-\d{4}$/.test(element.value) && /^\d{2}\-\d{2}\-\d{4}$/.test(options.datumOd.val()) && options.datumOd.val() <= element.value
 }, "Datum mora biti >= od začetka, če je izbrana vrsta enkratno");
 
