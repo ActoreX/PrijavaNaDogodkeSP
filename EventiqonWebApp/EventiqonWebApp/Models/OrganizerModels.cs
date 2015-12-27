@@ -18,7 +18,8 @@ namespace EventiqonWebApp.Models
         public string geolocation_lat { get; set; }
         public string geolocation_lon { get; set; }
         public List<PostavkaVhodniPodatki> seznamPostavk { get; set; }
-         
+        public int steviloMestSpinner { get; set; }
+        public double cenaVstopnice { get; set; }
     }
     public class PostavkaVhodniPodatki
     {

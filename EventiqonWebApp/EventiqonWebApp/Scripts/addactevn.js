@@ -2,7 +2,7 @@ $(document).ready(function () {
     var pot = location.href.replace(/(.+)(\/\/[\w.\d:]+)(.+)/, "$3");
 
     console.log(pot);
-    var omejitevStMest = $("input[name=omejitev-spinner]").spinner();
+    var omejitevStMest = $("input[name=steviloMestSpinner]").spinner();
     omejitevStMest.val("0");
     omejitevStMest.keyup(function(){
         if(isNaN($(this).val())) {
@@ -45,7 +45,7 @@ $(document).ready(function () {
     }
 
 
-    $('#omejitev-spinner').spinner();
+    $('#steviloMestSpinner').spinner();
     
     var izbiraTrajanja = $('input[name=vrstaIzbireTrajanja]:checked').val();
     nastaviPoljaZaUstreznoIzbiroTrajanja(izbiraTrajanja);
@@ -100,7 +100,7 @@ $(document).ready(function () {
     }
     
     function nastaviPoljaZaUstreznoIzbiroOmejitevStMest(omejitev) {
-        var steviloMestSpinner = $("input[name=omejitev-spinner]").spinner();
+        var steviloMestSpinner = $("input[name=steviloMestSpinner]").spinner();
 
         if(omejitev == "neomejeno") {
             steviloMestSpinner.val("inf");  
@@ -186,19 +186,29 @@ $(document).ready(function () {
             var o = {};
             var seznamPostavk = [];
             var tmpPostavka = {};
+            var zacetniIndeksPostavk = 10; // začetna vrednost (izmerjena za vse običajna polja)
+            console.log($('input[name=vrstaIzbireTrajanja]:checked').val());
+            if ($('input[name=vrstaIzbireTrajanja]:checked').val() == "ponavljajoca")
+                zacetniIndeksPostavk -= 1;
+
             mydata.forEach(function (data, i) {
-                if (i > 9) {
+
+                if (data.name == "cenaVstopnice" || data.name == "steviloMestSpinner") {
+                    zacetniIndeksPostavk += 1;
+                }
+
+                if (i >= zacetniIndeksPostavk) {
                     // nazivPostavke
-                    if ((i - 10) % 4 == 0) {
+                    if ((i - zacetniIndeksPostavk) % 4 == 0) {
                         tmpPostavka[data.name] = data.value;
                     // casPostavke
-                    } else if ((i - 10) % 4 == 1) {
+                    } else if ((i - zacetniIndeksPostavk) % 4 == 1) {
                         tmpPostavka[data.name] = data.value;
                     // casTrajanjaPostavke
-                    } else if ((i - 10) % 4 == 2) {
+                    } else if ((i - zacetniIndeksPostavk) % 4 == 2) {
                         tmpPostavka[data.name] = data.value;
                      // opisPostavke
-                    } else if ((i - 10) % 4 == 3) {
+                    } else if ((i - zacetniIndeksPostavk) % 4 == 3) {
                         tmpPostavka[data.name] = data.value;
                         seznamPostavk.push(tmpPostavka);
                         console.log(tmpPostavka + "sdad");
