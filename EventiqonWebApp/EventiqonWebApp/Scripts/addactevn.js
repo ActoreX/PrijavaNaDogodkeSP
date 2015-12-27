@@ -148,10 +148,10 @@ $(document).ready(function () {
     });
     
     $('#potrdiFormoAktEvn').click(function () {
+        // informacije kaj se pravzaprav pošlje strežniku
         var lat = $("#geolocation_lat").val();
         var lon = $("#geolocation_lon").val();
-        var geolocationAPICall = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=AIzaSyAmZRoA4MHaKQDY4JuWnkV3ZB-k69kluts";
-
+        console.log("Lat: " + lat + ", Lon: " + lon);
         $('#vnosnaFormaAktEvn').submit();
     });
    
@@ -187,18 +187,18 @@ $(document).ready(function () {
             var seznamPostavk = [];
             var tmpPostavka = {};
             mydata.forEach(function (data, i) {
-                if (i > 7) {
+                if (i > 9) {
                     // nazivPostavke
-                    if ((i - 8) % 4 == 0) {
+                    if ((i - 10) % 4 == 0) {
                         tmpPostavka[data.name] = data.value;
                     // casPostavke
-                    } else if ((i - 8) % 4 == 1) {
+                    } else if ((i - 10) % 4 == 1) {
                         tmpPostavka[data.name] = data.value;
                     // casTrajanjaPostavke
-                    } else if ((i - 8) % 4 == 2) {
+                    } else if ((i - 10) % 4 == 2) {
                         tmpPostavka[data.name] = data.value;
                      // opisPostavke
-                    } else if ((i - 8) % 4 == 3) {
+                    } else if ((i - 10) % 4 == 3) {
                         tmpPostavka[data.name] = data.value;
                         seznamPostavk.push(tmpPostavka);
                         console.log(tmpPostavka + "sdad");

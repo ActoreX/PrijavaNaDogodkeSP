@@ -9,6 +9,11 @@
             <div class="panel-heading">Nova aktivnost</div>
             <div class="panel-body">
                 <form id="vnosnaFormaAktEvn">
+                    <input name="geolocation_lat" type="hidden" id="geolocation_lat" />
+                    <input name="geolocation_lon" type="hidden" id="geolocation_lon" />
+                    @*<input type="hidden" id="kraj" name="kraj" />
+                    <input type="hidden" id="imeDrzave" name="imeDrzave" />
+                    <input type="hidden" id="kraticaDrzave" name="kraticaDrzave" />*@
                     <table class="novaAktEnv table" style="padding: 1em 0 1em 1em;">
                         <colgroup>
                             <col style="width:33%;">
@@ -136,12 +141,6 @@
                         </tr>
 
                     </table>
-
-                    <input type="hidden" id="geolocation_lat" name="geolocation_lat" />
-                    <input type="hidden" id="geolocation_lon" name="geolocation_lon" />
-                    @*<input type="hidden" id="kraj" name="kraj" />
-                    <input type="hidden" id="imeDrzave" name="imeDrzave" />
-                    <input type="hidden" id="kraticaDrzave" name="kraticaDrzave" />*@
 
                 </form>
             </div>

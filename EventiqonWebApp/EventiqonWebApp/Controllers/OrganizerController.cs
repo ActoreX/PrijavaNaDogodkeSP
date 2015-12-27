@@ -30,7 +30,7 @@ namespace EventiqonWebApp.Controllers
             request.Resource = "maps/api/geocode/json";
             request.AddParameter("latlng", "46.06813252000273,14.544028793945245");
             request.AddParameter("key", "AIzaSyAmZRoA4MHaKQDY4JuWnkV3ZB-k69kluts");
-       
+        
             var response = restClient.Execute<GoogleMapsGeocodingModel>(request);
 
             GoogleMapsGeocodingModel googleMapsModel = response.Data;

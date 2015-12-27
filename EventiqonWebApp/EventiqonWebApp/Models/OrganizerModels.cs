@@ -15,6 +15,8 @@ namespace EventiqonWebApp.Models
         public string nazivIzbire { get; set; }
         public string vnosLokacije { get; set; }
         public string opisAktEvn { get; set; }
+        public string geolocation_lat { get; set; }
+        public string geolocation_lon { get; set; }
         public List<PostavkaVhodniPodatki> seznamPostavk { get; set; }
          
     }
