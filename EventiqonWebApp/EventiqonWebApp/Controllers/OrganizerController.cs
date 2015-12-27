@@ -35,7 +35,7 @@ namespace EventiqonWebApp.Controllers
                 var restClient = new RestClient("https://maps.googleapis.com");
                 var request = new RestRequest(Method.GET);
                 request.Resource = "maps/api/geocode/json";
-                request.AddParameter("latlng", "46.06813252000273,14.544028793945245");
+                request.AddParameter("latlng", vhod.geolocation_lat + "," + vhod.geolocation_lon);
                 request.AddParameter("key", "AIzaSyAmZRoA4MHaKQDY4JuWnkV3ZB-k69kluts");
 
                 var response = restClient.Execute<GoogleMapsGeocodingModel>(request);
@@ -51,7 +51,7 @@ namespace EventiqonWebApp.Controllers
                     {
                         try {
                             Kraj kr = null;
-                            // preveri če mesto v bazi že obstaja 
+                            // preveri če mesto(kraj) v bazi že obstaja 
                             if (!db.Kraj.Any(k => k.nazivKraja == kraj))
                             {
                                 kr = new Kraj();
@@ -123,15 +123,13 @@ namespace EventiqonWebApp.Controllers
                                 db.SaveChanges();
                             }
 
-
-
                             // commitaj transakcijo
-
+                            odgovor += "Upsšeno dodajanje aktivnosti v bazo!";
                             ts.Complete();
 
                         } catch (Exception ex)
                         {
-                            var nekijenarobe = ex;
+                            odgovor += "Neuspešno dodajanje aktivnosti v bazo! Več informacij: " + ex.Message;
                         }
                     }
 
@@ -143,9 +141,9 @@ namespace EventiqonWebApp.Controllers
 
             } else
             {
-                odgovor += "Neustrezen vnos forme !";
+                odgovor += "Neustrezen vnos forme!";
             }
-            return Json("Super");
+            return Json(odgovor, JsonRequestBehavior.DenyGet);
         }
 
         bool obveznaPoljaPodanaAktivnostDogodekVhodniPodatki(AktivnostDogodekVhodniPodatki vhod)
