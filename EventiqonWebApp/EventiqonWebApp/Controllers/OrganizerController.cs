@@ -109,6 +109,20 @@ namespace EventiqonWebApp.Controllers
                             db.Aktivnost.Add(novaAktivnost);
                             db.SaveChanges();
 
+                            // TODO: spremeni ko bo narejena avtentikacija; za silo naj bo to kar prvi uporabnik
+                            Uporabnik u = db.Uporabnik.Take(1).Single();
+
+                            // Dodaj ustvarjeno aktivnost v vmesno tabelo, uporabniku pa priredi status udeležbe
+                            SeznamAktivnosti sa = new SeznamAktivnosti();
+                            sa.idSeznamAktivnosti = db.SeznamAktivnosti.Max(s => s.idSeznamAktivnosti) + 1;
+                            sa.idAktivnost = novaAktivnost.idAktivnost;
+                            sa.uprabniskoIme = u.uprabniskoIme;
+                            sa.statusUdelezbe = "organizator";
+
+                            db.SeznamAktivnosti.Add(sa);
+                            db.SaveChanges();
+
+
                             // postavke aktivnosti(dogodka)
                             foreach (var postavka in vhod.seznamPostavk)
                             {
@@ -250,6 +264,19 @@ namespace EventiqonWebApp.Controllers
                             db.Dogodek.Add(novDogodek);
                             db.SaveChanges();
 
+
+                            // TODO: spremeni ko bo narejena avtentikacija; za silo naj bo to kar prvi uporabnik
+                            Uporabnik u = db.Uporabnik.Take(1).Single();
+                            // Dodaj ustvarjen dogodel v vmesno tabelo, uporabniku pa priredi status udeležbe
+                            SeznamDogodkov sd = new SeznamDogodkov();
+                            sd.idSeznamDogodkov = db.SeznamAktivnosti.Max(s => s.idSeznamAktivnosti) + 1;
+                            sd.idDogodek = novDogodek.idDogodek;
+                            sd.uprabniskoIme = u.uprabniskoIme;
+                            sd.statusUdelezbe = "organizator";
+
+                            db.SeznamDogodkov.Add(sd);
+                            db.SaveChanges();
+
                             // postavke aktivnosti(dogodka)
                             foreach (var postavka in vhod.seznamPostavk)
                             {
@@ -293,7 +320,13 @@ namespace EventiqonWebApp.Controllers
         // GET: Organizer/Organizer
         public ActionResult Organizer()
         {
-            return View();
+            Uporabnik u = db.Uporabnik.Take(1).Single();
+
+            SeznamMojihAktivnostiInDogodkov smaid = new SeznamMojihAktivnostiInDogodkov();
+            smaid.seznamAktivnosti = db.SeznamAktivnosti.Where(sa => sa.uprabniskoIme == u.uprabniskoIme & sa.statusUdelezbe == "organizator");
+            smaid.seznamDogodkov = db.SeznamDogodkov.Where(sd => sd.uprabniskoIme == u.uprabniskoIme & sd.statusUdelezbe == "organizator");
+            
+            return View(smaid);
         }
     }
 }
