@@ -316,6 +316,7 @@
     <Content Include="Scripts\locationpicker.jquery.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\myattendees.js" />
+    <Content Include="Scripts\myorganizer.js" />
     <Content Include="Scripts\userpanel.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />

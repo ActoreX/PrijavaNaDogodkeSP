@@ -47,8 +47,16 @@
                             <span>@aktivnost.Aktivnost.status</span>
                         </div>
                         <div class="panel-footer">
-                            <button class="btn btn-default" type="button" data-toggle="collapse">Uredi</button>
-                            <button class="btn btn-default" type="button">Končaj</button>
+                            @*<button class="btn btn-default" type="button" data-toggle="collapse">Uredi</button>*@
+                            @if (aktivnost.Aktivnost.status == "končan")
+                            {
+                                <button class="btn btn-default spremeniAkt" name="akt_@aktivnost.idAktivnost" type="button">Končano</button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-default spremeniAkt" name="akt_@aktivnost.idAktivnost" type="button">Končaj</button>
+                            }
+
                         </div>
                     </div>
                 }
@@ -106,8 +114,16 @@
                             <span>@dogodek.Dogodek.status</span>
                         </div>
                         <div class="panel-footer">
-                            <button class="btn btn-default" type="button" data-toggle="collapse">Uredi</button>
-                            <button class="btn btn-default" type="button">Končaj</button>
+                            @*<button class="btn btn-default" type="button" data-toggle="collapse">Uredi</button>*@
+                           
+                            @if (dogodek.Dogodek.status == "končan")
+                            {
+                                <button class="btn btn-default spremeniDog" name="dog_@dogodek.idDogodek" type="button">Končano</button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-default spremeniDog" name="dog_@dogodek.idDogodek" type="button">Končaj</button>
+                            }
                         </div>
                     </div>
                 }

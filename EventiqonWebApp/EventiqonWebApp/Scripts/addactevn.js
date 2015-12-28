@@ -114,7 +114,7 @@ $(document).ready(function () {
         }
     }
 
-    
+       
     steviloPostavk = 1;
     $('#dodajNovoPostavko').click(function(){
         steviloPostavk = steviloPostavk + 1;

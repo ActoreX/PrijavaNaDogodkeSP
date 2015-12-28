@@ -328,5 +328,72 @@ namespace EventiqonWebApp.Controllers
             
             return View(smaid);
         }
+
+        // POST: Organizer/SpremeniStatusUdelezbe
+        [HttpPost]
+        public JsonResult SpremeniStatusUdelezbe(SpremeniStatusUdelezbe ssu)
+        {
+            string odgovor = "Odgovor strežnika: ";
+            // za enkrat le:  "preklici", "potrdi"
+            // ugotovi za kaj gre (aktivnost/dogodek)
+            if((ssu.idAktivnosti >= 0 || ssu.idDogodka >= 0) && ssu.statusUdelezbe != null)
+            {
+                // aktivnost
+                if(ssu.idAktivnosti >= 0 && ssu.idDogodka < 0)
+                {
+                    // TODO: za trenutno prijavljenega uporabnika
+                    Uporabnik u = db.Uporabnik.Take(1).Single();
+                  
+                    Aktivnost akt = db.Aktivnost.Where(a => a.idAktivnost == ssu.idAktivnosti).Single();
+                    
+                    // TODO: avtorizacija, ali sme spreminjati status (končati aktivnost)
+                    if(akt.SeznamAktivnosti.Any(sa=>sa.uprabniskoIme == u.uprabniskoIme && sa.statusUdelezbe == "organizator"))
+                    {
+                        if(ssu.statusUdelezbe == "Končaj" && akt.status != "končan")
+                        {
+                            akt.status = "končan";
+                            db.SaveChanges();
+                            //odgovor += "Prireditev je uspešno zaključena! ";
+                            return Json("OK", JsonRequestBehavior.DenyGet);
+                        } else
+                        {
+                            odgovor += "Statusa prireditve ni možno spremeniti saj je bodisi že končana ali pa je vnos novega statusa neustrezen! ";
+                        }
+                    }
+
+
+                } else if(ssu.idAktivnosti < 0 && ssu.idDogodka >= 0)
+                {
+                    // TODO: za trenutno prijavljenega uporabnika
+                    Uporabnik u = db.Uporabnik.Take(1).Single();
+
+                    Dogodek dog = db.Dogodek.Where(d => d.idDogodek == ssu.idDogodka).Single();
+
+                    // TODO: avtorizacija, ali sme spreminjati status (končati dogivnost)
+                    if (dog.SeznamDogodkov.Any(sd => sd.uprabniskoIme == u.uprabniskoIme && sd.statusUdelezbe == "organizator"))
+                    {
+                        if (ssu.statusUdelezbe == "Končaj" && dog.status != "končan")
+                        {
+                            dog.status = "končan";
+                            db.SaveChanges();
+                            //odgovor += "Prireditev je uspešno zaključena! ";
+                            return Json("OK", JsonRequestBehavior.DenyGet);
+                        }
+                        else
+                        {
+                            odgovor += "Statusa prireditve ni možno spremeniti saj je bodisi že končata ali pa je vnos novega statusa neustrezen! ";
+                        }
+                    }
+                } else
+                {
+                    odgovor += "Dvoumnost - podana mora biti bodisi idAktivnost bodisi idDogodka >=0 ";
+                }
+            } else
+            {
+                odgovor += "Vnos forme neustrezen! ";
+            }
+
+            return Json(odgovor, JsonRequestBehavior.DenyGet);
+        }
     }
 }

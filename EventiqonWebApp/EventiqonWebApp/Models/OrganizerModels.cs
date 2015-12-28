@@ -35,6 +35,13 @@ namespace EventiqonWebApp.Models
         public IEnumerable<SeznamDogodkov> seznamDogodkov { get; set; }
     }
 
+    public class SpremeniStatusUdelezbe
+    {
+        public string statusUdelezbe { get; set; }
+        public int idAktivnosti { get; set; }
+        public int idDogodka { get; set; }
+    }
+
     // Za Google Maps Geolocation
     public class AddressComponent
     {
