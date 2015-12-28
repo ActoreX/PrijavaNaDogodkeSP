@@ -10,4 +10,10 @@ namespace EventiqonWebApp.Models
         public IEnumerable<SeznamAktivnosti> seznamAktivnosti { get; set; }
         public IEnumerable<SeznamDogodkov> seznamDogodkov { get; set; }
     }
+
+    public class KoledarVhodniPodatki
+    {
+        public DateTime datumOd { get; set; }
+        public DateTime datumDo { get; set; }
+    }
 }

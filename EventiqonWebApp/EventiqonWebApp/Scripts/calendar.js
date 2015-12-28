@@ -2,7 +2,6 @@ $(document).ready(function(){
     
     // http://stackoverflow.com/questions/16092288/date-range-picker-on-jquery-ui-datepicker
     $('#koledar').datepicker({
-			minDate: 0,
 			beforeShowDay: function(date) {
 				var date1 = $.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#input1").val());
 				var date2 = $.datepicker.parseDate($.datepicker._defaults.dateFormat, $("#input2").val());
@@ -31,6 +30,23 @@ $(document).ready(function(){
         $('#isci').click(function(){
             if(intervalIzbran()) {
                 // pridobi podatke
+                data = {};
+                var datumOd = new Date($('#input1').val());
+                var datumDo = new Date($('#input2').val());
+
+                data["datumOd"] = datumOd.getDate() + "-" + (datumOd.getMonth()+1) + "-" + datumOd.getFullYear();
+                data["datumDo"] = datumDo.getDate() + "-" + (datumDo.getMonth()+1) + "-" + datumDo.getFullYear();
+              
+                $.ajax({
+                    url: "/Attendees/PostavkeKoledarja",
+                    data: data,
+                    type: "POST",
+                    dataType: "html",
+                    success: function (result) {
+                        console.log(result);
+                    }
+                });
+
                 // ko imas podatke pridobljene, prikazi rezultat
                 $('#rezultatIskanja').show("slide", {direction: "right"}, 500);
             }

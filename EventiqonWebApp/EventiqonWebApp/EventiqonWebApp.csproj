@@ -364,6 +364,7 @@
     <Content Include="Views\Organizer\AddNewActivity.cshtml" />
     <Content Include="Views\Organizer\AddNewEvent.cshtml" />
     <Content Include="Views\Organizer\Organizer.cshtml" />
+    <Content Include="Views\Attendees\PostavkeKoledarja.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

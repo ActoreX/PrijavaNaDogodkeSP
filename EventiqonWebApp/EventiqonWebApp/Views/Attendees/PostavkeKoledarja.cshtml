@@ -1,0 +1,30 @@
+﻿@model EventiqonWebApp.Models.MyAttendeesViewModel
+
+<table id="rezultatIskanja" class="table table-hover" hidden="true">
+    <tr>
+        <th>Dogodek/aktivnost</th>
+        <th>Termin</th>
+        <th>Opis</th>
+        <th>Lokacija</th>
+    </tr>
+
+    @foreach (var aktivnost in Model.seznamAktivnosti)
+    {
+        <tr>
+            <td>@aktivnost.Aktivnost.naziv (Akt @aktivnost.Aktivnost.idAktivnost)</td>
+            <td>@aktivnost.Aktivnost.datumOd - @aktivnost.Aktivnost.datumDo</td>
+            <td>@aktivnost.Aktivnost.opis</td>
+            <td>@aktivnost.Aktivnost.nazivLokacije</td>
+        </tr>
+    }
+    @foreach (var dogodek in Model.seznamDogodkov)
+    {
+        <tr>
+            <td>@dogodek.Dogodek.naziv (Dog @dogodek.Dogodek.idDogodek)</td>
+            <td>@dogodek.Dogodek.datumOd - @dogodek.Dogodek.datumDo</td>
+            <td>@dogodek.Dogodek.opis</td>
+            <td>@dogodek.Dogodek.nazivLokacije</td>
+        </tr>
+    }
+
+</table>
