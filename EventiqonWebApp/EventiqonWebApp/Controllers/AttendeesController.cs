@@ -38,8 +38,8 @@ namespace EventiqonWebApp.Controllers
             Uporabnik u = db.Uporabnik.First();
 
             // morda popravi,    da je status udeležbe določene vrednosti (npr. pridem)
-            mavm.seznamAktivnosti = db.SeznamAktivnosti.Where(a => vhod.datumOd <= a.Aktivnost.datumOd && (a.Aktivnost.datumDo == null || vhod.datumDo >= a.Aktivnost.datumDo) && a.uprabniskoIme == u.uprabniskoIme);
-            mavm.seznamDogodkov = db.SeznamDogodkov.Where(d => vhod.datumOd <= d.Dogodek.datumOd && vhod.datumDo >= d.Dogodek.datumDo && d.uprabniskoIme == u.uprabniskoIme);
+            mavm.seznamAktivnosti = db.SeznamAktivnosti.Where(a => (a.Aktivnost.datumDo == null && !(vhod.datumDo < a.Aktivnost.datumOd) || a.Aktivnost.datumDo != null && !(vhod.datumDo < a.Aktivnost.datumOd) && !(vhod.datumOd > a.Aktivnost.datumDo)) && a.uprabniskoIme == u.uprabniskoIme);
+            mavm.seznamDogodkov = db.SeznamDogodkov.Where(d => !(vhod.datumDo < d.Dogodek.datumOd) && !(vhod.datumOd > d.Dogodek.datumDo) && d.uprabniskoIme == u.uprabniskoIme);
 
             return PartialView(mavm);
         }

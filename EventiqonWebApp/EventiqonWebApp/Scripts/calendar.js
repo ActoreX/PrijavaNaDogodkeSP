@@ -36,19 +36,22 @@ $(document).ready(function(){
 
                 data["datumOd"] = datumOd.getDate() + "-" + (datumOd.getMonth()+1) + "-" + datumOd.getFullYear();
                 data["datumDo"] = datumDo.getDate() + "-" + (datumDo.getMonth()+1) + "-" + datumDo.getFullYear();
-              
+
+                $("#rezultatIskanja").hide("slide", { direction: "left" }, 250);
+
                 $.ajax({
                     url: "/Attendees/PostavkeKoledarja",
                     data: data,
                     type: "POST",
                     dataType: "html",
+                    // ko imas podatke pridobljene, prikazi rezultat
                     success: function (result) {
-                        console.log(result);
+                        $('#rezultatIskanja').html(result);
+                        $('#rezultatIskanja').show("slide", { direction: "right" }, 500);
                     }
                 });
 
-                // ko imas podatke pridobljene, prikazi rezultat
-                $('#rezultatIskanja').show("slide", {direction: "right"}, 500);
+              
             }
         });
     

@@ -1,14 +1,16 @@
 ﻿@model EventiqonWebApp.Models.MyAttendeesViewModel
 
-<table id="rezultatIskanja" class="table table-hover" hidden="true">
-    <tr>
-        <th>Dogodek/aktivnost</th>
-        <th>Termin</th>
-        <th>Opis</th>
-        <th>Lokacija</th>
-    </tr>
 
-    @foreach (var aktivnost in Model.seznamAktivnosti)
+<tr>
+    <th>Dogodek/aktivnost</th>
+    <th>Termin</th>
+    <th>Opis</th>
+    <th>Lokacija</th>
+</tr>
+
+@if(Model.seznamAktivnosti.Count() > 0 ||  Model.seznamDogodkov.Count() > 0)
+{
+    foreach (var aktivnost in Model.seznamAktivnosti)
     {
         <tr>
             <td>@aktivnost.Aktivnost.naziv (Akt @aktivnost.Aktivnost.idAktivnost)</td>
@@ -17,7 +19,7 @@
             <td>@aktivnost.Aktivnost.nazivLokacije</td>
         </tr>
     }
-    @foreach (var dogodek in Model.seznamDogodkov)
+    foreach (var dogodek in Model.seznamDogodkov)
     {
         <tr>
             <td>@dogodek.Dogodek.naziv (Dog @dogodek.Dogodek.idDogodek)</td>
@@ -27,4 +29,12 @@
         </tr>
     }
 
-</table>
+} else
+{
+    <tr>
+        <td colspan="4">Iskanje ni obrodilo sadov. Izberite drugo obdobje!</td>
+    </tr>
+}
+
+
+
