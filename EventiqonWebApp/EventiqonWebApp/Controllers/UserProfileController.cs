@@ -119,7 +119,7 @@ namespace EventiqonWebApp.Controllers
                     if (!db.Drzava.Any(d => d.imeDrzave == "Slovenia"))
                     {
                         Drzava novaDrzava = new Drzava();
-                        novaDrzava.kraticaDrzave = "sl";
+                        novaDrzava.kraticaDrzave = "SI";
                         novaDrzava.imeDrzave = "Slovenia";
                         db.Drzava.Add(novaDrzava);
                         db.SaveChanges();
@@ -144,7 +144,7 @@ namespace EventiqonWebApp.Controllers
                     Naslov novNaslov = new Naslov();
                     novNaslov.idNaslov = db.Naslov.Max(n => n.idNaslov) + 1;
                     novNaslov.idKraj = db.Kraj.Where(k => k.nazivKraja == vhod.kraj).Select(k => k.idKraj).Take(1).Single();
-                    novNaslov.kraticaDrzave = "sl";
+                    novNaslov.kraticaDrzave = "SI";
                     novNaslov.hisnaStevilka = vhod.hisnaStevilka;
                     novNaslov.ulica = vhod.ulica;
                     db.Naslov.Add(novNaslov);

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EventiqonModelStoreContainer" CdmEntityContainer="EventiqonEntities">
+  <EntityContainerMapping StorageEntityContainer="EventiqonLocalDBModelStoreContainer" CdmEntityContainer="EventiqonEntities">
     <EntitySetMapping Name="Aktivnost">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.Aktivnost)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.Aktivnost">
         <MappingFragment StoreEntitySet="Aktivnost">
           <ScalarProperty Name="idAktivnost" ColumnName="idAktivnost" />
           <ScalarProperty Name="idKraj" ColumnName="idKraj" />
@@ -23,7 +23,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Dogodek">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.Dogodek)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.Dogodek">
         <MappingFragment StoreEntitySet="Dogodek">
           <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
           <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
@@ -43,7 +43,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Drzava">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.Drzava)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.Drzava">
         <MappingFragment StoreEntitySet="Drzava">
           <ScalarProperty Name="kraticaDrzave" ColumnName="kraticaDrzave" />
           <ScalarProperty Name="imeDrzave" ColumnName="imeDrzave" />
@@ -51,7 +51,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="IzbrisanRacun">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.IzbrisanRacun)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.IzbrisanRacun">
         <MappingFragment StoreEntitySet="IzbrisanRacun">
           <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
           <ScalarProperty Name="razlog" ColumnName="razlog" />
@@ -60,7 +60,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Kraj">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.Kraj)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.Kraj">
         <MappingFragment StoreEntitySet="Kraj">
           <ScalarProperty Name="idKraj" ColumnName="idKraj" />
           <ScalarProperty Name="nazivKraja" ColumnName="nazivKraja" />
@@ -68,7 +68,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Naslov">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.Naslov)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.Naslov">
         <MappingFragment StoreEntitySet="Naslov">
           <ScalarProperty Name="idNaslov" ColumnName="idNaslov" />
           <ScalarProperty Name="idKraj" ColumnName="idKraj" />
@@ -79,7 +79,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Obvestilo">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.Obvestilo)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.Obvestilo">
         <MappingFragment StoreEntitySet="Obvestilo">
           <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
           <ScalarProperty Name="idObvestilo" ColumnName="idObvestilo" />
@@ -90,7 +90,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PostavkaAktivnosti">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.PostavkaAktivnosti)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.PostavkaAktivnosti">
         <MappingFragment StoreEntitySet="PostavkaAktivnosti">
           <ScalarProperty Name="idAktivnost" ColumnName="idAktivnost" />
           <ScalarProperty Name="idPostavkaAktivnosti" ColumnName="idPostavkaAktivnosti" />
@@ -102,7 +102,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PostavkaDogodka">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.PostavkaDogodka)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.PostavkaDogodka">
         <MappingFragment StoreEntitySet="PostavkaDogodka">
           <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
           <ScalarProperty Name="idPostavkaDogodka" ColumnName="idPostavkaDogodka" />
@@ -114,7 +114,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PotrditvenaKoda">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.PotrditvenaKoda)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.PotrditvenaKoda">
         <MappingFragment StoreEntitySet="PotrditvenaKoda">
           <ScalarProperty Name="uporabniskoIme" ColumnName="uporabniskoIme" />
           <ScalarProperty Name="koda" ColumnName="koda" />
@@ -124,7 +124,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SeznamAktivnosti">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.SeznamAktivnosti)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.SeznamAktivnosti">
         <MappingFragment StoreEntitySet="SeznamAktivnosti">
           <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
           <ScalarProperty Name="idAktivnost" ColumnName="idAktivnost" />
@@ -135,7 +135,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SeznamDogodkov">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.SeznamDogodkov)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.SeznamDogodkov">
         <MappingFragment StoreEntitySet="SeznamDogodkov">
           <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
           <ScalarProperty Name="idDogodek" ColumnName="idDogodek" />
@@ -147,7 +147,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Uporabnik">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.Uporabnik)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.Uporabnik">
         <MappingFragment StoreEntitySet="Uporabnik">
           <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
           <ScalarProperty Name="idNaslov" ColumnName="idNaslov" />
@@ -164,18 +164,18 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Vloga">
-      <EntityTypeMapping TypeName="IsTypeOf(EventiqonModel.Vloga)">
+      <EntityTypeMapping TypeName="EventiqonLocalDBModel.Vloga">
         <MappingFragment StoreEntitySet="Vloga">
           <ScalarProperty Name="nazivVloge" ColumnName="nazivVloge" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="uporabnik_ima_vlogo" TypeName="EventiqonModel.uporabnik_ima_vlogo" StoreEntitySet="uporabnik_ima_vlogo">
+    <AssociationSetMapping Name="uporabnik_ima_vlogo" TypeName="EventiqonLocalDBModel.uporabnik_ima_vlogo" StoreEntitySet="uporabnik_ima_vlogo">
       <EndProperty Name="Uporabnik">
-        <ScalarProperty Name="uprabniskoIme" ColumnName="Uporabnik_uprabniskoIme" />
+        <ScalarProperty Name="uprabniskoIme" ColumnName="uprabniskoIme" />
       </EndProperty>
       <EndProperty Name="Vloga">
-        <ScalarProperty Name="nazivVloge" ColumnName="Vloga_nazivVloge" />
+        <ScalarProperty Name="nazivVloge" ColumnName="nazivVloge" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
