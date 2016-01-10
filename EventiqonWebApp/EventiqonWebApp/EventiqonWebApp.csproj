@@ -187,15 +187,30 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DecimalModelBinder.cs" />
+    <Compile Include="Models\EventiqonLocal.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventiqonLocal.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventiqonLocal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventiqonLocal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventiqonLocal.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\OrganizerModels.cs" />
     <Compile Include="Models\Aktivnost.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Dogodek.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Drzava.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EventiqonDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -214,45 +229,49 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IzbrisanRacun.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Kraj.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MyAttendeesViewModel.cs" />
     <Compile Include="Models\Naslov.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Obvestilo.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PostavkaAktivnosti.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PostavkaDogodka.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PotrditvenaKoda.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SeznamAktivnosti.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SeznamDogodkov.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Uporabnik.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserPanelModels.cs" />
     <Compile Include="Models\Vloga.cs">
-      <DependentUpon>EventiqonDB.tt</DependentUpon>
+      <DependentUpon>EventiqonLocal.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\EventiqonLocalDB.mdf" />
+    <Content Include="App_Data\EventiqonLocalDB_log.ldf">
+      <DependentUpon>EventiqonLocalDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\01befb1c.png" />
@@ -289,6 +308,16 @@
       <DependentUpon>EventiqonDB.edmx</DependentUpon>
       <LastGenOutput>EventiqonDB.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\EventiqonLocal.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EventiqonLocal.edmx</DependentUpon>
+      <LastGenOutput>EventiqonLocal.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EventiqonLocal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EventiqonLocal.edmx</DependentUpon>
+      <LastGenOutput>EventiqonLocal.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\images\imagesource.md" />
@@ -299,6 +328,13 @@
     </EntityDeploy>
     <Content Include="Models\EventiqonDB.edmx.diagram">
       <DependentUpon>EventiqonDB.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\EventiqonLocal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EventiqonLocal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EventiqonLocal.edmx.diagram">
+      <DependentUpon>EventiqonLocal.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -366,9 +402,7 @@
     <Content Include="Views\Organizer\Organizer.cshtml" />
     <Content Include="Views\Attendees\PostavkeKoledarja.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

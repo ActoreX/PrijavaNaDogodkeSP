@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EventiqonLocalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aktivnost">
+    <Key>
+      <PropertyRef Name="idAktivnost" />
+    </Key>
+    <Property Name="idAktivnost" Type="Int32" Nullable="false" />
+    <Property Name="idKraj" Type="Int32" Nullable="false" />
+    <Property Name="kraticaDrzave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="naziv" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="omejitevMest" Type="Int32" />
+    <Property Name="datumVnosa" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="datumOd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="datumDo" Type="DateTime" Precision="3" />
+    <Property Name="jeEnkratna" Type="Boolean" Nullable="false" />
+    <Property Name="latitude" Type="Double" Nullable="false" />
+    <Property Name="longitude" Type="Double" Nullable="false" />
+    <Property Name="nazivLokacije" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="opis" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cena" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Drzava" Relationship="Self.FK_AKTIVNOS_AKTIVNOST_DRZAVA" FromRole="Aktivnost" ToRole="Drzava" />
+    <NavigationProperty Name="Kraj" Relationship="Self.FK_AKTIVNOS_AKTIVNOST_KRAJ" FromRole="Aktivnost" ToRole="Kraj" />
+    <NavigationProperty Name="PostavkaAktivnosti" Relationship="Self.FK_POSTAVKA_AKTIVNOST_AKTIVNOS" FromRole="Aktivnost" ToRole="PostavkaAktivnosti" />
+    <NavigationProperty Name="SeznamAktivnosti" Relationship="Self.FK_SEZNAMAK_AKTIVNOST_AKTIVNOS" FromRole="Aktivnost" ToRole="SeznamAktivnosti" />
+  </EntityType>
+  <EntityType Name="Dogodek">
+    <Key>
+      <PropertyRef Name="idDogodek" />
+    </Key>
+    <Property Name="idDogodek" Type="Int32" Nullable="false" />
+    <Property Name="kraticaDrzave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idKraj" Type="Int32" Nullable="false" />
+    <Property Name="naziv" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="omejitevMest" Type="Int32" />
+    <Property Name="datumVnosa" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="datumOd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="datumDo" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="latitude" Type="Double" Nullable="false" />
+    <Property Name="longitude" Type="Double" Nullable="false" />
+    <Property Name="nazivLokacije" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="opis" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cena" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Drzava" Relationship="Self.FK_DOGODEK_DOGODEK_V_DRZAVA" FromRole="Dogodek" ToRole="Drzava" />
+    <NavigationProperty Name="Kraj" Relationship="Self.FK_DOGODEK_DOGODEK_V_KRAJ" FromRole="Dogodek" ToRole="Kraj" />
+    <NavigationProperty Name="PostavkaDogodka" Relationship="Self.FK_POSTAVKA_DOGODEK_I_DOGODEK" FromRole="Dogodek" ToRole="PostavkaDogodka" />
+    <NavigationProperty Name="SeznamDogodkov" Relationship="Self.FK_SEZNAMDO_DOGODEK_I_DOGODEK" FromRole="Dogodek" ToRole="SeznamDogodkov" />
+  </EntityType>
+  <EntityType Name="Drzava">
+    <Key>
+      <PropertyRef Name="kraticaDrzave" />
+    </Key>
+    <Property Name="kraticaDrzave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imeDrzave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Aktivnost" Relationship="Self.FK_AKTIVNOS_AKTIVNOST_DRZAVA" FromRole="Drzava" ToRole="Aktivnost" />
+    <NavigationProperty Name="Dogodek" Relationship="Self.FK_DOGODEK_DOGODEK_V_DRZAVA" FromRole="Drzava" ToRole="Dogodek" />
+    <NavigationProperty Name="Naslov" Relationship="Self.FK_NASLOV_NASLOV_V__DRZAVA" FromRole="Drzava" ToRole="Naslov" />
+  </EntityType>
+  <EntityType Name="IzbrisanRacun">
+    <Key>
+      <PropertyRef Name="uprabniskoIme" />
+    </Key>
+    <Property Name="uprabniskoIme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="razlog" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Uporabnik" Relationship="Self.FK_IZBRISAN_UPORABNIK_UPORABNI" FromRole="IzbrisanRacun" ToRole="Uporabnik" />
+  </EntityType>
+  <EntityType Name="Kraj">
+    <Key>
+      <PropertyRef Name="idKraj" />
+    </Key>
+    <Property Name="idKraj" Type="Int32" Nullable="false" />
+    <Property Name="nazivKraja" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Aktivnost" Relationship="Self.FK_AKTIVNOS_AKTIVNOST_KRAJ" FromRole="Kraj" ToRole="Aktivnost" />
+    <NavigationProperty Name="Dogodek" Relationship="Self.FK_DOGODEK_DOGODEK_V_KRAJ" FromRole="Kraj" ToRole="Dogodek" />
+    <NavigationProperty Name="Naslov" Relationship="Self.FK_NASLOV_NASLOV_IM_KRAJ" FromRole="Kraj" ToRole="Naslov" />
+  </EntityType>
+  <EntityType Name="Naslov">
+    <Key>
+      <PropertyRef Name="idNaslov" />
+    </Key>
+    <Property Name="idNaslov" Type="Int32" Nullable="false" />
+    <Property Name="idKraj" Type="Int32" Nullable="false" />
+    <Property Name="kraticaDrzave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="hisnaStevilka" Type="Int32" Nullable="false" />
+    <Property Name="ulica" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Drzava" Relationship="Self.FK_NASLOV_NASLOV_V__DRZAVA" FromRole="Naslov" ToRole="Drzava" />
+    <NavigationProperty Name="Kraj" Relationship="Self.FK_NASLOV_NASLOV_IM_KRAJ" FromRole="Naslov" ToRole="Kraj" />
+    <NavigationProperty Name="Uporabnik" Relationship="Self.FK_UPORABNI_PREBIVALI_NASLOV" FromRole="Naslov" ToRole="Uporabnik" />
+  </EntityType>
+  <EntityType Name="Obvestilo">
+    <Key>
+      <PropertyRef Name="uprabniskoIme" />
+      <PropertyRef Name="idObvestilo" />
+    </Key>
+    <Property Name="uprabniskoIme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idObvestilo" Type="Int32" Nullable="false" />
+    <Property Name="tema" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sporocilo" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Uporabnik" Relationship="Self.FK_OBVESTIL_UPORABNIK_UPORABNI" FromRole="Obvestilo" ToRole="Uporabnik" />
+  </EntityType>
+  <EntityType Name="PostavkaAktivnosti">
+    <Key>
+      <PropertyRef Name="idAktivnost" />
+      <PropertyRef Name="idPostavkaAktivnosti" />
+    </Key>
+    <Property Name="idAktivnost" Type="Int32" Nullable="false" />
+    <Property Name="idPostavkaAktivnosti" Type="Int32" Nullable="false" />
+    <Property Name="naziv" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="casovniOpisKdaj" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="opisCasaTrajanja" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="polniOpis" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Aktivnost" Relationship="Self.FK_POSTAVKA_AKTIVNOST_AKTIVNOS" FromRole="PostavkaAktivnosti" ToRole="Aktivnost" />
+  </EntityType>
+  <EntityType Name="PostavkaDogodka">
+    <Key>
+      <PropertyRef Name="idDogodek" />
+      <PropertyRef Name="idPostavkaDogodka" />
+    </Key>
+    <Property Name="idDogodek" Type="Int32" Nullable="false" />
+    <Property Name="idPostavkaDogodka" Type="Int32" Nullable="false" />
+    <Property Name="naziv" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="casovniOpisKdaj" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="opisCasaTrajanja" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="polniOpis" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Dogodek" Relationship="Self.FK_POSTAVKA_DOGODEK_I_DOGODEK" FromRole="PostavkaDogodka" ToRole="Dogodek" />
+  </EntityType>
+  <EntityType Name="PotrditvenaKoda">
+    <Key>
+      <PropertyRef Name="uporabniskoIme" />
+    </Key>
+    <Property Name="uporabniskoIme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="koda" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="datumVnosa" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="datumPoteka" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SeznamAktivnosti">
+    <Key>
+      <PropertyRef Name="uprabniskoIme" />
+      <PropertyRef Name="idAktivnost" />
+      <PropertyRef Name="idSeznamAktivnosti" />
+    </Key>
+    <Property Name="uprabniskoIme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idAktivnost" Type="Int32" Nullable="false" />
+    <Property Name="idSeznamAktivnosti" Type="Int32" Nullable="false" />
+    <Property Name="statusUdelezbe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cena" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Aktivnost" Relationship="Self.FK_SEZNAMAK_AKTIVNOST_AKTIVNOS" FromRole="SeznamAktivnosti" ToRole="Aktivnost" />
+    <NavigationProperty Name="Uporabnik" Relationship="Self.FK_SEZNAMAK_UPORABNIK_UPORABNI" FromRole="SeznamAktivnosti" ToRole="Uporabnik" />
+  </EntityType>
+  <EntityType Name="SeznamDogodkov">
+    <Key>
+      <PropertyRef Name="uprabniskoIme" />
+      <PropertyRef Name="idDogodek" />
+      <PropertyRef Name="idSeznamDogodkov" />
+    </Key>
+    <Property Name="uprabniskoIme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idDogodek" Type="Int32" Nullable="false" />
+    <Property Name="idSeznamDogodkov" Type="Int32" Nullable="false" />
+    <Property Name="statusUdelezbe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="steviloVstopnic" Type="Int32" Nullable="false" />
+    <Property Name="cena" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Dogodek" Relationship="Self.FK_SEZNAMDO_DOGODEK_I_DOGODEK" FromRole="SeznamDogodkov" ToRole="Dogodek" />
+    <NavigationProperty Name="Uporabnik" Relationship="Self.FK_SEZNAMDO_UPORABNIK_UPORABNI" FromRole="SeznamDogodkov" ToRole="Uporabnik" />
+  </EntityType>
+  <EntityType Name="Uporabnik">
+    <Key>
+      <PropertyRef Name="uprabniskoIme" />
+    </Key>
+    <Property Name="uprabniskoIme" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idNaslov" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Priimek" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="recoveryEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="datumRojstva" Type="DateTime" Precision="3" />
+    <Property Name="geslo" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="paypalRacun" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="IzbrisanRacun" Relationship="Self.FK_IZBRISAN_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="IzbrisanRacun" />
+    <NavigationProperty Name="Naslov" Relationship="Self.FK_UPORABNI_PREBIVALI_NASLOV" FromRole="Uporabnik" ToRole="Naslov" />
+    <NavigationProperty Name="Obvestilo" Relationship="Self.FK_OBVESTIL_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="Obvestilo" />
+    <NavigationProperty Name="SeznamAktivnosti" Relationship="Self.FK_SEZNAMAK_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="SeznamAktivnosti" />
+    <NavigationProperty Name="SeznamDogodkov" Relationship="Self.FK_SEZNAMDO_UPORABNIK_UPORABNI" FromRole="Uporabnik" ToRole="SeznamDogodkov" />
+    <NavigationProperty Name="Vloga" Relationship="Self.uporabnik_ima_vlogo" FromRole="Uporabnik" ToRole="Vloga" />
+  </EntityType>
+  <EntityType Name="Vloga">
+    <Key>
+      <PropertyRef Name="nazivVloge" />
+    </Key>
+    <Property Name="nazivVloge" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Uporabnik" Relationship="Self.uporabnik_ima_vlogo" FromRole="Vloga" ToRole="Uporabnik" />
+  </EntityType>
+  <Association Name="FK_AKTIVNOS_AKTIVNOST_DRZAVA">
+    <End Role="Drzava" Type="Self.Drzava" Multiplicity="1" />
+    <End Role="Aktivnost" Type="Self.Aktivnost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drzava">
+        <PropertyRef Name="kraticaDrzave" />
+      </Principal>
+      <Dependent Role="Aktivnost">
+        <PropertyRef Name="kraticaDrzave" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AKTIVNOS_AKTIVNOST_KRAJ">
+    <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+    <End Role="Aktivnost" Type="Self.Aktivnost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kraj">
+        <PropertyRef Name="idKraj" />
+      </Principal>
+      <Dependent Role="Aktivnost">
+        <PropertyRef Name="idKraj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POSTAVKA_AKTIVNOST_AKTIVNOS">
+    <End Role="Aktivnost" Type="Self.Aktivnost" Multiplicity="1" />
+    <End Role="PostavkaAktivnosti" Type="Self.PostavkaAktivnosti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aktivnost">
+        <PropertyRef Name="idAktivnost" />
+      </Principal>
+      <Dependent Role="PostavkaAktivnosti">
+        <PropertyRef Name="idAktivnost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEZNAMAK_AKTIVNOST_AKTIVNOS">
+    <End Role="Aktivnost" Type="Self.Aktivnost" Multiplicity="1" />
+    <End Role="SeznamAktivnosti" Type="Self.SeznamAktivnosti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aktivnost">
+        <PropertyRef Name="idAktivnost" />
+      </Principal>
+      <Dependent Role="SeznamAktivnosti">
+        <PropertyRef Name="idAktivnost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOGODEK_DOGODEK_V_DRZAVA">
+    <End Role="Drzava" Type="Self.Drzava" Multiplicity="1" />
+    <End Role="Dogodek" Type="Self.Dogodek" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drzava">
+        <PropertyRef Name="kraticaDrzave" />
+      </Principal>
+      <Dependent Role="Dogodek">
+        <PropertyRef Name="kraticaDrzave" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOGODEK_DOGODEK_V_KRAJ">
+    <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+    <End Role="Dogodek" Type="Self.Dogodek" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kraj">
+        <PropertyRef Name="idKraj" />
+      </Principal>
+      <Dependent Role="Dogodek">
+        <PropertyRef Name="idKraj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POSTAVKA_DOGODEK_I_DOGODEK">
+    <End Role="Dogodek" Type="Self.Dogodek" Multiplicity="1" />
+    <End Role="PostavkaDogodka" Type="Self.PostavkaDogodka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dogodek">
+        <PropertyRef Name="idDogodek" />
+      </Principal>
+      <Dependent Role="PostavkaDogodka">
+        <PropertyRef Name="idDogodek" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEZNAMDO_DOGODEK_I_DOGODEK">
+    <End Role="Dogodek" Type="Self.Dogodek" Multiplicity="1" />
+    <End Role="SeznamDogodkov" Type="Self.SeznamDogodkov" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dogodek">
+        <PropertyRef Name="idDogodek" />
+      </Principal>
+      <Dependent Role="SeznamDogodkov">
+        <PropertyRef Name="idDogodek" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NASLOV_NASLOV_V__DRZAVA">
+    <End Role="Drzava" Type="Self.Drzava" Multiplicity="1" />
+    <End Role="Naslov" Type="Self.Naslov" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drzava">
+        <PropertyRef Name="kraticaDrzave" />
+      </Principal>
+      <Dependent Role="Naslov">
+        <PropertyRef Name="kraticaDrzave" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IZBRISAN_UPORABNIK_UPORABNI">
+    <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="1" />
+    <End Role="IzbrisanRacun" Type="Self.IzbrisanRacun" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Uporabnik">
+        <PropertyRef Name="uprabniskoIme" />
+      </Principal>
+      <Dependent Role="IzbrisanRacun">
+        <PropertyRef Name="uprabniskoIme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NASLOV_NASLOV_IM_KRAJ">
+    <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+    <End Role="Naslov" Type="Self.Naslov" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kraj">
+        <PropertyRef Name="idKraj" />
+      </Principal>
+      <Dependent Role="Naslov">
+        <PropertyRef Name="idKraj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UPORABNI_PREBIVALI_NASLOV">
+    <End Role="Naslov" Type="Self.Naslov" Multiplicity="1" />
+    <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Naslov">
+        <PropertyRef Name="idNaslov" />
+      </Principal>
+      <Dependent Role="Uporabnik">
+        <PropertyRef Name="idNaslov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OBVESTIL_UPORABNIK_UPORABNI">
+    <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="1" />
+    <End Role="Obvestilo" Type="Self.Obvestilo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uporabnik">
+        <PropertyRef Name="uprabniskoIme" />
+      </Principal>
+      <Dependent Role="Obvestilo">
+        <PropertyRef Name="uprabniskoIme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEZNAMAK_UPORABNIK_UPORABNI">
+    <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="1" />
+    <End Role="SeznamAktivnosti" Type="Self.SeznamAktivnosti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uporabnik">
+        <PropertyRef Name="uprabniskoIme" />
+      </Principal>
+      <Dependent Role="SeznamAktivnosti">
+        <PropertyRef Name="uprabniskoIme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEZNAMDO_UPORABNIK_UPORABNI">
+    <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="1" />
+    <End Role="SeznamDogodkov" Type="Self.SeznamDogodkov" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uporabnik">
+        <PropertyRef Name="uprabniskoIme" />
+      </Principal>
+      <Dependent Role="SeznamDogodkov">
+        <PropertyRef Name="uprabniskoIme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="uporabnik_ima_vlogo">
+    <End Role="Uporabnik" Type="Self.Uporabnik" Multiplicity="*" />
+    <End Role="Vloga" Type="Self.Vloga" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="EventiqonLocalDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Aktivnost" EntityType="Self.Aktivnost" />
+    <EntitySet Name="Dogodek" EntityType="Self.Dogodek" />
+    <EntitySet Name="Drzava" EntityType="Self.Drzava" />
+    <EntitySet Name="IzbrisanRacun" EntityType="Self.IzbrisanRacun" />
+    <EntitySet Name="Kraj" EntityType="Self.Kraj" />
+    <EntitySet Name="Naslov" EntityType="Self.Naslov" />
+    <EntitySet Name="Obvestilo" EntityType="Self.Obvestilo" />
+    <EntitySet Name="PostavkaAktivnosti" EntityType="Self.PostavkaAktivnosti" />
+    <EntitySet Name="PostavkaDogodka" EntityType="Self.PostavkaDogodka" />
+    <EntitySet Name="PotrditvenaKoda" EntityType="Self.PotrditvenaKoda" />
+    <EntitySet Name="SeznamAktivnosti" EntityType="Self.SeznamAktivnosti" />
+    <EntitySet Name="SeznamDogodkov" EntityType="Self.SeznamDogodkov" />
+    <EntitySet Name="Uporabnik" EntityType="Self.Uporabnik" />
+    <EntitySet Name="Vloga" EntityType="Self.Vloga" />
+    <AssociationSet Name="FK_AKTIVNOS_AKTIVNOST_DRZAVA" Association="Self.FK_AKTIVNOS_AKTIVNOST_DRZAVA">
+      <End Role="Drzava" EntitySet="Drzava" />
+      <End Role="Aktivnost" EntitySet="Aktivnost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AKTIVNOS_AKTIVNOST_KRAJ" Association="Self.FK_AKTIVNOS_AKTIVNOST_KRAJ">
+      <End Role="Kraj" EntitySet="Kraj" />
+      <End Role="Aktivnost" EntitySet="Aktivnost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POSTAVKA_AKTIVNOST_AKTIVNOS" Association="Self.FK_POSTAVKA_AKTIVNOST_AKTIVNOS">
+      <End Role="Aktivnost" EntitySet="Aktivnost" />
+      <End Role="PostavkaAktivnosti" EntitySet="PostavkaAktivnosti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEZNAMAK_AKTIVNOST_AKTIVNOS" Association="Self.FK_SEZNAMAK_AKTIVNOST_AKTIVNOS">
+      <End Role="Aktivnost" EntitySet="Aktivnost" />
+      <End Role="SeznamAktivnosti" EntitySet="SeznamAktivnosti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOGODEK_DOGODEK_V_DRZAVA" Association="Self.FK_DOGODEK_DOGODEK_V_DRZAVA">
+      <End Role="Drzava" EntitySet="Drzava" />
+      <End Role="Dogodek" EntitySet="Dogodek" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOGODEK_DOGODEK_V_KRAJ" Association="Self.FK_DOGODEK_DOGODEK_V_KRAJ">
+      <End Role="Kraj" EntitySet="Kraj" />
+      <End Role="Dogodek" EntitySet="Dogodek" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POSTAVKA_DOGODEK_I_DOGODEK" Association="Self.FK_POSTAVKA_DOGODEK_I_DOGODEK">
+      <End Role="Dogodek" EntitySet="Dogodek" />
+      <End Role="PostavkaDogodka" EntitySet="PostavkaDogodka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEZNAMDO_DOGODEK_I_DOGODEK" Association="Self.FK_SEZNAMDO_DOGODEK_I_DOGODEK">
+      <End Role="Dogodek" EntitySet="Dogodek" />
+      <End Role="SeznamDogodkov" EntitySet="SeznamDogodkov" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NASLOV_NASLOV_V__DRZAVA" Association="Self.FK_NASLOV_NASLOV_V__DRZAVA">
+      <End Role="Drzava" EntitySet="Drzava" />
+      <End Role="Naslov" EntitySet="Naslov" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IZBRISAN_UPORABNIK_UPORABNI" Association="Self.FK_IZBRISAN_UPORABNIK_UPORABNI">
+      <End Role="Uporabnik" EntitySet="Uporabnik" />
+      <End Role="IzbrisanRacun" EntitySet="IzbrisanRacun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NASLOV_NASLOV_IM_KRAJ" Association="Self.FK_NASLOV_NASLOV_IM_KRAJ">
+      <End Role="Kraj" EntitySet="Kraj" />
+      <End Role="Naslov" EntitySet="Naslov" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UPORABNI_PREBIVALI_NASLOV" Association="Self.FK_UPORABNI_PREBIVALI_NASLOV">
+      <End Role="Naslov" EntitySet="Naslov" />
+      <End Role="Uporabnik" EntitySet="Uporabnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OBVESTIL_UPORABNIK_UPORABNI" Association="Self.FK_OBVESTIL_UPORABNIK_UPORABNI">
+      <End Role="Uporabnik" EntitySet="Uporabnik" />
+      <End Role="Obvestilo" EntitySet="Obvestilo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEZNAMAK_UPORABNIK_UPORABNI" Association="Self.FK_SEZNAMAK_UPORABNIK_UPORABNI">
+      <End Role="Uporabnik" EntitySet="Uporabnik" />
+      <End Role="SeznamAktivnosti" EntitySet="SeznamAktivnosti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEZNAMDO_UPORABNIK_UPORABNI" Association="Self.FK_SEZNAMDO_UPORABNIK_UPORABNI">
+      <End Role="Uporabnik" EntitySet="Uporabnik" />
+      <End Role="SeznamDogodkov" EntitySet="SeznamDogodkov" />
+    </AssociationSet>
+    <AssociationSet Name="uporabnik_ima_vlogo" Association="Self.uporabnik_ima_vlogo">
+      <End Role="Uporabnik" EntitySet="Uporabnik" />
+      <End Role="Vloga" EntitySet="Vloga" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -7,29 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EventiqonWebApp.Models
+namespace EventiqonWebApp.App_Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Drzava
+    public partial class Naslov
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Drzava()
+        public Naslov()
         {
-            this.Aktivnost = new HashSet<Aktivnost>();
-            this.Dogodek = new HashSet<Dogodek>();
-            this.Naslov = new HashSet<Naslov>();
+            this.Uporabnik = new HashSet<Uporabnik>();
         }
     
+        public int idNaslov { get; set; }
+        public int idKraj { get; set; }
         public string kraticaDrzave { get; set; }
-        public string imeDrzave { get; set; }
+        public int hisnaStevilka { get; set; }
+        public string ulica { get; set; }
     
+        public virtual Drzava Drzava { get; set; }
+        public virtual Kraj Kraj { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Aktivnost> Aktivnost { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dogodek> Dogodek { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Naslov> Naslov { get; set; }
+        public virtual ICollection<Uporabnik> Uporabnik { get; set; }
     }
 }

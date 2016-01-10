@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EventiqonWebApp.Models
+namespace EventiqonWebApp.App_Data
 {
     using System;
     using System.Collections.Generic;
