@@ -73,6 +73,25 @@ namespace EventiqonWebApp.Models
         public bool RememberMe { get; set; }
     }
 
+
+    public class CustomRegisterViewModel
+    {
+        [Required]
+        public string upIme { get; set; }
+        [Required]
+        [EmailAddress]
+        public string eposta { get; set; }
+        [Compare("eposta", ErrorMessage = "Vnosa za Email se morata ujemati!")]
+        public string epostaPonovniVnos { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [MinLength(5)]
+        public string geslo { get; set; }
+        [Compare("geslo", ErrorMessage = "Gesli se morata ujemati!")]
+        public string gesloPonovniVnos { get; set; }
+
+    }
+
     public class RegisterViewModel
     {
         [Required]

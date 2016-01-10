@@ -82,8 +82,6 @@ namespace EventiqonWebApp.Controllers
                 Uporabnik up = db.Uporabnik.Where(u => u.uprabniskoIme == model.upIme && u.geslo == model.geslo).Single();
                 var identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.GivenName, up.uprabniskoIme),
-                    new Claim(ClaimTypes.Name, up.Ime),
-                    new Claim(ClaimTypes.Surname, up.Priimek),
                     new Claim(ClaimTypes.Email, up.email)
                 },
                 "EventiqonApplicationCookie");
@@ -156,26 +154,44 @@ namespace EventiqonWebApp.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public ActionResult Register(CustomRegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                // probaj vstaviti novega uporabnika
+                Uporabnik novUp = new Uporabnik();
+                novUp.uprabniskoIme = model.upIme;
+                novUp.email = model.eposta;
+                novUp.geslo = model.geslo;
+                novUp.status = "potrjen";
+                novUp.idNaslov = 26; // v bazi sem ustvaril 26 zapis naslova, ki ima vsa polja nastavljena na neznano vrednost (/ oz. 0)
+
+                try
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    db.Uporabnik.Add(novUp);
+                    db.SaveChanges();
+
+                    // uporabnik uspešno ustvarjen
+                    var identity = new ClaimsIdentity(new[] {
+                        new Claim(ClaimTypes.GivenName, novUp.uprabniskoIme),
+                        new Claim(ClaimTypes.Email, novUp.email)
+                    },
+                    "EventiqonApplicationCookie");
+
+                    var ctx = Request.GetOwinContext();
+                    var authManager = ctx.Authentication;
+                    authManager.SignIn(identity);
 
                     return RedirectToAction("Index", "Home");
+
+
+                } catch (Exception e)
+                {
+                    // poskrbi za napako
+                    Console.Write(e.Message);
+                    ModelState.AddModelError("", "Prišlo je do napake pri ustvarjanju računa - " + e.Message);
                 }
-                AddErrors(result);
+                
             }
 
             // If we got this far, something failed, redisplay form
