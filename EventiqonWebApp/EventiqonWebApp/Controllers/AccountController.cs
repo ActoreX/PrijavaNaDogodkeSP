@@ -12,11 +12,15 @@ using EventiqonWebApp.Models;
 
 namespace EventiqonWebApp.Controllers
 {
+
     [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        // kontekst moje podatkovne baze
+        EventiqonEntities db = new EventiqonEntities();
 
         public AccountController()
         {
@@ -65,30 +69,36 @@ namespace EventiqonWebApp.Controllers
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(CustomLoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+            // preveri, ali so vnešeni podatki v bazi
+            if(db.Uporabnik.Any(u=>u.uprabniskoIme == model.upIme && u.geslo == model.geslo))
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                Uporabnik up = db.Uporabnik.Where(u => u.uprabniskoIme == model.upIme && u.geslo == model.geslo).Single();
+                var identity = new ClaimsIdentity(new[] {
+                    new Claim(ClaimTypes.GivenName, up.uprabniskoIme),
+                    new Claim(ClaimTypes.Name, up.Ime),
+                    new Claim(ClaimTypes.Surname, up.Priimek),
+                    new Claim(ClaimTypes.Email, up.email)
+                },
+                "EventiqonApplicationCookie");
+
+                var ctx = Request.GetOwinContext();
+                var authManager = ctx.Authentication;
+
+                authManager.SignIn(identity);
+
+                return RedirectToLocal(returnUrl);
+
             }
+
+            ModelState.AddModelError("", "Neveljavno uporabniško ime ali geslo!");
+            return View();
         }
 
         //

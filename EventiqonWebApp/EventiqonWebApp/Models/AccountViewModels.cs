@@ -46,6 +46,17 @@ namespace EventiqonWebApp.Models
         public string Email { get; set; }
     }
 
+    public class CustomLoginViewModel
+    {
+        [Required]
+        public string upIme { get; set; }
+        [Required]
+        [MinLength(5)]
+        public string geslo { get; set; }
+
+
+    }
+
     public class LoginViewModel
     {
         [Required]

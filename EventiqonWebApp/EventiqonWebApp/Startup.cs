@@ -1,4 +1,5 @@
 ﻿using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(EventiqonWebApp.Startup))]
@@ -8,7 +9,12 @@ namespace EventiqonWebApp
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            //ConfigureAuth(app);
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = "EventiqonApplicationCookie",
+                LoginPath = new PathString("/Account/Login")
+            });
         }
     }
 }

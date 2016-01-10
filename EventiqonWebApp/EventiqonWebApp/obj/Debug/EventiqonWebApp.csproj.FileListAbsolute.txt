@@ -277,3 +277,4 @@ C:\Users\Čebelica\Documents\Aleksander Tomič\PrijavaNaDogodkeSP\EventiqonWebAp
 C:\Users\Čebelica\Documents\Aleksander Tomič\PrijavaNaDogodkeSP\EventiqonWebApp\EventiqonWebApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Čebelica\Documents\Aleksander Tomič\PrijavaNaDogodkeSP\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.dll
 C:\Users\Čebelica\Documents\Aleksander Tomič\PrijavaNaDogodkeSP\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.pdb
+C:\Users\Čebelica\Documents\Aleksander Tomič\PrijavaNaDogodkeSP\EventiqonWebApp\EventiqonWebApp\obj\Debug\EventiqonWebApp.csprojResolveAssemblyReference.cache
