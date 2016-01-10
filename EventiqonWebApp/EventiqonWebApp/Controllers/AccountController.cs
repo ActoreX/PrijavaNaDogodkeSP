@@ -412,12 +412,13 @@ namespace EventiqonWebApp.Controllers
         }
 
         //
-        // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        // /Account/LogOff
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            var ctx = Request.GetOwinContext();
+            var authManager = ctx.Authentication;
+
+            authManager.SignOut("EventiqonApplicationCookie");
             return RedirectToAction("Index", "Home");
         }
 
