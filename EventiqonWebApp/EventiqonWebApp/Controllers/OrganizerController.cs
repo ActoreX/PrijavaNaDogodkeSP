@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using EventiqonWebApp.Models;
 using RestSharp;
 using System.Transactions;
+using System.Security.Claims;
 
 namespace EventiqonWebApp.Controllers
 {
@@ -110,13 +111,16 @@ namespace EventiqonWebApp.Controllers
                             db.SaveChanges();
 
                             // TODO: spremeni ko bo narejena avtentikacija; za silo naj bo to kar prvi uporabnik
-                            Uporabnik u = db.Uporabnik.Take(1).Single();
+                            // Uporabnik u = db.Uporabnik.Take(1).Single();
+
+                            var claimsIdentity = User.Identity as ClaimsIdentity;
+                            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
 
                             // Dodaj ustvarjeno aktivnost v vmesno tabelo, uporabniku pa priredi status udeležbe
                             SeznamAktivnosti sa = new SeznamAktivnosti();
                             sa.idSeznamAktivnosti = db.SeznamAktivnosti.Max(s => s.idSeznamAktivnosti) + 1;
                             sa.idAktivnost = novaAktivnost.idAktivnost;
-                            sa.uprabniskoIme = u.uprabniskoIme;
+                            sa.uprabniskoIme = upIme;
                             sa.statusUdelezbe = "organizator";
 
                             db.SeznamAktivnosti.Add(sa);
@@ -266,12 +270,16 @@ namespace EventiqonWebApp.Controllers
 
 
                             // TODO: spremeni ko bo narejena avtentikacija; za silo naj bo to kar prvi uporabnik
-                            Uporabnik u = db.Uporabnik.Take(1).Single();
+                            // Uporabnik u = db.Uporabnik.Take(1).Single();
+
+                            var claimsIdentity = User.Identity as ClaimsIdentity;
+                            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
+
                             // Dodaj ustvarjen dogodel v vmesno tabelo, uporabniku pa priredi status udeležbe
                             SeznamDogodkov sd = new SeznamDogodkov();
                             sd.idSeznamDogodkov = db.SeznamAktivnosti.Max(s => s.idSeznamAktivnosti) + 1;
                             sd.idDogodek = novDogodek.idDogodek;
-                            sd.uprabniskoIme = u.uprabniskoIme;
+                            sd.uprabniskoIme = upIme;
                             sd.statusUdelezbe = "organizator";
 
                             db.SeznamDogodkov.Add(sd);
@@ -320,11 +328,14 @@ namespace EventiqonWebApp.Controllers
         // GET: Organizer/Organizer
         public ActionResult Organizer()
         {
-            Uporabnik u = db.Uporabnik.Take(1).Single();
+            //Uporabnik u = db.Uporabnik.Take(1).Single();
+            
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
 
             SeznamMojihAktivnostiInDogodkov smaid = new SeznamMojihAktivnostiInDogodkov();
-            smaid.seznamAktivnosti = db.SeznamAktivnosti.Where(sa => sa.uprabniskoIme == u.uprabniskoIme & sa.statusUdelezbe == "organizator");
-            smaid.seznamDogodkov = db.SeznamDogodkov.Where(sd => sd.uprabniskoIme == u.uprabniskoIme & sd.statusUdelezbe == "organizator");
+            smaid.seznamAktivnosti = db.SeznamAktivnosti.Where(sa => sa.uprabniskoIme == upIme & sa.statusUdelezbe == "organizator");
+            smaid.seznamDogodkov = db.SeznamDogodkov.Where(sd => sd.uprabniskoIme == upIme & sd.statusUdelezbe == "organizator");
             
             return View(smaid);
         }
@@ -342,12 +353,15 @@ namespace EventiqonWebApp.Controllers
                 if(ssu.idAktivnosti >= 0 && ssu.idDogodka < 0)
                 {
                     // TODO: za trenutno prijavljenega uporabnika
-                    Uporabnik u = db.Uporabnik.Take(1).Single();
-                  
+                    // Uporabnik u = db.Uporabnik.Take(1).Single();
+
+                    var claimsIdentity = User.Identity as ClaimsIdentity;
+                    var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
+
                     Aktivnost akt = db.Aktivnost.Where(a => a.idAktivnost == ssu.idAktivnosti).Single();
                     
                     // TODO: avtorizacija, ali sme spreminjati status (končati aktivnost)
-                    if(akt.SeznamAktivnosti.Any(sa=>sa.uprabniskoIme == u.uprabniskoIme && sa.statusUdelezbe == "organizator"))
+                    if(akt.SeznamAktivnosti.Any(sa=>sa.uprabniskoIme == upIme && sa.statusUdelezbe == "organizator"))
                     {
                         if(ssu.statusUdelezbe == "Končaj" && akt.status != "končan")
                         {
@@ -365,12 +379,15 @@ namespace EventiqonWebApp.Controllers
                 } else if(ssu.idAktivnosti < 0 && ssu.idDogodka >= 0)
                 {
                     // TODO: za trenutno prijavljenega uporabnika
-                    Uporabnik u = db.Uporabnik.Take(1).Single();
+                    // Uporabnik u = db.Uporabnik.Take(1).Single();
+
+                    var claimsIdentity = User.Identity as ClaimsIdentity;
+                    var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
 
                     Dogodek dog = db.Dogodek.Where(d => d.idDogodek == ssu.idDogodka).Single();
 
                     // TODO: avtorizacija, ali sme spreminjati status (končati dogivnost)
-                    if (dog.SeznamDogodkov.Any(sd => sd.uprabniskoIme == u.uprabniskoIme && sd.statusUdelezbe == "organizator"))
+                    if (dog.SeznamDogodkov.Any(sd => sd.uprabniskoIme == upIme && sd.statusUdelezbe == "organizator"))
                     {
                         if (ssu.statusUdelezbe == "Končaj" && dog.status != "končan")
                         {
