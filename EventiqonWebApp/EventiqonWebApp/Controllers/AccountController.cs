@@ -77,7 +77,7 @@ namespace EventiqonWebApp.Controllers
             }
 
             // preveri, ali so vnešeni podatki v bazi
-            if(db.Uporabnik.Any(u=>u.uprabniskoIme == model.upIme && u.geslo == model.geslo))
+            if(db.Uporabnik.Any(u=>u.uprabniskoIme == model.upIme && u.geslo == model.geslo && u.status != "izbrisan"))
             {
                 Uporabnik up = db.Uporabnik.Where(u => u.uprabniskoIme == model.upIme && u.geslo == model.geslo).Single();
                 var identity = new ClaimsIdentity(new[] {

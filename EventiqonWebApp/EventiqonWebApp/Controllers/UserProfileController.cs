@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Transactions;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
+using System.Security.Claims;
 
 namespace EventiqonWebApp.Controllers
 {
@@ -18,8 +19,12 @@ namespace EventiqonWebApp.Controllers
         public ActionResult UserPanel()
         {
             // recimo da je prijavljen (prvi) uporabnik; TODO spremeni
-            Uporabnik u = db.Uporabnik.Take(1).Single();
+            // Uporabnik u = db.Uporabnik.Take(1).Single();
             
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
+
+            Uporabnik u = db.Uporabnik.Where(x => x.uprabniskoIme == upIme).Single();
 
             return View(u);
         }
@@ -150,14 +155,24 @@ namespace EventiqonWebApp.Controllers
                     db.Naslov.Add(novNaslov);
                     db.SaveChanges();
 
-                    // Uporabnik spremeni naslov - izbriši starega in mu priredi novo ustvarjenega 
+                    // Uporabnik spremeni naslov - izbriši starega in mu priredi novo ustvarjenega ! če je id kraja 24 oz. naziv / potem ga NE izbriši !
                     // TODO hardcoded: za prvega uporabnika
-                    Uporabnik u = db.Uporabnik.Take(1).Single();
+                    // Uporabnik u = db.Uporabnik.Take(1).Single();
+
+                    var claimsIdentity = User.Identity as ClaimsIdentity;
+                    var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
+                    Uporabnik u = db.Uporabnik.Where(x => x.uprabniskoIme == upIme).Single();
+
                     int idStariNaslov = u.idNaslov;
                     u.idNaslov = novNaslov.idNaslov;
-                    Naslov stariNaslov = db.Naslov.Where(n => n.idNaslov == idStariNaslov).Single();
-                    db.Naslov.Remove(stariNaslov);
                     db.SaveChanges();
+
+                    Naslov stariNaslov = db.Naslov.Where(n => n.idNaslov == idStariNaslov).Single();
+                    if (stariNaslov.idNaslov != 26)
+                    {
+                        db.Naslov.Remove(stariNaslov);
+                        db.SaveChanges();
+                    }
 
                     // Transakcija uspešno izvedena, commitaj spremembe
                     ts.Complete();
@@ -177,9 +192,13 @@ namespace EventiqonWebApp.Controllers
         public JsonResult PosodobiGeslo(GesloVhodniPodatki vhod)
         {
             string odgovor = "Odgovor strežnika: ";
-            Uporabnik u = db.Uporabnik.Take(1).Single();
 
-            if(vhod.novoGeslo != null && vhod.ponovniVnosGesla != null && vhod.staroGeslo != null)
+            // Uporabnik u = db.Uporabnik.Take(1).Single();
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
+            Uporabnik u = db.Uporabnik.Where(x => x.uprabniskoIme == upIme).Single();
+
+            if (vhod.novoGeslo != null && vhod.ponovniVnosGesla != null && vhod.staroGeslo != null)
             {
                 if(u.geslo == vhod.staroGeslo)
                 {
@@ -217,7 +236,11 @@ namespace EventiqonWebApp.Controllers
         public JsonResult PosodobiObnovaRacuna(ObnovaRacunaVhodniPodatki vhod)
         {
             string odgovor = "Odgovor strežnika: ";
-            Uporabnik u = db.Uporabnik.Take(1).Single();
+            // Uporabnik u = db.Uporabnik.Take(1).Single();
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
+            Uporabnik u = db.Uporabnik.Where(x => x.uprabniskoIme == upIme).Single();
+
             if (vhod.pomozniEmail != null && vhod.ponovniVnosPomoznegaEmaila!= null && vhod.telStZaObnovitev != null)
             {
                 if (vhod.pomozniEmail == vhod.ponovniVnosPomoznegaEmaila && jeVeljavenEmail(vhod.pomozniEmail))
@@ -261,7 +284,12 @@ namespace EventiqonWebApp.Controllers
         public JsonResult IzbrisRacuna(IzbrisRacunaVhodniPodatki vhod)
         {
             string odgovor = "Odgovor strežnika: ";
-            Uporabnik u = db.Uporabnik.Take(2).ToArray()[1]; // vedno "zbriši" drugega za namen demonstracije
+            // Uporabnik u = db.Uporabnik.Take(2).ToArray()[1]; // vedno "zbriši" drugega za namen demonstracije
+
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
+            Uporabnik u = db.Uporabnik.Where(x => x.uprabniskoIme == upIme).Single();
+
             if (vhod.izbrisGeslo != null && vhod.izbrisUpIme != null) {
                 if(u.uprabniskoIme == vhod.izbrisUpIme && u.geslo == vhod.izbrisGeslo)
                 {
@@ -274,6 +302,10 @@ namespace EventiqonWebApp.Controllers
                     db.IzbrisanRacun.Add(ir);
                     db.SaveChanges();
                     odgovor += "Uporabnik uspešno odstranjen!";
+                    var ctx = Request.GetOwinContext();
+                    var authManager = ctx.Authentication;
+
+                    authManager.SignOut("EventiqonApplicationCookie");
                 }
             } else {
                 odgovor += "Uporabniško ime in geslo sta obvezna!";
