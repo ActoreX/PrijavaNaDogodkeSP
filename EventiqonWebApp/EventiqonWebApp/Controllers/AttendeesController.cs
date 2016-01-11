@@ -19,7 +19,6 @@ namespace EventiqonWebApp.Controllers
         {
             //Uporabnik u = db.Uporabnik.Take(1).Single();
             var claimsIdentity = User.Identity as ClaimsIdentity;
-
             var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
                  
             MyAttendeesViewModel mavm = new MyAttendeesViewModel();
@@ -40,11 +39,14 @@ namespace EventiqonWebApp.Controllers
         public ActionResult PostavkeKoledarja(KoledarVhodniPodatki vhod)
         {
             MyAttendeesViewModel mavm = new MyAttendeesViewModel();
-            Uporabnik u = db.Uporabnik.First();
+            //Uporabnik u = db.Uporabnik.First();
+
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
 
             // morda popravi,    da je status udeležbe določene vrednosti (npr. pridem)
-            mavm.seznamAktivnosti = db.SeznamAktivnosti.Where(a => (a.Aktivnost.datumDo == null && !(vhod.datumDo < a.Aktivnost.datumOd) || a.Aktivnost.datumDo != null && !(vhod.datumDo < a.Aktivnost.datumOd) && !(vhod.datumOd > a.Aktivnost.datumDo)) && a.uprabniskoIme == u.uprabniskoIme);
-            mavm.seznamDogodkov = db.SeznamDogodkov.Where(d => !(vhod.datumDo < d.Dogodek.datumOd) && !(vhod.datumOd > d.Dogodek.datumDo) && d.uprabniskoIme == u.uprabniskoIme);
+            mavm.seznamAktivnosti = db.SeznamAktivnosti.Where(a => (a.Aktivnost.datumDo == null && !(vhod.datumDo < a.Aktivnost.datumOd) || a.Aktivnost.datumDo != null && !(vhod.datumDo < a.Aktivnost.datumOd) && !(vhod.datumOd > a.Aktivnost.datumDo)) && a.uprabniskoIme == upIme);
+            mavm.seznamDogodkov = db.SeznamDogodkov.Where(d => !(vhod.datumDo < d.Dogodek.datumOd) && !(vhod.datumOd > d.Dogodek.datumDo) && d.uprabniskoIme == upIme);
 
             return PartialView(mavm);
         }
