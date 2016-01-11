@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EventiqonWebApp.Models;
+using System.Security.Claims;
+
 
 namespace EventiqonWebApp.Controllers
 {
@@ -15,11 +17,14 @@ namespace EventiqonWebApp.Controllers
         // GET: Attendees/MyAttendees
         public ActionResult MyAttendees()
         {
-            Uporabnik u = db.Uporabnik.Take(1).Single();
+            //Uporabnik u = db.Uporabnik.Take(1).Single();
+            var claimsIdentity = User.Identity as ClaimsIdentity;
 
+            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
+                 
             MyAttendeesViewModel mavm = new MyAttendeesViewModel();
-            mavm.seznamAktivnosti = db.SeznamAktivnosti.Where(a => a.uprabniskoIme == u.uprabniskoIme).Take(10);
-            mavm.seznamDogodkov = db.SeznamDogodkov.Where(d => d.uprabniskoIme == u.uprabniskoIme).Take(10);
+            mavm.seznamAktivnosti = db.SeznamAktivnosti.Where(a => a.uprabniskoIme == upIme).Take(10);
+            mavm.seznamDogodkov = db.SeznamDogodkov.Where(d => d.uprabniskoIme == upIme).Take(10);
             
             return View(mavm);
         }

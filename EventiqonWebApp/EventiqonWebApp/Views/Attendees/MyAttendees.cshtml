@@ -36,49 +36,56 @@
                 </table>
             </div>
             <div class="panel-body"> <!-- morda nek id, da lahko notri dodamo to kar vrne controller v primeru uporabniške interakcije -->
-                @foreach (var sA in Model.seznamAktivnosti)
+                @if (Model.seznamAktivnosti.Count() == 0)
                 {
-                     <div class="panel panel-default aktivnost">
-                        <div class="panel-heading clearfix">
-                            <span>@sA.Aktivnost.naziv</span>
-                            <span>@sA.Aktivnost.nazivLokacije</span>
-                            <span>@sA.Aktivnost.datumOd - @Model.seznamAktivnosti.Take(1).Single().Aktivnost.datumDo</span>
-                            <span>@sA.Aktivnost.status</span>
-                        </div>
-                        <div class="panel-body collapse" id="aktivnost-@sA.Aktivnost.idAktivnost" style="word-wrap:break-word;">
-                            <p>
-                                @sA.Aktivnost.opis
-                            </p>
-                            <table class="table table-hover" style="table-layout:fixed">
-                                <col width="20%" />
-                                <col width="20%" />
-                                <col width="20%" />
-                                <col width="40%" />
-                                <tr>
-                                    <th>Naziv</th>
-                                    <th>Kdaj</th>
-                                    <th>Čas trajanja</th>
-                                    <th>Opis</th>
-                                </tr>
-
-                                @foreach (var sA_postavka in sA.Aktivnost.PostavkaAktivnosti)
-                                {
+                    <p>Seznam aktivnosti je prazen!</p>
+                }
+                else
+                {
+                    foreach (var sA in Model.seznamAktivnosti)
+                    {
+                         <div class="panel panel-default aktivnost">
+                            <div class="panel-heading clearfix">
+                                <span>@sA.Aktivnost.naziv</span>
+                                <span>@sA.Aktivnost.nazivLokacije</span>
+                                <span>@sA.Aktivnost.datumOd - @Model.seznamAktivnosti.Take(1).Single().Aktivnost.datumDo</span>
+                                <span>@sA.Aktivnost.status</span>
+                            </div>
+                            <div class="panel-body collapse" id="aktivnost-@sA.Aktivnost.idAktivnost" style="word-wrap:break-word;">
+                                <p>
+                                    @sA.Aktivnost.opis
+                                </p>
+                                <table class="table table-hover" style="table-layout:fixed">
+                                    <col width="20%" />
+                                    <col width="20%" />
+                                    <col width="20%" />
+                                    <col width="40%" />
                                     <tr>
-                                        <td>@sA_postavka.naziv</td>
-                                        <td>@sA_postavka.casovniOpisKdaj</td>
-                                        <td>@sA_postavka.opisCasaTrajanja</td>
-                                        <td>@sA_postavka.polniOpis</td>
+                                        <th>Naziv</th>
+                                        <th>Kdaj</th>
+                                        <th>Čas trajanja</th>
+                                        <th>Opis</th>
                                     </tr>
-                                }
+
+                                    @foreach (var sA_postavka in sA.Aktivnost.PostavkaAktivnosti)
+                                    {
+                                        <tr>
+                                            <td>@sA_postavka.naziv</td>
+                                            <td>@sA_postavka.casovniOpisKdaj</td>
+                                            <td>@sA_postavka.opisCasaTrajanja</td>
+                                            <td>@sA_postavka.polniOpis</td>
+                                        </tr>
+                                    }
                                    
-                            </table>
+                                </table>
+                            </div>
+                            <div class="panel-footer">
+                                <button class="btn btn-default" type="button" data-toggle="collapse" href="#aktivnost-@sA.Aktivnost.idAktivnost">Več...</button>
+                                @*<button class="btn btn-default" type="button">Prekliči udeležbo</button>
+                                <button class="btn btn-default" type="button">Podrobno</button>*@
+                            </div>
                         </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-default" type="button" data-toggle="collapse" href="#aktivnost-@sA.Aktivnost.idAktivnost">Več...</button>
-                            @*<button class="btn btn-default" type="button">Prekliči udeležbo</button>
-                            <button class="btn btn-default" type="button">Podrobno</button>*@
-                        </div>
-                    </div>
+                    }
                 }
             </div>
             @{
@@ -139,50 +146,57 @@
                 </table>
             </div>
             <div class="panel-body">
-                @foreach (var sD in Model.seznamDogodkov)
+                @if (Model.seznamDogodkov.Count() == 0)
                 {
-                    <div class="panel panel-default aktivnost">
-                        <div class="panel-heading clearfix">
-                            <span>@sD.Dogodek.naziv</span>
-                            <span>@sD.Dogodek.nazivLokacije</span>
-                            <span>@sD.Dogodek.datumOd - @sD.Dogodek.datumDo</span>
-                            <span>@sD.Dogodek.status</span>
-                        </div>
-                        <div class="panel-body collapse" id="dogodek-@sD.Dogodek.idDogodek" style="word-wrap:break-word;">
-                            <p>
-                                @sD.Dogodek.opis
-                            </p>
-                            <table class="table table-hover" style="table-layout:fixed">
-                                <col width="20%" />
-                                <col width="20%" />
-                                <col width="20%" />
-                                <col width="40%" />
-                                <tr>
-                                    <th>Naziv</th>
-                                    <th>Kdaj</th>
-                                    <th>Čas trajanja</th>
-                                    <th>Opis</th>
-                                </tr>
-
-                                @foreach (var sD_postavka in sD.Dogodek.PostavkaDogodka)
-                                {
+                    <p>Seznam dogodkov je prazen!</p>
+                }
+                else
+                {
+                    foreach (var sD in Model.seznamDogodkov)
+                    {
+                        <div class="panel panel-default aktivnost">
+                            <div class="panel-heading clearfix">
+                                <span>@sD.Dogodek.naziv</span>
+                                <span>@sD.Dogodek.nazivLokacije</span>
+                                <span>@sD.Dogodek.datumOd - @sD.Dogodek.datumDo</span>
+                                <span>@sD.Dogodek.status</span>
+                            </div>
+                            <div class="panel-body collapse" id="dogodek-@sD.Dogodek.idDogodek" style="word-wrap:break-word;">
+                                <p>
+                                    @sD.Dogodek.opis
+                                </p>
+                                <table class="table table-hover" style="table-layout:fixed">
+                                    <col width="20%" />
+                                    <col width="20%" />
+                                    <col width="20%" />
+                                    <col width="40%" />
                                     <tr>
-                                        <td>@sD_postavka.naziv</td>
-                                        <td>@sD_postavka.casovniOpisKdaj</td>
-                                        <td>@sD_postavka.opisCasaTrajanja</td>
-                                        <td>@sD_postavka.polniOpis</td>
+                                        <th>Naziv</th>
+                                        <th>Kdaj</th>
+                                        <th>Čas trajanja</th>
+                                        <th>Opis</th>
                                     </tr>
-                                }
 
-                            </table>
+                                    @foreach (var sD_postavka in sD.Dogodek.PostavkaDogodka)
+                                    {
+                                        <tr>
+                                            <td>@sD_postavka.naziv</td>
+                                            <td>@sD_postavka.casovniOpisKdaj</td>
+                                            <td>@sD_postavka.opisCasaTrajanja</td>
+                                            <td>@sD_postavka.polniOpis</td>
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
+                            <div class="panel-footer">
+                                <button class="btn btn-default" type="button" data-toggle="collapse" href="#dogodek-@sD.Dogodek.idDogodek">Več...</button>
+                                @*<button class="btn btn-default" type="button">Prekliči udeležbo</button>
+                                <button class="btn btn-default" type="button">Podrobno</button>*@
+                            </div>
                         </div>
-                        <div class="panel-footer">
-                            <button class="btn btn-default" type="button" data-toggle="collapse" href="#dogodek-@sD.Dogodek.idDogodek">Več...</button>
-                            @*<button class="btn btn-default" type="button">Prekliči udeležbo</button>
-                            <button class="btn btn-default" type="button">Podrobno</button>*@
-                        </div>
-                    </div>
-                }      
+                    }
+                }
             </div>
             @*<nav class="ostranjevanje">
                 <ul class="pagination">
