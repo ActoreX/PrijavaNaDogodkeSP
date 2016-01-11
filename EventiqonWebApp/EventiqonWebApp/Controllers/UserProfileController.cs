@@ -32,7 +32,11 @@ namespace EventiqonWebApp.Controllers
         // GET UserProfile/UserInbox
         public ActionResult UserInbox()
         {
-            Uporabnik up = db.Uporabnik.Take(1).ToArray()[0];
+            // Uporabnik up = db.Uporabnik.Take(1).ToArray()[0];
+
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
+            Uporabnik up = db.Uporabnik.Where(x => x.uprabniskoIme == upIme).Single();
 
             return View(db.Obvestilo.Where(prejemnik => prejemnik.uprabniskoIme == up.uprabniskoIme).OrderByDescending(o=>o.datum).ToArray());
         }

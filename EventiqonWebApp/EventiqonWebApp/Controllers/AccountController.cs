@@ -178,6 +178,15 @@ namespace EventiqonWebApp.Controllers
                     },
                     "EventiqonApplicationCookie");
 
+                    Obvestilo o = new Obvestilo();
+                    o.datum = DateTime.Now;
+                    o.tema = "Dobrodošli na portalu - Eventiqon!";
+                    o.sporocilo = "2Y7Y133LXBLTIEXT6MC0YY8TEHN2CDJMI40RVEL9EDCF7TJ4AOJ8SXY7NNLIDH6KN4EIH 2Y7Y133LXBLTIEXT6MC0YY8TEHN2CDJMI40RVEL9EDCF7TJ4AOJ8SXY7NNLIDH6KN4EIH 2Y7Y133LXBLTIEXT6MC0YY8TEHN2CDJMI40RVEL9EDCF7TJ4AOJ8SXY7NNLIDH6KN4EIH";
+                    o.idObvestilo = db.Obvestilo.Max(x => x.idObvestilo) + 1;
+                    o.uprabniskoIme = novUp.uprabniskoIme;
+                    db.Obvestilo.Add(o);
+                    db.SaveChanges();
+
                     var ctx = Request.GetOwinContext();
                     var authManager = ctx.Authentication;
                     authManager.SignIn(identity);
