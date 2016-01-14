@@ -34,7 +34,7 @@ namespace EventiqonWebApp.Controllers
             }
             if (model.izbiraIskanja == "Dogodki" || model.izbiraIskanja == "Vse")
             {
-                rezultatIskanja.seznamDogodkov = db.Dogodek.OrderByDescending(d => d.datumVnosa).Where(d => d.datumDo >= DateTime.Now).Take(10).ToList();
+                rezultatIskanja.seznamDogodkov = db.Dogodek.OrderByDescending(d => d.datumVnosa).Where(d => (d.naziv.Contains(model.iskalniNiz) || d.nazivLokacije.Contains(model.iskalniNiz)) && d.datumDo >= DateTime.Now).Take(10).ToList();
             }
             if (model.izbiraIskanja == "Uporabniki" || model.izbiraIskanja == "Vse")
             {
