@@ -1,0 +1,101 @@
+﻿@model EventiqonWebApp.Models.SearchViewModel
+@{ 
+    ViewBag.Title = "Home Page";
+}
+
+@if(Model.seznamAktivnosti.Count() == 0 && Model.seznamDogodkov.Count() == 0 && Model.seznamUporabnikov.Count() == 0)
+{
+    <h3>...Iskanje ni obrodilo sadov...</h3>
+}
+
+@if (Model.seznamDogodkov.Count() > 0)
+{
+    <div class="row">
+        <h3>Dogodki</h3>
+
+        @foreach (var dogodek in Model.seznamDogodkov)
+        {
+            <div class="eventOverview">
+                <div class="content">
+                    <h4>@dogodek.naziv</h4>
+                    <h5 style="word-break:break-word">Lokacija: @dogodek.nazivLokacije</h5>
+                    <p style="word-break:break-word;" class="vsebina">
+                        @dogodek.opis
+                    </p>
+                    <p style="word-break:break-word;" class="vsebina">
+                        @dogodek.datumOd - @dogodek.datumDo
+                    </p>
+
+                    
+
+                    @if (dogodek.omejitevMest != null)
+                    {
+                        <h5>Omejitev mest: @dogodek.omejitevMest</h5>
+                    }
+                    
+                </div>
+            </div>
+        }
+        
+    </div>
+}
+
+@if (Model.seznamAktivnosti.Count() > 0)
+{
+    <div class="row">
+        <h3>Aktivnosti</h3>
+        @foreach (var aktivnost in Model.seznamAktivnosti)
+        {
+            <div class="eventOverview">
+                <div class="content">
+                    <h4> @aktivnost.naziv </h4>
+                    <h5 style="word-break:break-word">Lokacija: @aktivnost.nazivLokacije</h5>
+                    <p style="word-break:break-word;" class="vsebina">
+                        @aktivnost.opis
+                    </p>
+
+                    @if (aktivnost.datumDo != null)
+                    {
+                        <p style="word-break:break-word;" class="vsebina">
+                            @aktivnost.datumOd - @aktivnost.datumDo
+                        </p>
+                    }
+                    
+                    @if (aktivnost.omejitevMest != null)
+                    {
+                        <h5>Omejitev mest: @aktivnost.omejitevMest</h5>
+                    }
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+}
+
+@if (Model.seznamUporabnikov.Count() > 0)
+{
+    <div class="row">
+        <h3>Uporabniki</h3>
+        @foreach (var uporabnik in Model.seznamUporabnikov)
+        {
+            <div class="eventOverview">
+                <div class="content">
+                    <h4> @uporabnik.Ime @uporabnik.Priimek </h4>
+                    <h5 style="word-break:break-word">Status uporabnika: @uporabnik.uprabniskoIme</h5>
+                    <h5 style="word-break:break-word">Status uporabnika: @uporabnik.status</h5>
+                    @if (uporabnik.datumRojstva.HasValue)
+                    {
+                        <h5 style="word-break:break-word">Starost: @(DateTime.Now.Year - uporabnik.datumRojstva.Value.Year)</h5>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}
+
+
+@section headerScripts {
+    @Scripts.Render("~/Scripts/index.js") 
+}

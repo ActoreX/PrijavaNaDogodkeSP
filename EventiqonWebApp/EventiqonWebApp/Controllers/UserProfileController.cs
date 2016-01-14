@@ -249,6 +249,10 @@ namespace EventiqonWebApp.Controllers
             {
                 if (vhod.pomozniEmail == vhod.ponovniVnosPomoznegaEmaila && jeVeljavenEmail(vhod.pomozniEmail))
                 {
+                    u.recoveryEmail = vhod.pomozniEmail;
+                    db.SaveChanges();
+                    odgovor += "Pomožni email uspešno vnešen! ";
+
                     // telefon
                     if (vhod.telStZaObnovitev != null)
                     {
