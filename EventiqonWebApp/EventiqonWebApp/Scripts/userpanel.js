@@ -58,9 +58,6 @@ $(document).ready(function () {
     
     $('#formaOsebniPodatki').validate({
        rules: {
-            datumRojstva: {
-                date: true
-            },
             eposta: {
                obveznoPolje: true,
                email: true
@@ -74,7 +71,6 @@ $(document).ready(function () {
       
        },
         messages: {
-            datumRojstva: "Vnesite veljaven datum (MM/dd/yyyy)",
             eposta: "Vnesi veljaven e-naslov",
             paypalRacun: "Vnesi polni Paypal račun(e-naslov)"
         },

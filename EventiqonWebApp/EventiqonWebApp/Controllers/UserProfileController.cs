@@ -46,7 +46,9 @@ namespace EventiqonWebApp.Controllers
         public JsonResult PosodobiOsebniPodatki(OsebniPodatkiVhodniPodatki vhod)
         {
             string odgovor = "Odgovor strežnika: ";
-            Uporabnik u = db.Uporabnik.Take(1).Single();
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var upIme = claimsIdentity.FindFirst(ClaimTypes.GivenName).Value;
+            Uporabnik u = db.Uporabnik.Where(x => x.uprabniskoIme == upIme).Single();
             // posta
             if (vhod.eposta != null)
             {

@@ -32,7 +32,7 @@ namespace EventiqonWebApp.Controllers
             {
                 rezultatIskanja.seznamAktivnosti = db.Aktivnost.OrderByDescending(a => a.datumVnosa).Where(a => (a.naziv.Contains(model.iskalniNiz) || a.nazivLokacije.Contains(model.iskalniNiz)) && (a.datumDo == null || a.datumDo >= DateTime.Now)).Take(10).ToList();
             }
-            if (model.izbiraIskanja == "Dogodek" || model.izbiraIskanja == "Vse")
+            if (model.izbiraIskanja == "Dogodki" || model.izbiraIskanja == "Vse")
             {
                 rezultatIskanja.seznamDogodkov = db.Dogodek.OrderByDescending(d => d.datumVnosa).Where(d => d.datumDo >= DateTime.Now).Take(10).ToList();
             }

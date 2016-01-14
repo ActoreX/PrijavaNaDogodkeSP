@@ -39,11 +39,14 @@ namespace EventiqonWebApp
                       "~/Scripts/main.js"
                 ));
 
-            bundles.Add(new StyleBundle("~/Content/evniq/css").Include(
-                    "~/Content/bootstrap.css",
-                    "~/Content/main.css",
-                    "~/Content/jquery-ui.min.css"
-              ));
+            bundles.Add(new StyleBundle("~/Content/evniq/css")
+                     .Include(
+                      "~/Content/bootstrap.css", new CssRewriteUrlTransform()
+                      ).Include(
+                       "~/Content/jquery-ui.min.css", new CssRewriteUrlTransform()
+                      ).Include(
+                      "~/Content/main.css", new CssRewriteUrlTransform()
+                      ));
         }
     }
 }
