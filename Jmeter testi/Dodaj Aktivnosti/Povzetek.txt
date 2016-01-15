@@ -1,0 +1,4 @@
+Pri ponovitvi testa (250UsersAddAct) smo od strežnika prejeli samo pozitivne odzive (brez napak)
+ - razlog zakaj je v podatkovni bazi samo 1681/2500 je v neuspešnih transakcija, zavedati se moremo
+da dejansko zapisujemo v lohakno mdf datoteko (neke vrste navidezna baza), pri strežniku pa ne nastavljamo
+stanje glave, vrnemo le odgovor. 
